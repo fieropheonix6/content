@@ -1,10 +1,7 @@
 ---
 title: baseFrequency
 slug: Web/SVG/Attribute/baseFrequency
-tags:
-  - Filters
-  - SVG
-  - SVG Attribute
+page-type: svg-attribute
 browser-compat: svg.elements.feTurbulence.baseFrequency
 ---
 
@@ -84,7 +81,7 @@ svg {
     <tr>
       <th scope="row">Value</th>
       <td>
-        <a href="/en-US/docs/Web/SVG/Content_type#Number-optional-number"
+        <a href="/en-US/docs/Web/SVG/Content_type#number-optional-number"
           >&#x3C;number-optional-number></a
         >
       </td>
@@ -101,6 +98,7 @@ svg {
 </table>
 
 - `<number-optional-number>`
+
   - : If two numbers are provided, the first one represents the base frequency in the horizontal direction and the second one the base frequency in the vertical direction. If one number is provided, then that value is used for both x and y.
 
     Negative values are forbidden.

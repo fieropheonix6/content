@@ -1,15 +1,8 @@
 ---
-title: ResizeObserver.observe()
+title: "ResizeObserver: observe() method"
+short-title: observe()
 slug: Web/API/ResizeObserver/observe
 page-type: web-api-instance-method
-tags:
-  - API
-  - Method
-  - Reference
-  - Resize Observer API
-  - ResizeObserver
-  - observe()
-  - observers
 browser-compat: api.ResizeObserver.observe
 ---
 
@@ -45,7 +38,7 @@ observe(target, options)
         - `border-box`
           - : Size of the box border area as defined in CSS.
         - `device-pixel-content-box`
-          - : The size of the content area as defined in CSS, in device pixels, before applying any CSS transforms on the element or its ancestors.
+          - : The size of the content area as defined in CSS, in {{glossary("device pixel", "device pixels")}}, before applying any CSS transforms on the element or its ancestors.
 
 ### Return value
 
@@ -66,18 +59,33 @@ const resizeObserver = new ResizeObserver((entries) => {
     if (entry.contentBoxSize) {
       // Checking for chrome as using a non-standard array
       if (entry.contentBoxSize[0]) {
-        h1Elem.style.fontSize = `${Math.max(1.5, entry.contentBoxSize[0].inlineSize / 200)}rem`;
-        pElem.style.fontSize = `${Math.max(1, entry.contentBoxSize[0].inlineSize / 600)}rem`;
+        h1Elem.style.fontSize = `${Math.max(
+          1.5,
+          entry.contentBoxSize[0].inlineSize / 200,
+        )}rem`;
+        pElem.style.fontSize = `${Math.max(
+          1,
+          entry.contentBoxSize[0].inlineSize / 600,
+        )}rem`;
       } else {
-        h1Elem.style.fontSize = `${Math.max(1.5, entry.contentBoxSize.inlineSize / 200)}rem`;
-        pElem.style.fontSize = `${Math.max(1, entry.contentBoxSize.inlineSize / 600)}rem`;
+        h1Elem.style.fontSize = `${Math.max(
+          1.5,
+          entry.contentBoxSize.inlineSize / 200,
+        )}rem`;
+        pElem.style.fontSize = `${Math.max(
+          1,
+          entry.contentBoxSize.inlineSize / 600,
+        )}rem`;
       }
     } else {
-      h1Elem.style.fontSize = `${Math.max(1.5, entry.contentRect.width / 200)}rem`;
+      h1Elem.style.fontSize = `${Math.max(
+        1.5,
+        entry.contentRect.width / 200,
+      )}rem`;
       pElem.style.fontSize = `${Math.max(1, entry.contentRect.width / 600)}rem`;
     }
   }
-  console.log('Size changed');
+  console.log("Size changed");
 });
 
 resizeObserver.observe(divElem);
@@ -86,7 +94,7 @@ resizeObserver.observe(divElem);
 An `observe()` call with an options object would look like so:
 
 ```js
-resizeObserver.observe(divElem, { box : 'border-box' });
+resizeObserver.observe(divElem, { box: "border-box" });
 ```
 
 ## Specifications

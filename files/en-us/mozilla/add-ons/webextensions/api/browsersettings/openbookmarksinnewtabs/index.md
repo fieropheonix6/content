@@ -1,19 +1,11 @@
 ---
 title: browserSettings.openBookmarksInNewTabs
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/openBookmarksInNewTabs
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Property
-  - Reference
-  - WebExtensions
-  - browserSettings
-  - openBookmarksInNewTabs
+page-type: webextension-api-property
 browser-compat: webextensions.api.browserSettings.openBookmarksInNewTabs
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 A {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} object whose underlying value is a boolean.
 

@@ -2,10 +2,6 @@
 title: StyleSheetList
 slug: Web/API/StyleSheetList
 page-type: web-api-interface
-tags:
-  - API
-  - CSSOM
-  - StyleSheetList
 browser-compat: api.StyleSheetList
 ---
 
@@ -15,12 +11,17 @@ The `StyleSheetList` interface represents a list of {{domxref("CSSStyleSheet")}}
 
 It is an array-like object but can't be iterated over using {{jsxref("Array")}} methods. However it can be iterated over in a standard {{jsxref("Statements/for", "for")}} loop over its indices, or converted to an {{jsxref("Array")}}.
 
-## Properties
+> [!NOTE]
+> Typically list interfaces like `StyleSheetList` wrap around {{jsxref("Array")}} types, so you can use `Array` methods on them.
+> This is not the case here for [historical reasons](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156).
+> However, you can convert `StyleSheetList` to an `Array` in order to use those methods (see the example below).
+
+## Instance properties
 
 - {{domxref("StyleSheetList.length")}} {{ReadOnlyInline}}
   - : Returns the number of {{domxref("CSSStyleSheet")}} objects in the collection.
 
-## Methods
+## Instance methods
 
 - {{domxref("StyleSheetList.item()")}}
   - : Returns the {{domxref("CSSStyleSheet")}} object at the index passed in, or `null` if no item exists for that index.
@@ -44,15 +45,16 @@ for (let i = 0; i < styleSheets.length; i++) {
 const allCSS = [...document.styleSheets]
   .map((styleSheet) => {
     try {
-      return [...styleSheet.cssRules]
-        .map((rule) => rule.cssText)
-        .join('');
+      return [...styleSheet.cssRules].map((rule) => rule.cssText).join("");
     } catch (e) {
-      console.log('Access to stylesheet %s is denied. Ignoring…', styleSheet.href);
+      console.log(
+        "Access to stylesheet %s is denied. Ignoring…",
+        styleSheet.href,
+      );
     }
   })
   .filter(Boolean)
-  .join('\n');
+  .join("\n");
 ```
 
 ## Specifications

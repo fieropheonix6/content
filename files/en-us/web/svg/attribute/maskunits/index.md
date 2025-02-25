@@ -1,9 +1,7 @@
 ---
 title: maskUnits
 slug: Web/SVG/Attribute/maskUnits
-tags:
-  - SVG
-  - SVG Attribute
+page-type: svg-attribute
 browser-compat: svg.elements.mask.maskUnits
 ---
 
@@ -56,12 +54,12 @@ svg {
   <rect id="r4" x="55" y="0" width="45" height="45" />
 
   <!-- The first 3 rect are masked with useSpaceOnUse units -->
-  <use mask="url(#myMask1)" xlink:href="#r1" fill="red" />
-  <use mask="url(#myMask1)" xlink:href="#r2" fill="red" />
-  <use mask="url(#myMask1)" xlink:href="#r3" fill="red" />
+  <use mask="url(#myMask1)" href="#r1" fill="red" />
+  <use mask="url(#myMask1)" href="#r2" fill="red" />
+  <use mask="url(#myMask1)" href="#r3" fill="red" />
 
   <!-- The last rect is masked with objectBoundingBox units -->
-  <use mask="url(#myMask2)" xlink:href="#r4" fill="red" />
+  <use mask="url(#myMask2)" href="#r4" fill="red" />
 </svg>
 ```
 
@@ -91,7 +89,7 @@ For {{SVGElement('mask')}}, `maskUnits` defines the coordinate system in use for
 - `userSpaceOnUse`
   - : This value indicates that all coordinates for the geometry attributes refer to the user coordinate system as defined when the mask was created.
 - `objectBoundingBox`
-  - : This value indicates that all coordinates for the geometry attributes represent fractions or percentages of the bounding box of the element to which the mask is applied. A bounding box could be considered the same as if the content of the {{ SVGElement("mask") }} were bound to a "`0 0 1 1`" {{ SVGAttr("viewBox") }}.
+  - : This value indicates that all coordinates for the geometry attributes represent fractions or percentages of the bounding box of the element to which the mask is applied. A bounding box could be considered the same as if the content of the {{ SVGElement("mask") }} were bound to a `"0 0 1 1"` {{ SVGAttr("viewBox") }}.
 
 ## Specifications
 

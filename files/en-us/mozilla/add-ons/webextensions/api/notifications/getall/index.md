@@ -1,20 +1,11 @@
 ---
 title: notifications.getAll()
 slug: Mozilla/Add-ons/WebExtensions/API/notifications/getAll
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Non-standard
-  - Notifications
-  - Reference
-  - WebExtensions
-  - getAll
+page-type: webextension-api-function
 browser-compat: webextensions.api.notifications.getAll
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Gets all currently active notifications created by the extension.
 
@@ -84,6 +75,5 @@ browser.notifications.getAll().then(logNotifications);
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/notifications/) API.
->
-> Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.notifications`](https://developer.chrome.com/docs/extensions/reference/api/notifications) API.

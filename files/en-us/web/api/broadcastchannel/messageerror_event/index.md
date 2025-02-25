@@ -1,22 +1,21 @@
 ---
 title: "BroadcastChannel: messageerror event"
+short-title: messageerror
 slug: Web/API/BroadcastChannel/messageerror_event
 page-type: web-api-event
-tags:
-  - Event
 browser-compat: api.BroadcastChannel.messageerror_event
 ---
 
-{{APIRef}}
+{{APIRef("BroadCastChannel API")}}{{AvailableInWorkers}}
 
-The `messageerror` event is fired on a {{domxref('BroadcastChannel')}} object when a message that can't be deserialized arrives on the channel.
+The **`messageerror`** event of the {{domxref("BroadcastChannel")}} interface fires when a message that can't be deserialized arrives on the channel.
 
 ## Syntax
 
 Use the event name in methods like {{domxref("EventTarget.addEventListener", "addEventListener()")}}, or set an event handler property.
 
-```js
-addEventListener('messageerror', (event) => { })
+```js-nolint
+addEventListener("messageerror", (event) => { })
 onmessageerror = (event) => { }
 ```
 
@@ -43,16 +42,16 @@ _In addition to the properties listed below, properties from the parent interfac
 
 ## Examples
 
-This code uses [`addEventListener`](/en-US/docs/Web/API/EventTarget/addEventListener) to listen for messages and errors:
+This code uses {{domxref("EventTarget.addEventListener", "addEventListener()")}} to listen for messages and errors:
 
 ```js
-const channel = new BroadcastChannel('example-channel');
+const channel = new BroadcastChannel("example-channel");
 
-channel.addEventListener('message', (event) => {
+channel.addEventListener("message", (event) => {
   received.textContent = event.data;
 });
 
-channel.addEventListener('messageerror', (event) => {
+channel.addEventListener("messageerror", (event) => {
   console.error(event);
 });
 ```
@@ -60,7 +59,7 @@ channel.addEventListener('messageerror', (event) => {
 The same, but using the `onmessage` and `onmessageerror` event handler properties:
 
 ```js
-const channel = new BroadcastChannel('example-channel');
+const channel = new BroadcastChannel("example-channel");
 
 channel.onmessage = (event) => {
   received.textContent = event.data;
@@ -81,4 +80,4 @@ channel.onmessageerror = (event) => {
 
 ## See also
 
-- Related events: [`message`](/en-US/docs/Web/API/BroadcastChannel/message_event).
+- Related events: {{domxref("BroadcastChannel/message_event", "message")}}.

@@ -2,15 +2,12 @@
 title: Attr
 slug: Web/API/Attr
 page-type: web-api-interface
-tags:
-  - Interface
-  - Reference
 browser-compat: api.Attr
 ---
 
 {{APIRef("DOM")}}
 
-The **`Attr`** interface represents one of an element's attributes as an object. In most situations, you will directly retrieve the attribute value as a string (e.g., {{domxref("Element.getAttribute()")}}), but certain functions (e.g., {{domxref("Element.getAttributeNode()")}}) or means of iterating return `Attr` instances.
+The **`Attr`** interface represents one of an element's attributes as an object. In most situations, you will directly retrieve the attribute value as a string (e.g., {{domxref("Element.getAttribute()")}}), but some cases may require interacting with `Attr` instances (e.g., {{domxref("Element.getAttributeNode()")}}).
 
 {{InheritanceDiagram}}
 
@@ -24,9 +21,10 @@ The name is deemed _local_ when it ignores the eventual namespace prefix and dee
 | `myAttr`  | `mynamespace`  | _none_           | `myAttr`             | `myAttr`                 |
 | `myAttr`  | `mynamespace`  | `myns`           | `myAttr`             | `myns:myAttr`            |
 
-> **Note:** This interface represents only attributes present in the tree representation of the {{domxref("Element")}}, being a SVG, an HTML or a MathML element. It doesn't represent the _property_ of an interface associated with such element, such as {{domxref("HTMLTableElement")}} for a {{HTMLElement("table")}} element. (See {{Glossary("Attribute", "this article")}} for more information about attributes and how they are _reflected_ into properties.)
+> [!NOTE]
+> This interface represents only attributes present in the tree representation of the {{domxref("Element")}}, being a SVG, an HTML or a MathML element. It doesn't represent the _property_ of an interface associated with such element, such as {{domxref("HTMLTableElement")}} for a {{HTMLElement("table")}} element. (See {{Glossary("Attribute", "this article")}} for more information about attributes and how they are _reflected_ into properties.)
 
-## Properties
+## Instance properties
 
 _This interface also inherits the properties of its parent interfaces, {{domxref("Node")}} and {{domxref("EventTarget")}}._
 
@@ -45,7 +43,7 @@ _This interface also inherits the properties of its parent interfaces, {{domxref
 - {{domxref("Attr.value", "value")}}
   - : The attribute's value, a string that can be set and get using this property.
 
-## Methods
+## Instance methods
 
 _This interface has no specific methods, but inherits the methods of its parent interfaces, {{domxref("Node")}} and {{domxref("EventTarget")}}._
 

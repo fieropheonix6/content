@@ -1,15 +1,10 @@
 ---
-title: Memory Management
-slug: Web/JavaScript/Memory_Management
-tags:
-  - Garbage collection
-  - Guide
-  - JavaScript
-  - Performance
-  - memory
+title: Memory management
+slug: Web/JavaScript/Memory_management
+page-type: guide
 ---
 
-{{JsSidebar("Advanced")}}
+{{jsSidebar("Advanced")}}
 
 Low-level languages like C, have manual memory management primitives such as [`malloc()`](https://pubs.opengroup.org/onlinepubs/009695399/functions/malloc.html) and [`free()`](https://en.wikipedia.org/wiki/C_dynamic_memory_allocation#Overview_of_functions). In contrast, JavaScript automatically allocates memory when objects are created and frees it when they are not used anymore (_garbage collection_). This automaticity is a potential source of confusion: it can give developers the false impression that they don't need to worry about memory management.
 
@@ -31,7 +26,7 @@ In order to not bother the programmer with allocations, JavaScript will automati
 
 ```js
 const n = 123; // allocates memory for a number
-const s = "azerty"; // allocates memory for a string
+const s = "string"; // allocates memory for a string
 
 const o = {
   a: 1,
@@ -40,16 +35,20 @@ const o = {
 
 // (like object) allocates memory for the array and
 // contained values
-const a = [1, null, "abra"];
+const a = [1, null, "str2"];
 
 function f(a) {
   return a + 2;
 } // allocates a function (which is a callable object)
 
 // function expressions also allocate an object
-someElement.addEventListener("click", () => {
-  someElement.style.backgroundColor = "blue";
-}, false);
+someElement.addEventListener(
+  "click",
+  () => {
+    someElement.style.backgroundColor = "blue";
+  },
+  false,
+);
 ```
 
 #### Allocation via function calls
@@ -65,14 +64,14 @@ const e = document.createElement("div"); // allocates a DOM element
 Some methods allocate new values or objects:
 
 ```js
-const s = "azerty";
+const s = "string";
 const s2 = s.substr(0, 3); // s2 is a new string
 // Since strings are immutable values,
 // JavaScript may decide to not allocate memory,
 // but just store the [0, 3] range.
 
-const a = ["ouais ouais", "nan nan"];
-const a2 = ["generation", "nan nan"];
+const a = ["yeah yeah", "no no"];
+const a2 = ["generation", "no no"];
 const a3 = a.concat(a2);
 // new array with 4 elements being
 // the concatenation of a and a2 elements.
@@ -102,7 +101,10 @@ In this context, the notion of an "object" is extended to something broader than
 
 ### Reference-counting garbage collection
 
-This is the most naive garbage collection algorithm. This algorithm reduces the problem from determining whether or not an object is still needed to determining if an object still has any other objects referencing it. An object is said to be "garbage", or collectible if there are zero references pointing to it.
+> [!NOTE]
+> No modern JavaScript engine uses reference-counting for garbage collection anymore.
+
+This is the most naïve garbage collection algorithm. This algorithm reduces the problem from determining whether or not an object is still needed to determining if an object still has any other objects referencing it. An object is said to be "garbage", or collectible if there are zero references pointing to it.
 
 For example:
 
@@ -154,8 +156,6 @@ function f() {
 f();
 ```
 
-Internet Explorer 6 and 7 are known to have reference-counting garbage collectors, which have caused memory leaks with circular references. No modern engine uses reference-counting for garbage collection anymore.
-
 ### Mark-and-sweep algorithm
 
 This algorithm reduces the definition of "an object is no longer needed" to "an object is unreachable".
@@ -166,11 +166,11 @@ This algorithm is an improvement over the previous one since an object having ze
 
 Currently, all modern engines ship a mark-and-sweep garbage collector. All improvements made in the field of JavaScript garbage collection (generational/incremental/concurrent/parallel garbage collection) over the last few years are implementation improvements of this algorithm, but not improvements over the garbage collection algorithm itself nor its reduction of the definition of when "an object is no longer needed".
 
-The immediate benefit of this approach is that cycles is no longer a problem. In the first example above, after the function call returns, the two objects are no longer referenced by any resource that is reachable from the global object. Consequently, they will be found unreachable by the garbage collector and have their allocated memory reclaimed.
+The immediate benefit of this approach is that cycles are no longer a problem. In the first example above, after the function call returns, the two objects are no longer referenced by any resource that is reachable from the global object. Consequently, they will be found unreachable by the garbage collector and have their allocated memory reclaimed.
 
 However, the inability to manually control garbage collection remains. There are times when it would be convenient to manually decide when and what memory is released. In order to release the memory of an object, it needs to be made explicitly unreachable. It is also not possible to programmatically trigger garbage collection in JavaScript — and will likely never be within the core language, although engines may expose APIs behind opt-in flags.
 
-## Configuring engine memory model
+## Configuring an engine's memory model
 
 JavaScript engines typically offer flags that expose the memory model. For example, Node.js offers additional options and tools that expose the underlying V8 mechanisms for configuring and debugging memory issues. This configuration may not be available in browsers, and even less so for web pages (via HTTP headers, etc.).
 
@@ -180,7 +180,7 @@ The max amount of available heap memory can be increased with a flag:
 node --max-old-space-size=6000 index.js
 ```
 
-We can also expose the garbage collector for debugging memory issues using a flag and the [Chrome Debugger](https://nodejs.org/en/docs/guides/debugging-getting-started/):
+We can also expose the garbage collector for debugging memory issues using a flag and the [Chrome Debugger](https://nodejs.org/en/learn/getting-started/debugging):
 
 ```bash
 node --expose-gc --inspect index.js
@@ -196,7 +196,7 @@ Although JavaScript does not directly expose the garbage collector API, the lang
 
 `WeakMap` and `WeakSet` got the name from the concept of _weakly held_ values. If `x` is weakly held by `y`, it means that although you can access the value of `x` via `y`, the mark-and-sweep algorithm won't consider `x` as reachable if nothing else _strongly holds_ to it. Most data structures, except the ones discussed here, strongly holds to the objects passed in so that you can retrieve them at any time. The keys of `WeakMap` and `WeakSet` can be garbage-collected (for `WeakMap` objects, the values would then be eligible for garbage collection as well) as long as nothing else in the program is referencing the key. This is ensured by two characteristics:
 
-- `WeakMap` and `WeakSet` can only store objects. This is because only objects are garbage collected — primitive values can always be forged (that is, `1 === 1` but `{} !== {}`), making them stay in the collection forever.
+- `WeakMap` and `WeakSet` can only store objects or symbols. This is because only objects are garbage collected — primitive values can always be forged (that is, `1 === 1` but `{} !== {}`), making them stay in the collection forever. [Registered symbols](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol#shared_symbols_in_the_global_symbol_registry) (like `Symbol.for("key")`) can also be forged and thus not garbage collectable, but symbols created with `Symbol("key")` are garbage collectable. [Well-known symbols](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol#well-known_symbols) like `Symbol.iterator` come in a fixed set and are unique throughout the lifetime of the program, similar to intrinsic objects such as `Array.prototype`, so they are also allowed as keys.
 - `WeakMap` and `WeakSet` are not iterable. This prevents you from using `Array.from(map.keys()).length` to observe the liveliness of objects, or get hold of an arbitrary key which should otherwise be eligible for garbage collection. (Garbage collection should be as invisible as possible.)
 
 In typical explanations of `WeakMap` and `WeakSet` (such as the one above), it's often implied that the key is garbage-collected first, freeing the value for garbage collection as well. However, consider the case of the value referencing the key:
@@ -216,7 +216,8 @@ If `key` is stored as an actual reference, it would create a cyclic reference an
 
 As a rough mental model, think of a `WeakMap` as the following implementation:
 
-> **Warning:** This is not a polyfill nor is anywhere close to how it's implemented in the engine (which hooks into the garbage collection mechanism).
+> [!WARNING]
+> This is not a polyfill nor is anywhere close to how it's implemented in the engine (which hooks into the garbage collection mechanism).
 
 ```js
 class MyWeakMap {
@@ -254,7 +255,10 @@ function cached(getter) {
   const cache = new Map();
   return async (key) => {
     if (cache.has(key)) {
-      return cache.get(key).deref();
+      const dereferencedValue = cache.get(key).deref();
+      if (dereferencedValue !== undefined) {
+        return dereferencedValue;
+      }
     }
     const value = await getter(key);
     cache.set(key, new WeakRef(value));

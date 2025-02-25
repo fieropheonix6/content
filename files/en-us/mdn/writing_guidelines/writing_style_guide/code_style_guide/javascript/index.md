@@ -1,13 +1,9 @@
 ---
-title: Guidelines for styling JavaScript code examples
+title: Guidelines for writing JavaScript code examples
 slug: MDN/Writing_guidelines/Writing_style_guide/Code_style_guide/JavaScript
 page-type: mdn-writing-guide
-tags:
-  - meta
-  - writing-guide
+sidebar: mdnsidebar
 ---
-
-{{MDNSidebar}}
 
 The following guidelines cover writing JavaScript example code for MDN Web Docs. This article is a list of rules for writing concise examples that will be understandable by as many people as possible.
 
@@ -26,10 +22,6 @@ Prettier formats all the code and keeps the style consistent. Nevertheless, ther
 ### Using modern JavaScript features
 
 You can use new features once every major browser — Chrome, Edge, Firefox, and Safari — supports them.
-
-### Spacing and indentation
-
-Mark indentation with _2 spaces_. Don't use the tab character. The end-of-line character is `\n`, the Unix convention. To help you, we have included an [`.editorconfig`](https://editorconfig.org/) file in the repository. Many editors read its content and use it to configure their behavior.
 
 ## Arrays
 
@@ -223,7 +215,7 @@ When writing code, you usually omit parameters you don't need. But in some code 
 To do so, use `/* … */` in the parameter list. This is an exception to the rule to only use single-line comments (`//`).
 
 ```js
-array.forEach((value, /* index, array */) => {
+array.forEach((value /* , index, array */) => {
   // …
 });
 ```
@@ -232,7 +224,7 @@ array.forEach((value, /* index, array */) => {
 
 ### Function names
 
-For function names, use camelCase, starting with a lowercase character. Use concise, human-readable, and semantic names where appropriate.
+For function names, use {{Glossary("camel_case", "camel case")}}, starting with a lowercase character. Use concise, human-readable, and semantic names where appropriate.
 
 The following is a correct example of a function name:
 
@@ -308,7 +300,7 @@ function doIt() {
   };
   ```
 
-- When using arrow functions, use [implicit return](/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) (also known as _concise body_) when possible:
+- When using arrow functions, use [implicit return](/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) (also known as _expression body_) when possible:
 
   ```js example-good
   arr.map((e) => e.id);
@@ -326,7 +318,7 @@ function doIt() {
 
 ### Loop initialization
 
-When [loops](/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code) are required, choose the appropriate one from [`for(;;)`](/en-US/docs/Web/JavaScript/Reference/Statements/for), [`for...of`](/en-US/docs/Web/JavaScript/Reference/Statements/for...of), [`while`](/en-US/docs/Web/JavaScript/Reference/Statements/while), etc.
+When [loops](/en-US/docs/Learn_web_development/Core/Scripting/Loops) are required, choose the appropriate one from [`for(;;)`](/en-US/docs/Web/JavaScript/Reference/Statements/for), [`for...of`](/en-US/docs/Web/JavaScript/Reference/Statements/for...of), [`while`](/en-US/docs/Web/JavaScript/Reference/Statements/while), etc.
 
 - When iterating through all collection elements, avoid using the classical `for (;;)` loop; prefer `for...of` or `forEach()`. Note that if you are using a collection that is not an `Array`, you have to check that `for...of` is actually supported (it requires the variable to be iterable), or that the `forEach()` method is actually present.
 
@@ -397,9 +389,11 @@ When [loops](/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code) are requ
   }
   ```
 
-> **Warning:** Never use `for...in` with arrays and strings.
+> [!WARNING]
+> Never use `for...in` with arrays and strings.
 
-> **Note:** Consider not using a `for` loop at all. If you are using an [`Array`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) (or a [`String`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) for some operations), consider using more semantic iteration methods instead, like [`map()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [`every()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every), [`findIndex()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex), [`find()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find), [`includes()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes), and many more.
+> [!NOTE]
+> Consider not using a `for` loop at all. If you are using an [`Array`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) (or a [`String`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) for some operations), consider using more semantic iteration methods instead, like [`map()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), [`every()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every), [`findIndex()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex), [`find()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find), [`includes()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes), and many more.
 
 ### Control statements
 
@@ -522,7 +516,8 @@ Switch statements can be a little tricky.
   }
   ```
 
-> **Note:** Keep in mind that only _recoverable_ errors should be caught and handled. All non-recoverable errors should be let through and bubble up the call stack.
+> [!NOTE]
+> Keep in mind that only _recoverable_ errors should be caught and handled. All non-recoverable errors should be let through and bubble up the call stack.
 
 ## Objects
 
@@ -533,12 +528,12 @@ Switch statements can be a little tricky.
 - When defining an object instance, either a literal or via a constructor, use _camelCase_, starting with lower-case character, for the instance name. For example:
 
   ```js example-good
-  const hanSolo = new Person("Han Solo", 25, "male");
+  const hanSolo = new Person("Han Solo", 25, "he/him");
 
   const luke = {
     name: "Luke Skywalker",
     age: 25,
-    gender: "male",
+    pronouns: "he/him",
   };
   ```
 
@@ -566,10 +561,10 @@ const object = new Object();
 
   ```js example-good
   class Person {
-    constructor(name, age, gender) {
+    constructor(name, age, pronouns) {
       this.name = name;
       this.age = age;
-      this.gender = gender;
+      this.pronouns = pronouns;
     }
 
     greeting() {
@@ -639,7 +634,7 @@ This section lists our recommendations of which operators to use and when.
 
 ### Conditional operators
 
-When you want to store to a variable a literal value depending on a condition, use a [conditional (ternary) operator](/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) instead of an `if...else` statement. This rule also applies when returning a value. Write:
+When you want to store to a variable a literal value depending on a condition, use a [conditional (ternary) operator](/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_operator) instead of an `if...else` statement. This rule also applies when returning a value. Write:
 
 ```js example-good
 const x = condition ? 1 : 2;
@@ -665,14 +660,14 @@ Prefer the [strict equality](/en-US/docs/Web/JavaScript/Reference/Operators/Stri
 Use the strict equality and inequality operators like this:
 
 ```js example-good
-name === "Chris";
+name === "Shilpa";
 age !== 25;
 ```
 
 Don't use the loose equality and inequality operators, as shown below:
 
 ```js example-bad
-name == "Chris";
+name == "Shilpa";
 age != 25;
 ```
 
@@ -693,15 +688,15 @@ For inserting values into strings, use [template literals](/en-US/docs/Web/JavaS
 - Here is an example of the recommended way to use template literals. Their use prevents a lot of spacing errors.
 
   ```js example-good
-  const name = "Chris";
+  const name = "Shilpa";
   console.log(`Hi! I'm ${name}!`);
   ```
 
   Don't concatenate strings like this:
 
   ```js example-bad
-  const name = "Chris";
-  console.log("Hi! I'm" + name + "!"); // Hi! I'mChris!
+  const name = "Shilpa";
+  console.log("Hi! I'm" + name + "!"); // Hi! I'mShilpa!
   ```
 
 - Don't overuse template literals. If there are no substitutions, use a normal string literal instead.
@@ -711,6 +706,8 @@ For inserting values into strings, use [template literals](/en-US/docs/Web/JavaS
 ### Variable names
 
 Good variable names are essential to understanding code.
+
+<!-- cSpell:ignore acclmtr -->
 
 - Use short identifiers, and avoid non-common abbreviations. Good variable names are usually between 3 to 10-character long, but as a hint only. For example, `accelerometer` is more descriptive than abbreviating to `acclmtr` for the sake of character length.
 - Try to use real-world relevant examples where each variable has clear semantics. Only fall back to placeholder names like `foo` and `bar` when the example is simple and contrived.
@@ -732,7 +729,8 @@ Good variable names are essential to understanding code.
   const s = d / t;
   ```
 
-> **Note:** The only place where it's allowed not to use human-readable, semantic names is where a very commonly recognized convention exists, such as using `i` and `j` for loop iterators.
+> [!NOTE]
+> The only place where it's allowed not to use human-readable, semantic names is where a very commonly recognized convention exists, such as using `i` and `j` for loop iterators.
 
 ### Variable declarations
 
@@ -741,7 +739,7 @@ When declaring variables and constants, use the [`let`](/en-US/docs/Web/JavaScri
 - If a variable will not be reassigned, prefer `const`, like so:
 
   ```js example-good
-  const name = "Chris";
+  const name = "Shilpa";
   console.log(name);
   ```
 
@@ -756,8 +754,8 @@ When declaring variables and constants, use the [`let`](/en-US/docs/Web/JavaScri
 - The example below uses `let` where it should be `const`. The code will work, but we want to avoid this usage in MDN Web Docs code examples.
 
   ```js example-bad
-  let name = "Chris";
-  console.log(myName);
+  let name = "Shilpa";
+  console.log(name);
   ```
 
 - The example below uses `const` for a variable that gets reassigned. The reassignment will throw an error.
@@ -772,7 +770,7 @@ When declaring variables and constants, use the [`let`](/en-US/docs/Web/JavaScri
 
   ```js example-bad
   var age = 40;
-  var name = "Chris";
+  var name = "Shilpa";
   ```
 
 - Declare one variable per line, like so:
@@ -786,7 +784,7 @@ When declaring variables and constants, use the [`let`](/en-US/docs/Web/JavaScri
 
   Do not declare multiple variables in one line, separating them with commas or using chain declaration. Avoid declaring variables like this:
 
-  ```js example-bad
+  ```js-nolint example-bad
   let var1, var2;
   let var3 = var4 = "Apapou"; // var4 is implicitly created as a global variable; fails in strict mode
   ```

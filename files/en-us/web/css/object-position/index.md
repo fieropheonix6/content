@@ -1,17 +1,7 @@
 ---
 title: object-position
 slug: Web/CSS/object-position
-tags:
-  - CSS
-  - CSS Images
-  - CSS Property
-  - Layout
-  - Position
-  - Reference
-  - Replaced Elements
-  - css layout
-  - object-position
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.object-position
 ---
 
@@ -59,7 +49,8 @@ object-position: unset;
 - {{cssxref("&lt;position&gt;")}}
   - : From one to four values that define the 2D position of the element. Relative or absolute offsets can be used.
 
-> **Note:** The position can be set so that the replaced element is drawn outside its box.
+> [!NOTE]
+> The position can be set so that the replaced element is drawn outside its box.
 
 ## Formal definition
 

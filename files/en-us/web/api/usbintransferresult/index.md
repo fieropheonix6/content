@@ -2,19 +2,12 @@
 title: USBInTransferResult
 slug: Web/API/USBInTransferResult
 page-type: web-api-interface
-tags:
-  - API
-  - Experimental
-  - Interface
-  - NeedsExample
-  - Reference
-  - USBInTransferResult
-  - WebUSB
-  - WebUSB API
+status:
+  - experimental
 browser-compat: api.USBInTransferResult
 ---
 
-{{securecontext_header}}{{APIRef("WebUSB API")}}{{SeeCompatTable}}
+{{APIRef("WebUSB API")}}{{SeeCompatTable}}{{SecureContext_Header}}{{AvailableInWorkers}}
 
 The `USBInTransferResult` interface of the [WebUSB API](/en-US/docs/Web/API/WebUSB_API) provides the result from a call to the `transferIn()` and `controlTransferIn()` methods of the `USBDevice` interface. It represents the result from requesting a transfer of data from the USB device to the USB host.
 
@@ -23,7 +16,7 @@ The `USBInTransferResult` interface of the [WebUSB API](/en-US/docs/Web/API/WebU
 - {{domxref("USBInTransferResult.USBInTransferResult", "USBInTransferResult()")}} {{Experimental_Inline}}
   - : Creates a new `USBInTransferResult` object with the provided `status` and `data` fields.
 
-## Properties
+## Instance properties
 
 - {{domxref("USBInTransferResult.data")}} {{ReadOnlyInline}} {{Experimental_Inline}}
   - : Returns a `DataView` object containing the data received from the USB device, if any.

@@ -1,20 +1,11 @@
 ---
 title: browserAction.getBadgeBackgroundColor()
 slug: Mozilla/Add-ons/WebExtensions/API/browserAction/getBadgeBackgroundColor
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Non-standard
-  - Reference
-  - WebExtensions
-  - browserAction
-  - getBadgeBackgroundColor
+page-type: webextension-api-function
 browser-compat: webextensions.api.browserAction.getBadgeBackgroundColor
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Gets the background color of the browser action's badge.
 
@@ -70,9 +61,8 @@ browser.browserAction.getBadgeBackgroundColor({}).then(onGot, onFailure);
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/reference/browserAction/#method-getBadgeBackgroundColor) API. This documentation is derived from [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) in the Chromium code.
->
-> Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.browserAction`](https://developer.chrome.com/docs/extensions/mv2/reference/browserAction#method-getBadgeBackgroundColor) API. This documentation is derived from [`browser_action.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/browser_action.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,16 +1,14 @@
 ---
 title: Example
 slug: Web/SVG/Namespaces_Crash_Course/Example
-tags:
-  - SVG
-  - XML
+page-type: guide
 ---
 
-In this example, we use [XHTML](/en-US/docs/Glossary/XHTML), [SVG](/en-US/docs/Web/SVG), [JavaScript](/en-US/docs/Web/JavaScript), and the [DOM](/en-US/docs/Web/API/Document_Object_Model) to animate a swarm of "motes". These motes are governed by two simple principles. First, each mote tries to move towards the mouse cursor, and second each mote tries to move away from the average mote position. Combined, we get this very natural-looking behavior.
+{{SVGRef}}
 
-This is done completely in W3C Standards–XHTML, SVG, and JavaScript–no Flash or any vendor-specific extensions. This example should work in Firefox 1.5 and above.
+In this example, we use [XHTML](/en-US/docs/Glossary/XHTML), [SVG](/en-US/docs/Web/SVG), [JavaScript](/en-US/docs/Web/JavaScript), and the [DOM](/en-US/docs/Web/API/Document_Object_Model) to animate a swarm of "motes". These motes are governed by two basic principles. First, each mote tries to move towards the mouse cursor, and second each mote tries to move away from the average mote position. Combined, we get this very natural-looking behavior.
 
-[View the example](https://media.prod.mdn.mozit.cloud/samples/svg/swarm-of-motes.xhtml)
+[View the example](https://mdn.dev/archives/media/samples/svg/swarm-of-motes.xhtml). The linked example was written with 2006 best practices. The example below has been updated to modern JavaScript best practices. Both work.
 
 ```xml
 <?xml version='1.0'?>
@@ -46,29 +44,22 @@ This is done completely in W3C Standards–XHTML, SVG, and JavaScript–no Flash
 cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
     </svg:svg>
 
-    <p>A swarm of motes, governed by two simple principles.
+    <p>A swarm of motes, governed by two basic principles.
     First, each mote tries to move towards the cursor, and
     second each mote tries to move away from the average
     mote position. Combined, we get this very natural
     looking behavior.
     </p>
 
-    <p>
-    This is done completely in W3C Standards–XHTML,
-    SVG and JavaScript–no flash or any vendor specific
-    extensions. Currently, this will work in Mozilla Firefox
-    version 1.5 and above.
-    </p>
-
     <div>
-    (C) 2006 <a id='emailme' href='#'>Nick Johnson</a>
+    (C) 2006 <a id='email-me' href='#'>Nick Johnson</a>
 
     <script type='text/javascript'>
     <![CDATA[
       // foil spam bots
       let email = '@riovia.net';
       email ='nick' + email;
-      document.getElementById('emailme').href = 'mailto:'+email;
+      document.getElementById('email-me').href = 'mailto:'+email;
     ]]>
     </script>
     This software is free for you to use in any way whatsoever,
@@ -268,7 +259,7 @@ cy='150' r='7' fill='#0000ff' fill-opacity='0.5'/>
       }
 
       this.elt.setAttributeNS(null, 'x1', old_x);
-      this.elt.setAttributeNS(null, 'y1' ,old_y);
+      this.elt.setAttributeNS(null, 'y1', old_y);
 
       this.elt.setAttributeNS(null, 'x2', this.x);
       this.elt.setAttributeNS(null, 'y2', this.y);

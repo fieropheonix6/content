@@ -1,21 +1,20 @@
 ---
-title: First contentful paint
+title: First Contentful Paint (FCP)
 slug: Glossary/First_contentful_paint
-tags:
-  - Glossary
-  - Performance
-  - Reference
-  - Web Performance
+page-type: glossary-definition
 ---
 
-**First Contentful Paint** (FCP) is when the browser renders the first bit of content from the DOM, providing the first feedback to the user that the page is actually loading. The question "Is it happening?" is "yes" when the first contentful paint completes.
+{{GlossarySidebar}}
 
-_The First Contentful Paint_ time stamp is when the browser first rendered any text, image (including background images), video, canvas that had been drawn into, or non-empty SVG. This excludes any content of iframes, but includes text with pending webfonts. This is the first time users could start consuming page content.
+**First Contentful Paint** (FCP) is when the browser renders the first content from the DOM, providing feedback to the user that the page is loading. Completing the first contentful paint answers the question "Is it happening?"
+
+_The First Contentful Paint_ timestamp is when the browser first rendered any text, image (including background images), video, canvas that had been drawn into, or non-empty SVG. This excludes any content of iframes, but includes text with pending webfonts. This is the first time users could start consuming page content.
 
 ## See also
 
-- [First paint](/en-US/docs/Glossary/First_paint)
-- [Paint Timing API](/en-US/docs/Web/API/Paint_Timing_API)
-- [Largest Contentful API](/en-US/docs/Web/API/Largest_Contentful_Paint_API)
-- [First meaningful paint](/en-US/docs/Glossary/first_meaningful_paint)
-- [First Contentful Paint](https://web.dev/fcp/) at web.dev
+- [`PerformancePaintTiming`](/en-US/docs/Web/API/PerformancePaintTiming)
+- Related glossary terms:
+  - {{Glossary("First Paint")}}
+  - {{Glossary("Largest Contentful Paint")}}
+  - {{Glossary("First Meaningful Paint")}}
+- [First Contentful Paint](https://web.dev/articles/fcp) at web.dev

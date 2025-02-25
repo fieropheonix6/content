@@ -1,22 +1,31 @@
 ---
 title: RegExp() constructor
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/RegExp
-tags:
-  - Constructor
-  - JavaScript
-  - Reference
-  - RegExp
-  - Polyfill
+page-type: javascript-constructor
 browser-compat: javascript.builtins.RegExp.RegExp
 ---
 
 {{JSRef}}
 
-The **`RegExp`** constructor creates a regular expression object for matching text with a pattern.
+The **`RegExp()`** constructor creates {{jsxref("RegExp")}} objects.
 
-For an introduction to regular expressions, read the [Regular Expressions chapter](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) in the [JavaScript Guide](/en-US/docs/Web/JavaScript/Guide).
+For an introduction to regular expressions, read the [Regular Expressions chapter](/en-US/docs/Web/JavaScript/Guide/Regular_expressions) in the [JavaScript Guide](/en-US/docs/Web/JavaScript/Guide).
 
-{{EmbedInteractiveExample("pages/js/regexp-constructor.html")}}
+{{InteractiveExample("JavaScript Demo: RegExp Constructor")}}
+
+```js interactive-example
+const regex1 = /\w+/;
+const regex2 = new RegExp("\\w+");
+
+console.log(regex1);
+// Expected output: /\w+/
+
+console.log(regex2);
+// Expected output: /\w+/
+
+console.log(regex1 === regex2);
+// Expected output: false
+```
 
 ## Syntax
 
@@ -53,6 +62,8 @@ RegExp(pattern, flags)
       - : Allows `.` to match newlines.
     - [`u` (unicode)](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicode)
       - : Treat `pattern` as a sequence of Unicode code points.
+    - [`v` (unicodeSets)](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/unicodeSets)
+      - : An upgrade to the `u` flag that enables set notation in character classes as well as properties of strings.
     - [`y` (sticky)](/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/sticky)
       - : Matches only from the index indicated by the `lastIndex` property of this regular expression in the target string. Does not attempt to match from any later indexes.
 
@@ -70,7 +81,7 @@ In all other cases, calling `RegExp()` with or without `new` both create a new `
 ### Exceptions
 
 - {{jsxref("SyntaxError")}}
-  - : Thrown if one of the following is true:
+  - : Thrown in one of the following cases:
     - `pattern` cannot be parsed as a valid regular expression.
     - `flags` contains repeated characters or any character outside of those allowed.
 
@@ -86,9 +97,9 @@ There are two ways to create a `RegExp` object: a _literal notation_ and a _cons
 The following three expressions create the same regular expression:
 
 ```js
-/ab+c/i
-new RegExp(/ab+c/, 'i') // literal notation
-new RegExp('ab+c', 'i') // constructor
+/ab+c/i;
+new RegExp(/ab+c/, "i"); // literal notation
+new RegExp("ab+c", "i"); // constructor
 ```
 
 Before regular expressions can be used, they have to be compiled. This process allows them to perform matches more efficiently. There are two ways to compile and get a `RegExp` object.
@@ -100,10 +111,10 @@ Use a string as the first argument to the `RegExp()` constructor when you want t
 ### Building a regular expression from dynamic inputs
 
 ```js
-const breakfasts = ['bacon', 'eggs', 'oatmeal', 'toast', 'cereal'];
-const order = 'Let me get some bacon and eggs, please';
+const breakfasts = ["bacon", "eggs", "oatmeal", "toast", "cereal"];
+const order = "Let me get some bacon and eggs, please";
 
-order.match(new RegExp(`\\b(${breakfasts.join('|')})\\b`, 'g'));
+order.match(new RegExp(`\\b(${breakfasts.join("|")})\\b`, "g"));
 // Returns ['bacon', 'eggs']
 ```
 
@@ -118,7 +129,6 @@ order.match(new RegExp(`\\b(${breakfasts.join('|')})\\b`, 'g'));
 ## See also
 
 - [Polyfill of many modern `RegExp` features (`dotAll`, `sticky` flags, named capture groups, etc.) in `core-js`](https://github.com/zloirock/core-js#ecmascript-string-and-regexp)
-- [Regular Expressions](/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) chapter
-  in the [JavaScript Guide](/en-US/docs/Web/JavaScript/Guide)
+- [Regular expressions](/en-US/docs/Web/JavaScript/Guide/Regular_expressions) guide
 - {{jsxref("String.prototype.match()")}}
 - {{jsxref("String.prototype.replace()")}}

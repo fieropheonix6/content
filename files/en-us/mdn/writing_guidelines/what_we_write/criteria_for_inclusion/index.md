@@ -2,12 +2,8 @@
 title: Criteria for inclusion on MDN Web Docs
 slug: MDN/Writing_guidelines/What_we_write/Criteria_for_inclusion
 page-type: mdn-writing-guide
-tags:
-  - meta
-  - writing-guide
+sidebar: mdnsidebar
 ---
-
-{{MDNSidebar}}
 
 This article describes, in detail, criteria for content to be included on MDN Web Docs, the application process for including new documentation, and expectations and guidelines for a party applying.
 
@@ -15,7 +11,7 @@ This is aimed at larger projects. To suggest a new page or article, please refer
 
 ## Web standards technologies
 
-The remit of MDN Web Docs is to document web standards technologies that are in a specification published by a reliable standards body and are supported in at least one stable browser. These criteria signal enough interest, stability, and "intent to implement" by the web industry at large. Therefore, we think those technologies are a safe bet for us to spend our time and effort in documenting them. Any earlier than that, a web technology or a feature might be prone to getting cancelled due to lack of interest or might be so unstable that it might change significantly, which will needlessly involve lot of rewriting (which we try to avoid where possible).
+The remit of MDN Web Docs is to document web standards technologies that are in a specification published by a reliable standards body and are supported in at least one stable browser. These criteria signal enough interest, stability, and "intent to implement" by the web industry at large. Therefore, we think those technologies are a safe bet for us to spend our time and effort in documenting them. Any earlier than that, a web technology or a feature might be prone to getting cancelled due to lack of interest or might be so unstable that it might change significantly, which will needlessly involve a lot of rewriting (which we try to avoid where possible).
 
 ## Non-web standards technologies
 
@@ -53,11 +49,12 @@ There are many libraries and frameworks in existence, which are not web standard
 
 The MDN Web Docs team concentrates on documenting the open web platform. If you want a technology in this area to be considered for documentation on MDN Web Docs, you'll need to have a community assembled that is willing to write the documentation and maintain it after completion. Our team is happy to provide guidance in such cases, including edits and feedback, but we don't have the resource for more than that.
 
-> **Note:** MDN Web Docs work is carried out on GitHub and 'in the open'. Your team should be versed in git & GitHub and be comfortable with working in open source.
+> [!NOTE]
+> MDN Web Docs work is carried out on GitHub and 'in the open'. Your team should be versed in git & GitHub and be comfortable with working in open source.
 
 ## Process for selecting the new technology
 
-If a technology looks like a good candidate for being documented on MDN Web Docs, you can [contact the team to propose and discuss](https://github.com/mdn/mdn-community/discussions) the inclusion of this technology. This section describes what the proposal should include.
+If a technology looks like a good candidate for being documented on MDN Web Docs, you can start a discussion on the [GitHub community discussions](/en-US/docs/MDN/Community/Communication_channels#github_discussions) to propose and discuss the inclusion of this technology. This section describes what the proposal should include.
 
 ### Submitting the proposal
 
@@ -66,7 +63,7 @@ Technologies will be considered for inclusion on MDN Web Docs on a case-by-case 
 - The technology, its core purpose/use cases, and target developer audience.
 - What kind of industry or community buzz is there is around the technology?
   - Are a lot web developers using it? What is the industry adoption like?
-  - Do a lot web developers want or need this information?
+  - Do a lot of web developers want or need this information?
   - What is the size of the target audience for this information? Supporting statistics would help if you have them.
 - How does the technology relate to core web technology and web browsers? Useful details include:
   - Does it use HTML and CSS but generally not output to the web?
@@ -81,7 +78,8 @@ Technologies will be considered for inclusion on MDN Web Docs on a case-by-case 
 
 You don't need to provide us with hundreds of pages of detail at this stage (in fact, we'd prefer it if you didn't). A couple of paragraphs on each of the above points is more than adequate.
 
-> **Note:** MDN Web Docs is primarily an English site (en-US). The primary language for your project should be in US English.
+> [!NOTE]
+> MDN Web Docs is primarily an English site (en-US). The primary language for your project should be in US English.
 
 ### Awaiting a response
 
@@ -118,13 +116,13 @@ A member of the MDN Web Docs team will be assigned to your project to provide gu
 
 You should assign one (or two) team leads who can liaise with the MDN Web Docs team member.
 
-The MDN Web Docs representative will help get the required permissions to everyone on your team to work in the [MDN organization on Github](https://github.com/mdn).
+The MDN Web Docs representative will help get the required permissions to everyone on your team to work in the [MDN organization on GitHub](https://github.com/mdn).
 
 ### Project plan and roadmap
 
 Create a plan for the project — tasks, estimate completion dates, and milestones you would want to track to ensure you're making steady progress.
 
-If the project is large, you should consider assigning one of your team members as the project manager. You should also consider writing a sub-project plan for an initial release that encompasses the minimum set of documentation that is useful to publish (a _minimum viable product_); you can follow it up with further additions later.
+If the project is large, you should consider assigning one of your team members as the project manager. You should also consider writing a subproject plan for an initial release that encompasses the minimum set of documentation that is useful to publish (a _minimum viable product_); you can follow it up with further additions later.
 
 If the documentation project is small, you would still need to keep a record of what has been done and what hasn't, what stage each part of the documentation is at (e.g., not started, in progress, draft written, reviewed, done), and who is working on what.
 
@@ -142,7 +140,7 @@ If you went through the proposal submission process, then you should already hav
 
 Each project is different, but we'd roughly recommend something like this:
 
-```
+```plain
 Landing page
 |
 ------Reference
@@ -166,7 +164,7 @@ Please refer to our section on [page types](/en-US/docs/MDN/Writing_guidelines/P
 
 The documentation for this technology will need to be maintained to remain on MDN Web Docs:
 
-- The content and files for MDN Web Docs are stored on Github. When others make changes to the documentation for your technology, a member from your team needs to review those changes to make sure the content is still good. You can track the open pull requests (PRs) via Github's notification feature.
+- The content and files for MDN Web Docs are stored on GitHub. When others make changes to the documentation for your technology, a member from your team needs to review those changes to make sure the content is still good. You can track the open pull requests (PRs) via GitHub's notification feature.
 - When changes occur to the technology that require documentation to be updated, your team needs to make updates as appropriate, maintaining the same standards as the original documentation.
 
 If positive changes are not observed over a period of six months and the documentation appears to be in any of the following states:

@@ -1,20 +1,11 @@
 ---
 title: extension.inIncognitoContext
 slug: Mozilla/Add-ons/WebExtensions/API/extension/inIncognitoContext
-tags:
-  - API
-  - Add-ons
-  - Extension
-  - Extensions
-  - Non-standard
-  - Property
-  - Reference
-  - WebExtensions
-  - inIncognitoContext
+page-type: webextension-api-property
 browser-compat: webextensions.api.extension.inIncognitoContext
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Boolean value, `true` for content scripts running inside private browsing tabs and for extension pages running inside a private browsing process.
 
@@ -34,9 +25,8 @@ A _boolean_ value indicate if the current script is running in a private tab or 
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/extension/#property-inIncognitoContext) API. This documentation is derived from [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) in the Chromium code.
->
-> Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.extension`](https://developer.chrome.com/docs/extensions/reference/api/extension#property-inIncognitoContext) API. This documentation is derived from [`extension.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/extension.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

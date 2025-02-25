@@ -1,12 +1,7 @@
 ---
 title: outline-style
 slug: Web/CSS/outline-style
-tags:
-  - CSS
-  - CSS Outline
-  - CSS Property
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.outline-style
 ---
 
@@ -249,5 +244,5 @@ The `auto` value indicates a custom outline style, described in [the specificati
 ## See also
 
 - {{cssxref("outline")}}
-- {{cssxref("outline-color")}}
 - {{cssxref("outline-width")}}
+- {{cssxref("outline-color")}}

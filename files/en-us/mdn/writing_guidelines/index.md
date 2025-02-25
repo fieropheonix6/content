@@ -2,24 +2,26 @@
 title: Writing guidelines
 slug: MDN/Writing_guidelines
 page-type: mdn-writing-guide
-tags:
-  - meta
-  - writing-guide
+sidebar: mdnsidebar
 ---
-
-{{MDNSidebar}}
 
 MDN Web Docs is an open-source project. The sections outlined below describe our guidelines for _what_ we document and _how_ we do it on MDN Web Docs. To learn about _how to contribute_, see our [contribution guidelines](/en-US/docs/MDN/Community).
 
 - [What we write](/en-US/docs/MDN/Writing_guidelines/What_we_write)
 
-  - : This section covers what we include on MDN Web Docs and want we don't, as well as a number of other policies, such as when we write about new technologies, the content suggestion process, and whether we accept external links. This is a good place to start if you're considering writing or updating content for us. This section also includes:
+  - : This section covers what we include on MDN Web Docs and what we don't, as well as a number of other policies, such as when we write about new technologies, the content suggestion process, and whether we accept external links. This is a good place to start if you're considering writing or updating content for us. This section also includes:
+
     - [Inclusion criteria](/en-US/docs/MDN/Writing_guidelines/What_we_write/Criteria_for_inclusion)
+
       - : Provides an in-depth criteria for content to be included on MDN Web Docs, the application process for getting new documentation added on MDN Web Docs, and the expectations and guidelines for a party applying.
 
 - [Our writing style guide](/en-US/docs/MDN/Writing_guidelines/Writing_style_guide)
 
   - : The writing style guide covers the language and style we use to write on MDN Web Docs. It also covers how to [format code examples](/en-US/docs/MDN/Writing_guidelines/Writing_style_guide/Code_style_guide).
+
+- [Learn web development writing guidelines](/en-US/docs/MDN/Writing_guidelines/Learning_content)
+
+  - : The [Learn web development](/en-US/docs/Learn_web_development) section of MDN is aimed specifically at folks learning the basic fundamentals of web development, and as such, requires a different approach to the rest of MDN's content. This articles provides guidelines for writing learning content.
 
 - [How to write for MDN Web Docs](/en-US/docs/MDN/Writing_guidelines/Howto)
 
@@ -75,7 +77,7 @@ MDN Web Docs is an open-source project. The sections outlined below describe our
 
     - [Banners and notices](/en-US/docs/MDN/Writing_guidelines/Page_structures/Banners_and_notices)
 
-      - : Sometimes, an article needs a special notice added to it. This might happen if the page covers deprecated technology or other material that shouldn't be used in production code. This article covers the most common cases and how to do handle them.
+      - : Sometimes, an article needs a special notice added to it. This might happen if the page covers deprecated technology or other material that shouldn't be used in production code. This article covers the most common cases and how to handle them.
 
     - [Specification tables](/en-US/docs/MDN/Writing_guidelines/Page_structures/Specification_tables)
 
@@ -89,9 +91,10 @@ MDN Web Docs is an open-source project. The sections outlined below describe our
 
       - : Macros are shortcuts that are used in pages to generate content, such as sidebars. This section lists the macros we use and what they do.
 
+- [Attributions and copyright licensing information](/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license)
+
+  - : Describes our policy on using MDN Web Docs content elsewhere on the web, how to get permission to republish content on MDN, and hints for linking to MDN content.
+
 - [How to label a technology](/en-US/docs/MDN/Writing_guidelines/Experimental_deprecated_obsolete)
 
-  - : This section covers our definitions for the terms obsolete, deprecated, and experimental and provides guidelines on when we remove content from MDN Web Docs.
-
-- [Attributions and copyright licensing information](/en-US/docs/MDN/Writing_guidelines/Attrib_copyright_license)
-  - : This section describes what copyright license content is and how to attribute correctly.
+  - : This section covers our definitions for the terms obsolete, deprecated, and experimental and provides guidelines on how to label a technology with them, and when we remove content from MDN Web Docs.

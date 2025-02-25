@@ -1,18 +1,11 @@
 ---
 title: webRequest.StreamFilter.onstop
 slug: Mozilla/Add-ons/WebExtensions/API/webRequest/StreamFilter/onstop
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Reference
-  - StreamFilter.onstop
-  - WebExtensions
-  - webRequest
+page-type: webextension-api-event
 browser-compat: webextensions.api.webRequest.StreamFilter.onstop
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 An event handler that will be called when the stream has no more data to deliver. In the event handler you can still call filter functions such as {{WebExtAPIRef("webRequest.StreamFilter.write()", "write()")}}, {{WebExtAPIRef("webRequest.StreamFilter.disconnect()", "disconnect()")}}, or {{WebExtAPIRef("webRequest.StreamFilter.close()", "close()")}}.
 
@@ -43,7 +36,7 @@ function listener(details) {
 browser.webRequest.onBeforeRequest.addListener(
   listener,
   { urls: ["https://example.com/*"], types: ["main_frame"] },
-  ["blocking"]
+  ["blocking"],
 );
 ```
 
@@ -71,7 +64,7 @@ function listener(details) {
 browser.webRequest.onBeforeRequest.addListener(
   listener,
   { urls: ["https://example.com/"], types: ["main_frame"] },
-  ["blocking"]
+  ["blocking"],
 );
 ```
 

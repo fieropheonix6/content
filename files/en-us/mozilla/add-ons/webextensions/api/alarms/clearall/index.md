@@ -1,20 +1,11 @@
 ---
 title: alarms.clearAll()
 slug: Mozilla/Add-ons/WebExtensions/API/alarms/clearAll
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Non-standard
-  - Reference
-  - WebExtensions
-  - alarms
-  - clearAll
+page-type: webextension-api-function
 browser-compat: webextensions.api.alarms.clearAll
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Cancels all active alarms.
 
@@ -51,6 +42,5 @@ clearAlarms.then(onClearedAll);
 
 {{Compat}}
 
-> **Note:** This API is based on Chromium's [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/alarms/) API.
->
-> Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.alarms`](https://developer.chrome.com/docs/extensions/reference/api/alarms) API.

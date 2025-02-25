@@ -1,13 +1,7 @@
 ---
 title: mix-blend-mode
 slug: Web/CSS/mix-blend-mode
-tags:
-  - Blending
-  - CSS
-  - CSS Property
-  - Compositing
-  - Compositing and Blending
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.mix-blend-mode
 ---
 
@@ -37,6 +31,8 @@ mix-blend-mode: hue;
 mix-blend-mode: saturation;
 mix-blend-mode: color;
 mix-blend-mode: luminosity;
+mix-blend-mode: plus-darker;
+mix-blend-mode: plus-lighter;
 
 /* Global values */
 mix-blend-mode: inherit;
@@ -50,6 +46,10 @@ mix-blend-mode: unset;
 
 - {{cssxref("&lt;blend-mode&gt;")}}
   - : The blending mode that should be applied.
+- `plus-darker`
+  - : Blending using the [_plus-darker_ compositing operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_darker).
+- `plus-lighter`
+  - : Blending using the [_plus-lighter_ compositing operator](https://drafts.fxtf.org/compositing/#porterduffcompositingoperators_plus_lighter). Useful for cross-fade effects (prevents unwanted blinking when two overlaying elements animate their opacity in opposite directions).
 
 ## Formal definition
 
@@ -78,16 +78,16 @@ mix-blend-mode: unset;
             <svg class="item" viewBox="0 0 150 150">
               <defs>
                 <linearGradient id="red">
-                  <stop offset="0" stop-color="hsl(0,100%,50%)" />
-                  <stop offset="100%" stop-color="hsl(0,0%,100%)" />
+                  <stop offset="0" stop-color="hsl(0 100% 50%)" />
+                  <stop offset="100%" stop-color="hsl(0 0% 100%)" />
                 </linearGradient>
                 <linearGradient id="green">
-                  <stop offset="0" stop-color="hsl(120,100%,50%)" />
-                  <stop offset="100%" stop-color="hsl(120,0%,100%)" />
+                  <stop offset="0" stop-color="hsl(120 100% 50%)" />
+                  <stop offset="100%" stop-color="hsl(120 0% 100%)" />
                 </linearGradient>
                 <linearGradient id="blue">
-                  <stop offset="0" stop-color="hsl(240,100%,50%)" />
-                  <stop offset="100%" stop-color="hsl(240,0%,100%)" />
+                  <stop offset="0" stop-color="hsl(240 100% 50%)" />
+                  <stop offset="100%" stop-color="hsl(240 0% 100%)" />
                 </linearGradient>
               </defs>
               <ellipse class="item R" cx="75" cy="75" rx="25" ry="70"></ellipse>
@@ -282,6 +282,32 @@ mix-blend-mode: unset;
       <div class="cell">
         luminosity
         <div class="container luminosity">
+          <div class="group">
+            <div class="item firefox"></div>
+            <svg class="item" viewBox="0 0 150 150">
+              <ellipse class="item R" cx="75" cy="75" rx="25" ry="70"></ellipse>
+              <ellipse class="item G" cx="75" cy="75" rx="25" ry="70"></ellipse>
+              <ellipse class="item B" cx="75" cy="75" rx="25" ry="70"></ellipse>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        plus-darker
+        <div class="container plus-darker">
+          <div class="group">
+            <div class="item firefox"></div>
+            <svg class="item" viewBox="0 0 150 150">
+              <ellipse class="item R" cx="75" cy="75" rx="25" ry="70"></ellipse>
+              <ellipse class="item G" cx="75" cy="75" rx="25" ry="70"></ellipse>
+              <ellipse class="item B" cx="75" cy="75" rx="25" ry="70"></ellipse>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        plus-lighter
+        <div class="container plus-lighter">
           <div class="group">
             <div class="item firefox"></div>
             <svg class="item" viewBox="0 0 150 150">
@@ -504,6 +530,32 @@ mix-blend-mode: unset;
           </div>
         </div>
       </div>
+      <div class="cell">
+        plus-darker
+        <div class="container plus-darker">
+          <div class="group">
+            <div class="item firefox"></div>
+            <svg class="item" viewBox="0 0 150 150">
+              <ellipse class="item R" cx="75" cy="75" rx="25" ry="70"></ellipse>
+              <ellipse class="item G" cx="75" cy="75" rx="25" ry="70"></ellipse>
+              <ellipse class="item B" cx="75" cy="75" rx="25" ry="70"></ellipse>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="cell">
+        plus-lighter
+        <div class="container plus-lighter">
+          <div class="group">
+            <div class="item firefox"></div>
+            <svg class="item" viewBox="0 0 150 150">
+              <ellipse class="item R" cx="75" cy="75" rx="25" ry="70"></ellipse>
+              <ellipse class="item G" cx="75" cy="75" rx="25" ry="70"></ellipse>
+              <ellipse class="item B" cx="75" cy="75" rx="25" ry="70"></ellipse>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -561,7 +613,8 @@ body {
 
 .container {
   position: relative;
-  background: linear-gradient(to right, #000 0%, transparent 50%, #fff 100%),
+  background:
+    linear-gradient(to right, #000 0%, transparent 50%, #fff 100%),
     linear-gradient(to bottom, #ff0 0%, #f0f 50%, #0ff 100%);
   width: 150px;
   height: 150px;
@@ -590,25 +643,63 @@ body {
   isolation: isolate;
 }
 
-.normal .item      { mix-blend-mode: normal; }
-.multiply .item    { mix-blend-mode: multiply; }
-.screen .item      { mix-blend-mode: screen; }
-.overlay .item     { mix-blend-mode: overlay; }
-.darken .item      { mix-blend-mode: darken; }
-.lighten .item     { mix-blend-mode: lighten; }
-.color-dodge .item { mix-blend-mode: color-dodge; }
-.color-burn .item  { mix-blend-mode: color-burn; }
-.hard-light .item  { mix-blend-mode: hard-light; }
-.soft-light .item  { mix-blend-mode: soft-light; }
-.difference .item  { mix-blend-mode: difference; }
-.exclusion .item   { mix-blend-mode: exclusion; }
-.hue .item         { mix-blend-mode: hue; }
-.saturation .item  { mix-blend-mode: saturation; }
-.color .item       { mix-blend-mode: color; }
-.luminosity .item  { mix-blend-mode: luminosity; }
+.normal .item {
+  mix-blend-mode: normal;
+}
+.multiply .item {
+  mix-blend-mode: multiply;
+}
+.screen .item {
+  mix-blend-mode: screen;
+}
+.overlay .item {
+  mix-blend-mode: overlay;
+}
+.darken .item {
+  mix-blend-mode: darken;
+}
+.lighten .item {
+  mix-blend-mode: lighten;
+}
+.color-dodge .item {
+  mix-blend-mode: color-dodge;
+}
+.color-burn .item {
+  mix-blend-mode: color-burn;
+}
+.hard-light .item {
+  mix-blend-mode: hard-light;
+}
+.soft-light .item {
+  mix-blend-mode: soft-light;
+}
+.difference .item {
+  mix-blend-mode: difference;
+}
+.exclusion .item {
+  mix-blend-mode: exclusion;
+}
+.hue .item {
+  mix-blend-mode: hue;
+}
+.saturation .item {
+  mix-blend-mode: saturation;
+}
+.color .item {
+  mix-blend-mode: color;
+}
+.luminosity .item {
+  mix-blend-mode: luminosity;
+}
+.plus-darker .item {
+  mix-blend-mode: plus-darker;
+}
+.plus-lighter .item {
+  mix-blend-mode: plus-lighter;
+}
 ```
 
-{{EmbedLiveSample("Effect_of_different_mix-blend-mode_values", "100%", 1600, "", "", "example-outcome-frame")}}
+{{EmbedLiveSample("Effect_of_different_mix-blend-mode_values", "100%", "1600px")}}
 
 ### Using mix-blend-mode with HTML
 
@@ -712,7 +803,9 @@ This example uses `mix-blend-mode` to blend text color with the background color
 }
 
 p {
-  font: 4rem "Rubik Moonrocks", cursive;
+  font:
+    4rem "Rubik Moonrocks",
+    cursive;
   font-weight: bold;
   color: orange;
   padding: 0.5rem;

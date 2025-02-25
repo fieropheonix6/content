@@ -1,20 +1,11 @@
 ---
 title: history.deleteRange()
 slug: Mozilla/Add-ons/WebExtensions/API/history/deleteRange
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - History
-  - Method
-  - Non-standard
-  - Reference
-  - WebExtensions
-  - deleteRange
+page-type: webextension-api-function
 browser-compat: webextensions.api.history.deleteRange
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Removes all visits to pages that the user made during the given time range. If this removes all visits made to a given page, then the page will be no longer appear in the browser history and {{WebExtAPIRef("history.onVisitRemoved")}} will fire for it.
 
@@ -60,15 +51,14 @@ function oneMinuteAgo() {
 
 browser.history.deleteRange({
   startTime: oneMinuteAgo(),
-  endTime: Date.now()
+  endTime: Date.now(),
 });
 ```
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/history/#method-deleteRange) API. This documentation is derived from [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) in the Chromium code.
->
-> Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.history`](https://developer.chrome.com/docs/extensions/reference/api/history#method-deleteRange) API. This documentation is derived from [`history.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/history.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

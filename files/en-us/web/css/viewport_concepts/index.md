@@ -1,15 +1,7 @@
 ---
 title: Viewport concepts
 slug: Web/CSS/Viewport_concepts
-tags:
-  - Best practices
-  - CSS
-  - Guide
-  - Mobile
-  - Resource
-  - layout viewport
-  - viewport
-  - virtual viewport
+page-type: guide
 ---
 
 {{CSSRef}}
@@ -33,15 +25,15 @@ To recap, the viewport is basically the part of the document that is currently v
 The width of the viewport is not always the width of the window. If you query the width or height of the window and document in Chrome or Firefox, you may get:
 
 ```js
-document.documentElement.clientWidth /* 1200 */
-window.innerWidth /* 1200 */
-window.outerWidth /* 1200 */
+document.documentElement.clientWidth; /* 1200 */
+window.innerWidth; /* 1200 */
+window.outerWidth; /* 1200 */
 ```
 
 ```js
-document.documentElement.clientHeight /* 800 */
-window.innerHeight /* 800 */
-window.outerHeight /* 900 */
+document.documentElement.clientHeight; /* 800 */
+window.innerHeight; /* 800 */
+window.outerHeight; /* 900 */
 ```
 
 There are several DOM properties that can help you query viewport size, and other similar lengths:
@@ -57,15 +49,15 @@ The area within the `innerHeight` and `innerWidth` is generally considered the *
 When zoomed in, both Firefox and Chrome report the new CSS pixel size for `innerWidth` and `clientWidth`. The values returned for the `outerWidth` and `outerHeight` depend on the browser: Firefox reports the new value in CSS pixels, but Chrome returns the length in the default pixel size. When zoomed in you may get:
 
 ```js
-document.documentElement.clientWidth /* 800 */
-window.innerWidth /* 800 */
-window.outerWidth /* 800 in Firefox, 1200 in chrome */
+document.documentElement.clientWidth; /* 800 */
+window.innerWidth; /* 800 */
+window.outerWidth; /* 800 in Firefox, 1200 in chrome */
 ```
 
 ```js
-document.documentElement.clientHeight /* 533 */
-window.innerHeight /* 533 */
-window.outerHeight /* 596 in Firefox, 900 in chrome */
+document.documentElement.clientHeight; /* 533 */
+window.innerHeight; /* 533 */
+window.outerHeight; /* 596 in Firefox, 900 in chrome */
 ```
 
 The viewport was originally 1200 x 800 pixels. Upon zooming in, the viewport became 800 x 533 pixels. This is the _layout viewport_. Sticky headers or footers, with the following styles, will stick to the top and bottom of the _layout viewport_ respectively.
@@ -131,7 +123,7 @@ In an SVG document, the viewport is the visible area of the SVG image. You can s
 <svg height="300" width="400"></svg>
 ```
 
-In this example, the viewport has an aspect ratio of 3:4 and is, by default, 400 by 300 units, with a unit generally being a CSS pixel.
+In this example, the viewport has an {{glossary("aspect ratio")}} of 3:4 and is, by default, 400 by 300 units, with a unit generally being a CSS pixel.
 
 SVG also has an internal coordinate system defined via the [viewBox](/en-US/docs/Web/SVG/Attribute/viewBox) attribute, which is not related to this viewport discussion.
 
@@ -139,7 +131,7 @@ If you include an SVG file in your HTML, the viewport of the SVG is the initial 
 
 ```css
 @media screen and (min-width: 400px) and (max-width: 500px) {
-  /* css goes here */
+  /* CSS goes here */
 }
 ```
 
@@ -151,7 +143,7 @@ The [Visual Viewport API](/en-US/docs/Web/API/Visual_Viewport_API) provides a me
 
 ## Mobile Viewports
 
-Mobile devices come in all shapes and sizes, with screens of differing device pixel ratios. The mobile browser's viewport is the area of the window in which web content can be seen, which is not necessarily the same size as the rendered page. Mobile browsers render pages in a virtual window or viewport, generally at 980px, which is usually wider than the screen, and then shrink the rendered result down so it can all be seen at once. Users can then pan and zoom to see different areas of the page. For example, if a mobile screen has a width of 320px, a website might be rendered with a virtual viewport of 980px, and then it will be shrunk down to fit into the 320px space, which, depending on the design, is illegible for many if not everyone. To tell a mobile browser to use the viewport width instead of the default 980px as the width of the screen, developers can include a viewport meta tag, like the following:
+Mobile devices come in all shapes and sizes, with screens of differing {{glossary("device pixel")}} ratios. The mobile browser's viewport is the area of the window in which web content can be seen, which is not necessarily the same size as the rendered page. Mobile browsers render pages in a virtual window or viewport, generally at 980px, which is usually wider than the screen, and then shrink the rendered result down so it can all be seen at once. Users can then pan and zoom to see different areas of the page. For example, if a mobile screen has a width of 320px, a website might be rendered with a virtual viewport of 980px, and then it will be shrunk down to fit into the 320px space, which, depending on the design, is illegible for many if not everyone. To tell a mobile browser to use the viewport width instead of the default 980px as the width of the screen, developers can include a viewport meta tag, like the following:
 
 ```html
 <meta name="viewport" content="width=device-width" />
@@ -161,7 +153,6 @@ The `width` property controls the size of the viewport. It should preferably be 
 
 ## See also
 
-- [@viewport CSS at-rule](/en-US/docs/Web/CSS/@viewport)
 - [Visual Viewport API](/en-US/docs/Web/API/Visual_Viewport_API)
 - {{HTMLElement("meta")}}, specifically `<meta name="viewport">`
 - [Using the viewport meta tag to control layout on mobile browsers](/en-US/docs/Web/HTML/Viewport_meta_tag)

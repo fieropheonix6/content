@@ -1,13 +1,7 @@
 ---
 title: border-image-slice
 slug: Web/CSS/border-image-slice
-tags:
-  - CSS
-  - CSS Borders
-  - CSS Property
-  - NeedsExample
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.border-image-slice
 ---
 
@@ -19,7 +13,7 @@ The **`border-image-slice`** [CSS](/en-US/docs/Web/CSS) property divides the ima
 
 The slicing process creates nine regions in total: four corners, four edges, and a middle region. Four slice lines, set a given distance from their respective sides, control the size of the regions.
 
-[![The nine regions defined by the border-image or border-image-slice properties](border-image-slice.png)](/en-US/docs/Web/CSS/border-image-slice/border-image-slice.png)
+![The nine regions defined by the border-image or border-image-slice properties](border-image-slice.png)
 
 The above diagram illustrates the location of each region.
 
@@ -35,17 +29,18 @@ The {{cssxref("border-image-repeat")}}, {{cssxref("border-image-width")}}, and {
 /* All sides */
 border-image-slice: 30%;
 
-/* vertical | horizontal */
+/* top and bottom | left and right */
 border-image-slice: 10% 30%;
 
-/* top | horizontal | bottom */
+/* top | left and right | bottom */
 border-image-slice: 30 30% 45;
 
 /* top | right | bottom | left */
 border-image-slice: 7 12 14 5;
 
 /* Using the `fill` keyword */
-border-image-slice: 10% fill 7 12;
+border-image-slice: 10% fill;
+border-image-slice: fill 10%;
 
 /* Global values */
 border-image-slice: inherit;
@@ -184,3 +179,4 @@ sliceSlider.addEventListener("input", () => {
 ## See also
 
 - [Illustrated description of the 1-to-4-value syntax](/en-US/docs/Web/CSS/Shorthand_properties#tricky_edge_cases)
+- [Border images in CSS: A key focus area for Interop 2023](/en-US/blog/border-images-interop-2023/) on MDN blog (2023)

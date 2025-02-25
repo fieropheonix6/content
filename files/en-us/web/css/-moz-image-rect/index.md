@@ -1,31 +1,26 @@
 ---
-title: '-moz-image-rect'
+title: -moz-image-rect
 slug: Web/CSS/-moz-image-rect
-tags:
-  - CSS
-  - CSS Function
-  - CSS Images
-  - CSS:Mozilla Extensions
-  - Function
-  - Non-standard
-  - Reference
-  - Experimental
+page-type: css-function
+status:
+  - deprecated
+  - non-standard
 browser-compat: css.types.-moz-image-rect
 ---
 
-{{CSSRef}}{{Non-standard_Header}}{{SeeCompatTable}}
+{{CSSRef}}{{Non-standard_Header}}{{Deprecated_Header}}
 
 The **`-moz-image-rect`** value for [CSS](/en-US/docs/Web/CSS) {{CSSxRef("background-image")}} lets you use a portion of a larger image as a background.
 
 ## Syntax
 
 ```css
--moz-image-rect({{CSSxRef("url", "url()")}}, top, right, bottom, left);
+-moz-image-rect(url("my-url"), top, right, bottom, left);
 ```
 
 ### Values
 
-- {{CSSxRef("url", "url()")}}
+- {{CSSxRef("url_value", "&lt;url&gt;")}}
   - : The URI of the image from which to take the sub-image.
 - `top`
   - : The top edge, specified as an {{CSSxRef("&lt;integer&gt;")}} or {{CSSxRef("&lt;percentage&gt;")}}, of the sub-image within the specified image.
@@ -110,7 +105,7 @@ The other corners follow a similar pattern:
 
 ### HTML
 
-The HTML is quite simple:
+We include a container with four boxes:
 
 ```html
 <div id="container" onclick="rotate()">
@@ -129,14 +124,18 @@ This code handles the click event when the container receives a mouse click.
 
 ```js
 function rotate() {
-  let prevStyle = window.getComputedStyle(document.getElementById("box4"), null).getPropertyValue("background-image");
+  let prevStyle = window
+    .getComputedStyle(document.getElementById("box4"), null)
+    .getPropertyValue("background-image");
 
   // Now that we've saved the last one, start rotating
-  for (let i=1; i<=4; i++) {
+  for (let i = 1; i <= 4; i++) {
     const curId = `box${i}`;
 
     // Shift the background images
-    const curStyle = window.getComputedStyle(document.getElementById(curId), null).getPropertyValue("background-image");
+    const curStyle = window
+      .getComputedStyle(document.getElementById(curId), null)
+      .getPropertyValue("background-image");
     document.getElementById(curId).style.backgroundImage = prevStyle;
     prevStyle = curStyle;
   }
@@ -160,4 +159,4 @@ Not part of any standard.
 ## See also
 
 - [Mozilla CSS extensions](/en-US/docs/Web/CSS/Mozilla_Extensions)
-- [CSS Backgrounds and Borders module](/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders)
+- [CSS Backgrounds and Borders module](/en-US/docs/Web/CSS/CSS_backgrounds_and_borders)

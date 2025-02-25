@@ -6,7 +6,7 @@ assignees:
 title: ""
 ---
 
-## Acceptance Criteria
+## Acceptance criteria
 
 - [ ] The listed features are documented sufficiently on MDN
 - [ ] BCD is updated
@@ -16,8 +16,8 @@ title: ""
 ### For folks helping with Firefox related documentation
 
 - [ ] Set bugs to `dev-doc-complete`
-- [ ] Add entry to Firefox release notes if feature is enabled in release
-- [ ] Add entry to Firefox experimental features page if feature is not yet enabled in release
+- [ ] Add entry to Firefox release notes for enabled/preview features
+- [ ] Add/remove entry to Firefox experimental features page for preference/released features
 
 ## Features to document
 

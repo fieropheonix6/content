@@ -1,78 +1,35 @@
 ---
-title: '<i>: The Idiomatic Text element'
+title: "<i>: The Idiomatic Text element"
 slug: Web/HTML/Element/i
-tags:
-  - Element
-  - HTML
-  - HTML text-level semantics
-  - Reference
-  - Web
-  - em
+page-type: html-element
 browser-compat: html.elements.i
 ---
 
-{{HTMLRef}}
+{{HTMLSidebar}}
 
 The **`<i>`** [HTML](/en-US/docs/Web/HTML) element represents a range of text that is set off from the normal text for some reason, such as idiomatic text, technical terms, taxonomical designations, among others. Historically, these have been presented using italicized type, which is the original source of the `<i>` naming of this element.
 
-{{EmbedInteractiveExample("pages/tabbed/i.html", "tabbed-shorter")}}
+{{InteractiveExample("HTML Demo: &lt;i&gt;", "tabbed-shorter")}}
 
-<table class="properties">
-  <tbody>
-    <tr>
-      <th scope="row">
-        <a href="/en-US/docs/Web/Guide/HTML/Content_categories"
-          >Content categories</a
-        >
-      </th>
-      <td>
-        <a href="/en-US/docs/Web/Guide/HTML/Content_categories#flow_content"
-          >Flow content</a
-        >,
-        <a href="/en-US/docs/Web/Guide/HTML/Content_categories#phrasing_content"
-          >phrasing content</a
-        >, palpable content.
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Permitted content</th>
-      <td>
-        <a href="/en-US/docs/Web/Guide/HTML/Content_categories#phrasing_content"
-          >Phrasing content</a
-        >.
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Tag omission</th>
-      <td>{{no_tag_omission}}</td>
-    </tr>
-    <tr>
-      <th scope="row">Permitted parents</th>
-      <td>
-        Any element that accepts
-        <a href="/en-US/docs/Web/Guide/HTML/Content_categories#phrasing_content"
-          >phrasing content</a
-        >.
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Implicit ARIA role</th>
-      <td>
-        <a href="https://www.w3.org/TR/html-aria/#dfn-no-corresponding-role"
-          >No corresponding role</a
-        >
-      </td>
-    </tr>
-    <tr>
-      <th scope="row">Permitted ARIA roles</th>
-      <td>Any</td>
-    </tr>
-    <tr>
-      <th scope="row">DOM interface</th>
-      <td>{{domxref("HTMLElement")}}</td>
-    </tr>
-  </tbody>
-</table>
+```html interactive-example
+<p>I looked at it and thought <i>This can't be real!</i></p>
+
+<p>
+  <i>Musa</i> is one of two or three genera in the family <i>Musaceae</i>; it
+  includes bananas and plantains.
+</p>
+
+<p>
+  The term <i>bandwidth</i> describes the measure of how much information can
+  pass through a data connection in a given amount of time.
+</p>
+```
+
+```css interactive-example
+/* stylelint-disable-next-line block-no-empty */
+i {
+}
+```
 
 ## Attributes
 
@@ -84,7 +41,7 @@ This element only includes the [global attributes](/en-US/docs/Web/HTML/Global_a
 
   - Alternative voice or mood
   - Taxonomic designations (such as the genus and species "_Homo sapiens_")
-  - Idiomatic terms from another language (such as "_et cetera_"); these should include the {{htmlattrxref("lang")}} attribute to identify the language
+  - Idiomatic terms from another language (such as "_et cetera_"); these should include the [`lang`](/en-US/docs/Web/HTML/Global_attributes/lang) attribute to identify the language
   - Technical terms
   - Transliterations
   - Thoughts (such as "She wondered, _What is this writer talking about, anyway?_")
@@ -105,14 +62,75 @@ This example demonstrates using the `<i>` element to mark text that is in anothe
 
 ```html
 <p>
-  The Latin phrase <i>Veni, vidi, vici</i> is often mentioned in music, art, and
-  literature.
+  The Latin phrase <i lang="la">Veni, vidi, vici</i> is often mentioned in
+  music, art, and literature.
 </p>
 ```
 
 ### Result
 
 {{EmbedLiveSample("Examples")}}
+
+## Technical summary
+
+<table class="properties">
+  <tbody>
+    <tr>
+      <th scope="row">
+        <a href="/en-US/docs/Web/HTML/Content_categories"
+          >Content categories</a
+        >
+      </th>
+      <td>
+        <a href="/en-US/docs/Web/HTML/Content_categories#flow_content"
+          >Flow content</a
+        >,
+        <a href="/en-US/docs/Web/HTML/Content_categories#phrasing_content"
+          >phrasing content</a
+        >, palpable content.
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Permitted content</th>
+      <td>
+        <a href="/en-US/docs/Web/HTML/Content_categories#phrasing_content"
+          >Phrasing content</a
+        >.
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Tag omission</th>
+      <td>None, both the starting and ending tag are mandatory.</td>
+    </tr>
+    <tr>
+      <th scope="row">Permitted parents</th>
+      <td>
+        Any element that accepts
+        <a href="/en-US/docs/Web/HTML/Content_categories#phrasing_content"
+          >phrasing content</a
+        >.
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Implicit ARIA role</th>
+      <td>
+        <code
+          ><a href="/en-US/docs/Web/Accessibility/ARIA/Roles/generic_role"
+            >generic</a
+          ></code
+        >
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Permitted ARIA roles</th>
+      <td>Any</td>
+    </tr>
+    <tr>
+      <th scope="row">DOM interface</th>
+      <td>{{domxref("HTMLElement")}}</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Specifications
 

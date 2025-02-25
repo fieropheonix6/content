@@ -1,12 +1,7 @@
 ---
 title: text-decoration-line
 slug: Web/CSS/text-decoration-line
-tags:
-  - CSS
-  - CSS Property
-  - CSS Text Decoration
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.text-decoration-line
 ---
 
@@ -29,8 +24,8 @@ text-decoration-line: line-through;
 text-decoration-line: blink;
 
 /* Multiple keywords */
-text-decoration-line: underline overline;               /* Two decoration lines */
-text-decoration-line: overline underline line-through;  /* Multiple decoration lines */
+text-decoration-line: underline overline; /* Two decoration lines */
+text-decoration-line: overline underline line-through; /* Multiple decoration lines */
 
 /* Global values */
 text-decoration-line: inherit;
@@ -52,7 +47,7 @@ The `text-decoration-line` property is specified as `none`, or **one or more** s
   - : Each line of text has a decorative line above it.
 - `line-through`
   - : Each line of text has a decorative line going through its middle.
-- `blink` {{deprecated_inline}}
+- `blink`
   - : The text blinks (alternates between visible and invisible). Conforming user agents may not blink the text. This value is **deprecated** in favor of [CSS animations](/en-US/docs/Web/CSS/animation).
 
 ## Formal definition
@@ -84,7 +79,7 @@ The `text-decoration-line` property is specified as `none`, or **one or more** s
 }
 ```
 
-{{ EmbedLiveSample('Examples', '', '', '') }}
+{{EmbedLiveSample('Examples')}}
 
 ## Specifications
 

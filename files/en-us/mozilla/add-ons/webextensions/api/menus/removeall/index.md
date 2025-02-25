@@ -1,21 +1,11 @@
 ---
 title: menus.removeAll()
 slug: Mozilla/Add-ons/WebExtensions/API/menus/removeAll
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Non-standard
-  - Reference
-  - WebExtensions
-  - contextMenus
-  - menus
-  - removeAll
+page-type: webextension-api-function
 browser-compat: webextensions.api.menus.removeAll
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Removes all menu items added by the extension.
 
@@ -72,7 +62,8 @@ browser.menus.onClicked.addListener((info, tab) => {
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/contextMenus/#method-removeAll) API. This documentation is derived from [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) in the Chromium code.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#method-removeAll) API. This documentation is derived from [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

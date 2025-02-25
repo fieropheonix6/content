@@ -2,12 +2,6 @@
 title: FocusEvent
 slug: Web/API/FocusEvent
 page-type: web-api-interface
-tags:
-  - API
-  - DOM
-  - DOM Events
-  - Event
-  - Reference
 browser-compat: api.FocusEvent
 ---
 
@@ -22,16 +16,25 @@ The **`FocusEvent`** interface represents focus-related events, including {{domx
 - {{domxref("FocusEvent.FocusEvent", "FocusEvent()")}}
   - : Creates a `FocusEvent` event with the given parameters.
 
-## Properties
+## Instance properties
 
 _This interface also inherits properties from its parent {{domxref("UIEvent")}}, and indirectly from {{domxref("Event")}}_.
 
 - {{domxref("FocusEvent.relatedTarget")}}
   - : An {{domxref("EventTarget")}} representing a secondary target for this event. In some cases (such as when tabbing in or out a page), this property may be set to `null` for security reasons.
 
-## Methods
+## Instance methods
 
 _This interface has no specific methods. It inherits methods from its parent {{domxref("UIEvent")}}, and indirectly from {{domxref("Event")}}._
+
+## Order of events
+
+When focus is shifted from element A to element B, focus events are dispatched in the following order:
+
+1. `blur`: sent after element A loses focus.
+2. `focusout`: sent after the `blur` event.
+3. `focus`: sent after element B receives focus.
+4. `focusin`: sent after the `focus` event.
 
 ## Specifications
 

@@ -1,15 +1,9 @@
 ---
 title: Left shift
 slug: WebAssembly/Reference/Numeric/Left_shift
-tags:
-  - WebAssembly
-  - wasm
-  - Reference
-  - Numeric
-  - Bitwise
+page-type: webassembly-instruction
+sidebar: webassemblysidebar
 ---
-
-{{WebAssemblySidebar}}
 
 The **`shl`** instructions, short for _shift-left_, are used for performing a bitwise left-shift, similar to the **`<<`** operator in other languages.
 

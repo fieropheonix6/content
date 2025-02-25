@@ -1,15 +1,7 @@
 ---
 title: runtime.getBrowserInfo()
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/getBrowserInfo
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Reference
-  - WebExtensions
-  - getBrowserInfo
-  - runtime
+page-type: webextension-api-function
 browser-compat: webextensions.api.runtime.getBrowserInfo
 ---
 
@@ -60,5 +52,3 @@ gettingInfo.then(gotBrowserInfo);
 ## Browser compatibility
 
 {{Compat}}
-
-> **Note:** Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.

@@ -1,14 +1,8 @@
 ---
-title: Element.previousElementSibling
+title: "Element: previousElementSibling property"
+short-title: previousElementSibling
 slug: Web/API/Element/previousElementSibling
 page-type: web-api-instance-property
-tags:
-  - API
-  - DOM
-  - Element
-  - Property
-  - Read-only
-  - Reference
 browser-compat: api.Element.previousElementSibling
 ---
 
@@ -16,7 +10,7 @@ browser-compat: api.Element.previousElementSibling
 
 The **`Element.previousElementSibling`**
 read-only property returns the {{domxref("Element")}} immediately prior to the specified
-one in its parent's children list, or `null` if the specified element is the first one in the list.
+one in its parent's {{domxref("Element.children", "children")}} list, or `null` if the specified element is the first one in the list.
 
 ## Value
 
@@ -44,7 +38,7 @@ An {{domxref("Element")}} object, or `null`.
 
 This example outputs the following into the page when it loads:
 
-```
+```plain
 Siblings of div-03
 
    1. LI

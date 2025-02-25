@@ -1,19 +1,11 @@
 ---
 title: pkcs11.uninstallModule()
 slug: Mozilla/Add-ons/WebExtensions/API/pkcs11/uninstallModule
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Reference
-  - WebExtensions
-  - pkcs11
-  - uninstallModule
+page-type: webextension-api-function
 browser-compat: webextensions.api.pkcs11.uninstallModule
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Uninstalls the named PKCS #11 module from Firefox.
 

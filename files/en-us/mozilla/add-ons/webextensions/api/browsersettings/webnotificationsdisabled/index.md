@@ -1,19 +1,11 @@
 ---
 title: browserSettings.webNotificationsDisabled
 slug: Mozilla/Add-ons/WebExtensions/API/browserSettings/webNotificationsDisabled
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Property
-  - Reference
-  - WebExtensions
-  - browserSettings
-  - webNotificationsDisabled
+page-type: webextension-api-property
 browser-compat: webextensions.api.browserSettings.webNotificationsDisabled
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 A {{WebExtAPIRef("types.BrowserSetting", "BrowserSetting")}} object that can be used to prevent websites from showing notifications using the [`Notifications`](/en-US/docs/Web/API/Notifications_API) Web API.
 

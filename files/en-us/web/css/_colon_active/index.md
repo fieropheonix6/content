@@ -1,13 +1,7 @@
 ---
-title: ":active"
+title: :active
 slug: Web/CSS/:active
-tags:
-  - CSS
-  - Layout
-  - Pseudo-class
-  - Reference
-  - Selector
-  - Web
+page-type: css-pseudo-class
 browser-compat: css.selectors.active
 ---
 
@@ -21,12 +15,15 @@ The `:active` pseudo-class is commonly used on {{HTMLElement("a")}} and {{HTMLEl
 
 Styles defined by the `:active` pseudo-class will be overridden by any subsequent link-related pseudo-class ({{cssxref(":link")}}, {{cssxref(":hover")}}, or {{cssxref(":visited")}}) that has at least equal specificity. To style links appropriately, put the `:active` rule after all other link-related rules, as defined by the _LVHA-order_: `:link` — `:visited` — `:hover` — `:active`.
 
-> **Note:** On systems with multi-button mice, CSS specifies that the `:active` pseudo-class must only apply to the primary button; on right-handed mice, this is typically the leftmost button.
+> [!NOTE]
+> On systems with multi-button mice, CSS specifies that the `:active` pseudo-class must only apply to the primary button; on right-handed mice, this is typically the leftmost button.
 
 ## Syntax
 
-```
-:active
+```css
+:active {
+  /* ... */
+}
 ```
 
 ## Examples
@@ -46,20 +43,25 @@ Styles defined by the `:active` pseudo-class will be overridden by any subsequen
 #### CSS
 
 ```css
-a:link { /* Unvisited links */
+/* Unvisited links */
+a:link {
   color: blue;
 }
-a:visited { /* Visited links */
+/* Visited links */
+a:visited {
   color: purple;
 }
-a:hover { /* Hovered links */
+/* Hovered links */
+a:hover {
   background: yellow;
 }
-a:active { /* Active links */
+/* Active links */
+a:active {
   color: red;
 }
 
-p:active { /* Active paragraphs */
+/* Active paragraphs */
+p:active {
   background: #eee;
 }
 ```

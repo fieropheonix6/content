@@ -1,13 +1,10 @@
 ---
 title: How to document a CSS property
+short-title: Document a CSS property
 slug: MDN/Writing_guidelines/Howto/Document_a_CSS_property
 page-type: mdn-writing-guide
-tags:
-  - meta
-  - writing-guide
+sidebar: mdnsidebar
 ---
-
-{{MDNSidebar}}
 
 As the [CSS](/en-US/docs/Web/CSS) standards evolve, new properties are always being added. The [CSS Reference](/en-US/docs/Web/CSS/Reference) on MDN Web Docs needs to be kept up-to-date with these developments. This article provides step-by-step instructions for creating a CSS property reference page.
 
@@ -17,7 +14,8 @@ Each CSS property reference page follows the same structure. This helps readers 
 
 First, you will need to find out the CSS property you want to document. You might have noticed that a page is missing, or you might have seen missing content reported in our [issues list](https://github.com/mdn/content/issues). For details about the CSS property, you will need to find a relevant specification for it (e.g., a [W3C specification](https://www.w3.org/Style/CSS/), or a bug report for a non-standard property used in rendering engines like Gecko or Blink).
 
-> **Note:** When using a W3C specification, always use the **Editor's Draft** (note the red banner on the left side) and not a published version (e.g., Working Draft). The Editor's Draft is always closer to the final version!
+> [!NOTE]
+> When using a W3C specification, always use the **Editor's Draft** (note the red banner on the left side) and not a published version (e.g., Working Draft). The Editor's Draft is always closer to the final version!
 
 If the implementation and specification diverge, feel free to mention it in the implementation bug. One of the following situations are possible:
 
@@ -27,7 +25,7 @@ If the implementation and specification diverge, feel free to mention it in the 
 
 ## Step 2 — Check the database of CSS properties
 
-Several characteristics of a CSS property, such as its syntax or if it can be animated, are mentioned in several pages and are therefore, stored in an ad-hoc database. Macros that you'll use on the page need information about the property that is stored there, so start by [checking that this information is there](/en-US/docs/MDN/Contribute/Howto/Update_the_CSS_JSON_DB).
+Several characteristics of a CSS property, such as its syntax or if it can be animated, are mentioned in several pages and are therefore, stored in an ad hoc database. Macros that you'll use on the page need information about the property that is stored there, so start by [checking that this information is there](https://github.com/mdn/data/blob/main/docs/updating_css_json.md).
 
 ## Step 3 — Create the CSS property page
 

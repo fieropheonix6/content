@@ -1,18 +1,11 @@
 ---
 title: transform-origin
 slug: Web/CSS/transform-origin
-tags:
-  - CSS
-  - CSS Property
-  - CSS Transforms
-  - Reference
-  - 'default value: center'
-  - recipe:css-property
-  - transform-origin
+page-type: css-property
 browser-compat: css.properties.transform-origin
 ---
 
-{{ CSSRef }}
+{{CSSRef}}
 
 The **`transform-origin`** [CSS](/en-US/docs/Web/CSS) property sets the origin for an element's transformations.
 
@@ -77,7 +70,7 @@ transform-origin: revert-layer;
 transform-origin: unset;
 ```
 
-The `transform-origin` property may be specified using one, two, or three values, where each value represents an offset. Offsets that are not explicitly defined are reset to their corresponding [initial values](/en-US/docs/Web/CSS/initial_value).
+The `transform-origin` property may be specified using one, two, or three values, where each value represents an offset. Offsets that are not explicitly defined are reset to their corresponding [initial values](/en-US/docs/Web/CSS/CSS_cascade/initial_value).
 
 If a single {{cssxref("&lt;length&gt;")}} or {{cssxref("&lt;percentage&gt;")}} value is defined, it represents the horizontal offset.
 
@@ -126,7 +119,8 @@ The keywords are convenience shorthands and match the following {{cssxref("&lt;p
 
 {{CSSInfo}}
 
-> **Note:** The initial value of `transform-origin` is `0 0` for all SVG elements except for root `<svg>` elements and `<svg>` elements that are a direct child of a [foreignObject](/en-US/docs/Web/SVG/Element/foreignObject), and whose `transform-origin` is `50% 50%`, like other CSS elements. See the [SVG transform-origin](/en-US/docs/Web/SVG/Attribute/transform-origin) attribute for more information.
+> [!NOTE]
+> The initial value of `transform-origin` is `0 0` for all SVG elements except for root `<svg>` elements and `<svg>` elements that are a direct child of a [foreignObject](/en-US/docs/Web/SVG/Element/foreignObject), and whose `transform-origin` is `50% 50%`, like other CSS elements. See the [SVG transform-origin](/en-US/docs/Web/SVG/Attribute/transform-origin) attribute for more information.
 
 ## Formal syntax
 
@@ -147,7 +141,7 @@ This example shows the effect of choosing different `transform-origin` values fo
 
   <pre>
 transform: none;
-</pre>
+  </pre>
 
   <div class="example">
     <div class="box box2">&nbsp;</div>
@@ -156,7 +150,7 @@ transform: none;
 
   <pre>
 transform: rotate(30deg);
-</pre>
+  </pre>
 
   <div class="example">
     <div class="box box3">&nbsp;</div>
@@ -166,7 +160,7 @@ transform: rotate(30deg);
   <pre>
 transform: rotate(30deg);
 transform-origin: 0 0;
-</pre>
+  </pre>
 
   <div class="example">
     <div class="box box4">&nbsp;</div>
@@ -176,7 +170,7 @@ transform-origin: 0 0;
   <pre>
 transform: rotate(30deg);
 transform-origin: 100% 100%;
-</pre>
+  </pre>
 
   <div class="example">
     <div class="box box5">&nbsp;</div>
@@ -186,7 +180,7 @@ transform-origin: 100% 100%;
   <pre>
 transform: rotate(30deg);
 transform-origin: -1em -3em;
-</pre>
+  </pre>
 
   <div class="example">
     <div class="box box6">&nbsp;</div>
@@ -195,7 +189,7 @@ transform-origin: -1em -3em;
 
   <pre>
 transform: scale(1.7);
-</pre>
+  </pre>
 
   <div class="example">
     <div class="box box7">&nbsp;</div>
@@ -205,7 +199,7 @@ transform: scale(1.7);
   <pre>
 transform: scale(1.7);
 transform-origin: 0 0;
-</pre>
+  </pre>
 
   <div class="example">
     <div class="box box8">&nbsp;</div>
@@ -215,7 +209,7 @@ transform-origin: 0 0;
   <pre>
 transform: scale(1.7);
 transform-origin: 100% -30%;
-</pre>
+  </pre>
 
   <div class="example">
     <div class="box box9">&nbsp;</div>
@@ -225,7 +219,7 @@ transform-origin: 100% -30%;
   <pre>
 transform: skewX(50deg);
 transform-origin: 100% -30%;
-</pre>
+  </pre>
 
   <div class="example">
     <div class="box box10">&nbsp;</div>
@@ -235,7 +229,7 @@ transform-origin: 100% -30%;
   <pre>
 transform: skewY(50deg);
 transform-origin: 100% -30%;
-</pre>
+  </pre>
 </div>
 ```
 
@@ -325,5 +319,6 @@ transform-origin: 100% -30%;
 
 ## See also
 
-- [Using CSS transforms](/en-US/docs/Web/CSS/CSS_Transforms/Using_CSS_transforms)
+- [Using CSS transforms](/en-US/docs/Web/CSS/CSS_transforms/Using_CSS_transforms)
+- SVG {{SVGAttr("transform-origin")}} attribute
 - <https://css-tricks.com/almanac/properties/t/transform-origin/>

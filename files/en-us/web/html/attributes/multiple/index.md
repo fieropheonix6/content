@@ -1,19 +1,56 @@
 ---
-title: 'HTML attribute: multiple'
+title: "HTML attribute: multiple"
+short-title: multiple
 slug: Web/HTML/Attributes/multiple
-tags:
-  - Attribute
-  - Attributes
-  - Constraint validation
-  - HTML
-spec-urls: https://html.spec.whatwg.org/multipage/input.html#attr-input-multiple
+page-type: html-attribute
+browser-compat:
+  - html.elements.input.multiple
+  - html.elements.select.multiple
 ---
 
 {{HTMLSidebar}}
 
-The Boolean **`multiple`** attribute, if set, means the form control accepts one or more values. Valid for the {{HTMLElement("input/email", "email")}} and {{HTMLElement("input/file", "file")}} input types and the {{HTMLElement("select")}}, the manner by which the user opts for multiple values depends on the form control.
+The Boolean **`multiple`** attribute, if set, means the form control accepts one or more values. The attribute is valid for the {{HTMLElement("input/email", "email")}} and {{HTMLElement("input/file", "file")}} input types and the {{HTMLElement("select")}}. The manner by which the user opts for multiple values depends on the form control.
 
-Depending on the type, the form control may have a different appearance if the `multiple` attribute is set. For the file input type, the native messaging the browser provides differs. In Firefox, the file input reads "No files selected" when the attribute is present and "No file selected" when not, when no files are selected. Most browsers displaying a scrolling list box for a {{HTMLElement("select")}} control with the `multiple` attribute set versus a single line dropdown when the attribute is omitted. The {{HTMLElement("input/email", "email")}} input displays the same, but will match the {{cssxref(':invalid')}} pseudo-class if more than one comma-separated email address is included if the attribute is not present.
+{{InteractiveExample("HTML Demo: multiple", "tabbed-standard")}}
+
+```html interactive-example
+<label for="recipients">Where should we send the receipt?</label>
+<input id="recipients" name="recipients" type="email" multiple />
+
+<label for="shakes">Which shakes would you like to order?</label>
+<select id="shakes" name="shakes" multiple>
+  <option>Vanilla Shake</option>
+  <option>Strawberry Shake</option>
+  <option>Chocolate Shake</option>
+</select>
+
+<label for="payment">How would you like to pay?</label>
+<select id="payment" name="payment">
+  <option>Credit card</option>
+  <option>Bank Transfer</option>
+</select>
+```
+
+```css interactive-example
+label {
+  display: block;
+  margin-top: 1em;
+}
+
+input,
+select {
+  width: 100%;
+}
+
+input:invalid {
+  background-color: lightpink;
+}
+```
+
+## Overview
+
+Depending on the type, the form control may have a different appearance if the `multiple` attribute is set. For the file input type, the native messaging the browser provides differs. In Firefox, the file input reads "No files selected" when the attribute is present and "No file selected" when it is not. Most browsers display a scrolling list box for a {{HTMLElement("select")}} control with the `multiple` attribute set and a single line dropdown when the attribute is omitted. The {{HTMLElement("input/email", "email")}} input displays the same whether or not the `multiple` attribute is included, but will match the {{cssxref(':invalid')}} pseudo-class if more than one comma-separated email address is included if the attribute is not present.
 
 When `multiple` is set on the {{HTMLElement("input/email", "email")}} input type, the user can include zero (if not also [`required`](/en-US/docs/Web/HTML/Attributes/required)), one or more comma-separated email addresses.
 
@@ -21,7 +58,7 @@ When `multiple` is set on the {{HTMLElement("input/email", "email")}} input type
 <input type="email" multiple name="emails" id="emails" />
 ```
 
-If and only if the `multiple` attribute is specified, the value can be a list of properly-formed comma-separated e-mail addresses. Any trailing and leading whitespace is removed from each address in the list.
+If and only if the `multiple` attribute is specified, the value can be a list of properly-formed comma-separated email addresses. Any trailing and leading whitespace is removed from each address in the list.
 
 When `multiple` is set on the {{HTMLElement("input/file", "file")}} input type, the user can select one or more files. The user can choose multiple files from the file picker in any way that their chosen platform allows (e.g. by holding down <kbd>Shift</kbd> or <kbd>Control</kbd>, and then clicking).
 
@@ -85,9 +122,9 @@ input:invalid {
 }
 ```
 
-If and only if the `multiple` attribute is specified, the value can be a list of properly-formed comma-separated e-mail addresses. Any trailing and leading whitespace is removed from each address in the list. If the [`required`](/en-US/docs/Web/HTML/Attributes/required) attribute is present, at least one email address is required.
+If and only if the `multiple` attribute is specified, the value can be a list of properly-formed comma-separated email addresses. Any trailing and leading whitespace is removed from each address in the list. If the [`required`](/en-US/docs/Web/HTML/Attributes/required) attribute is present, at least one email address is required.
 
-Some browsers support the appearance of the [`list`](/en-US/docs/Web/HTML/Attributes/list) of options from the associated {{htmlelement('datalist')}} for subsequent email addresses when `multiple` is present. Others do not.
+Some browsers support the appearance of the [`list`](/en-US/docs/Web/HTML/Element/input#list) of options from the associated {{htmlelement('datalist')}} for subsequent email addresses when `multiple` is present. Others do not.
 
 {{EmbedLiveSample("email_input", 600, 80) }}
 
@@ -120,7 +157,7 @@ When `multiple` is set on the {{HTMLElement("input/file", "file")}} input type, 
 
 Note the difference in appearance between the example with `multiple` set and the other `file` input without.
 
-When the form is submitted,had we used [`method="get"`](/en-US/docs/Web/HTML/Element/form) each selected file's name would have been added to URL parameters as`?uploads=img1.jpg&uploads=img2.svg`. However, since we are submitting [multipart](/en-US/docs/Web/API/XMLHttpRequest/multipart) form data, we much use post. See the {{htmlelement('form')}} element and [sending form data](/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data#the_method_attribute) for more information.
+When the form is submitted, had we used [`method="get"`](/en-US/docs/Web/HTML/Element/form) each selected file's name would have been added to URL parameters as `?uploads=img1.jpg&uploads=img2.svg`. However, since we are submitting multipart form data, we must use post. See the {{htmlelement('form')}} element and [sending form data](/en-US/docs/Learn_web_development/Extensions/Forms/Sending_and_retrieving_form_data#the_method_attribute) for more information.
 
 ### select
 
@@ -177,14 +214,18 @@ select[multiple]:active {
 */
 ```
 
-There are a few ways to select multiple options in a `<select>` element with a `multiple` attribute. Depending on the operating system, mouse users can hold the <kbd>Ctrl</kbd>, <kbd>Command</kbd>, or <kbd>Shift</kbd> keys and then click multiple options to select/deselect them. Keyboard users can select multiple contiguous items by focusing on the `<select>` element, selecting an item at the top or bottom of the range they want to select using the <kbd>Up</kbd> and <kbd>Down</kbd> cursor keys to go up and down the options. The selection of non-contiguous is not as well-supported: items should be able to be selected and deselected by pressing <kbd>Space</kbd> , but support varies between browsers.
+There are a few ways to select multiple options in a `<select>` element with a `multiple` attribute. Depending on the operating system, mouse users can hold the <kbd>Ctrl</kbd>, <kbd>Command</kbd>, or <kbd>Shift</kbd> keys and then click multiple options to select/deselect them. Keyboard users can select multiple contiguous items by focusing on the `<select>` element, selecting an item at the top or bottom of the range they want to select using the <kbd>Up</kbd> and <kbd>Down</kbd> cursor keys to go up and down the options. The selection of non-contiguous is not as well-supported: items should be able to be selected and deselected by pressing <kbd>Space</kbd>, but support varies between browsers.
 
 ## Specifications
 
 {{Specifications}}
 
+## Browser compatibility
+
+{{Compat}}
+
 ## See also
 
 - {{htmlelement('input')}}
 - {{htmlelement('select')}}
-- [Allowing multiple e-mail addresses](/en-US/docs/Web/HTML/Element/input/email#allowing_multiple_e-mail_addresses)
+- [Allowing multiple email addresses](/en-US/docs/Web/HTML/Element/input/email#allowing_multiple_email_addresses)

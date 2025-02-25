@@ -1,9 +1,7 @@
 ---
 title: max
 slug: Web/SVG/Attribute/max
-tags:
-  - SVG
-  - SVG Attribute
+page-type: svg-attribute
 spec-urls: https://svgwg.org/specs/animations/#MaxAttribute
 ---
 
@@ -14,7 +12,6 @@ The **`max`** attribute specifies the maximum value of the active animation dura
 You can use this attribute with the following SVG elements:
 
 - {{SVGElement("animate")}}
-- {{SVGElement("animateColor")}}
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
 - {{SVGElement("set")}}
@@ -60,7 +57,7 @@ svg {
       <th scope="row">Value</th>
       <td>
         <code
-          ><a href="/en-US/docs/Web/SVG/Content_type#Clock-value"
+          ><a href="/en-US/docs/Web/SVG/Content_type#clock-value"
             >&#x3C;clock-value></a
           ></code
         >

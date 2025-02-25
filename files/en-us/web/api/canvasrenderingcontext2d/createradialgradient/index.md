@@ -1,14 +1,8 @@
 ---
-title: CanvasRenderingContext2D.createRadialGradient()
+title: "CanvasRenderingContext2D: createRadialGradient() method"
+short-title: createRadialGradient()
 slug: Web/API/CanvasRenderingContext2D/createRadialGradient
 page-type: web-api-instance-method
-tags:
-  - API
-  - Canvas
-  - CanvasRenderingContext2D
-  - Gradients
-  - Method
-  - Reference
 browser-compat: api.CanvasRenderingContext2D.createRadialGradient
 ---
 
@@ -20,11 +14,10 @@ method of the Canvas 2D API creates a radial gradient using the size and coordin
 two circles.
 
 This method returns a {{domxref("CanvasGradient")}}. To be applied to a shape, the
-gradient must first be assigned to the {{domxref("CanvasRenderingContext2D.fillStyle",
-  "fillStyle")}} or {{domxref("CanvasRenderingContext2D.strokeStyle", "strokeStyle")}}
-properties.
+gradient must first be assigned to the {{domxref("CanvasRenderingContext2D.fillStyle", "fillStyle")}} or {{domxref("CanvasRenderingContext2D.strokeStyle", "strokeStyle")}} properties.
 
-> **Note:** Gradient coordinates are global, i.e., relative to the current
+> [!NOTE]
+> Gradient coordinates are global, i.e., relative to the current
 > coordinate space. When applied to a shape, the coordinates are NOT relative to the
 > shape's coordinates.
 
@@ -81,18 +74,18 @@ is rendered to a filled rectangle.
 #### JavaScript
 
 ```js
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
 // Create a radial gradient
 // The inner circle is at x=110, y=90, with radius=30
 // The outer circle is at x=100, y=100, with radius=70
-const gradient = ctx.createRadialGradient(110,90,30, 100,100,70);
+const gradient = ctx.createRadialGradient(110, 90, 30, 100, 100, 70);
 
 // Add three color stops
-gradient.addColorStop(0, 'pink');
-gradient.addColorStop(.9, 'white');
-gradient.addColorStop(1, 'green');
+gradient.addColorStop(0, "pink");
+gradient.addColorStop(0.9, "white");
+gradient.addColorStop(1, "green");
 
 // Set the fill style and draw a rectangle
 ctx.fillStyle = gradient;

@@ -1,17 +1,16 @@
 ---
 title: pointer-events
 slug: Web/SVG/Attribute/pointer-events
-tags:
-  - SVG
-  - SVG Attribute
-browser-compat: svg.attributes.presentation.pointer-events
+page-type: svg-attribute
+browser-compat: svg.global_attributes.pointer-events
 ---
 
 {{SVGRef}}
 
 The **`pointer-events`** attribute is a presentation attribute that allows defining whether or when an element may be the target of a mouse event.
 
-> **Note:** As a presentation attribute {{cssxref('pointer-events')}} can be used as a CSS property.
+> [!NOTE]
+> As a presentation attribute, `pointer-events` also has a CSS property counterpart: {{cssxref("pointer-events")}}. When both are specified, the CSS property takes priority.
 
 You can use this attribute with the following SVG elements:
 
@@ -70,17 +69,17 @@ svg {
 ```
 
 ```js
-window.addEventListener('mouseup', (e) => {
+window.addEventListener("mouseup", (e) => {
   // Let's pick a random color between #000000 and #FFFFFF
-  const color = Math.round(Math.random() * 0xFFFFFF);
+  const color = Math.round(Math.random() * 0xffffff);
 
   // Let's format the color to fit CSS requirements
-  const fill = `#${color.toString(16).padStart(6, '0')}`;
+  const fill = `#${color.toString(16).padStart(6, "0")}`;
 
   // Let's apply our color in the
   // element we actually clicked on
   e.target.style.fill = fill;
-})
+});
 ```
 
 {{EmbedLiveSample("Example", '100%', 150)}}
@@ -118,3 +117,7 @@ _For a detailed explanation of each possible value, have a look at the CSS {{css
 ## Browser compatibility
 
 {{Compat}}
+
+## See also
+
+- CSS {{cssxref("pointer-events")}} property

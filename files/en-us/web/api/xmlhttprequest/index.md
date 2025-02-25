@@ -2,24 +2,12 @@
 title: XMLHttpRequest
 slug: Web/API/XMLHttpRequest
 page-type: web-api-interface
-tags:
-  - AJAX
-  - API
-  - Communication
-  - HTTP
-  - Interface
-  - Reference
-  - Web
-  - XHR
-  - XMLHttpRequest
 browser-compat: api.XMLHttpRequest
 ---
 
-{{DefaultAPISidebar("XMLHttpRequest")}}
+{{APIRef("XMLHttpRequest API")}} {{AvailableInWorkers("window_and_worker_except_service")}}
 
 `XMLHttpRequest` (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.
-
-`XMLHttpRequest` is used heavily in [AJAX](/en-US/docs/Web/Guide/AJAX) programming.
 
 {{InheritanceDiagram}}
 
@@ -27,14 +15,12 @@ Despite its name, `XMLHttpRequest` can be used to retrieve any type of data, not
 
 If your communication needs to involve receiving event data or message data from a server, consider using [server-sent events](/en-US/docs/Web/API/Server-sent_events) through the {{domxref("EventSource")}} interface. For full-duplex communication, [WebSockets](/en-US/docs/Web/API/WebSockets_API) may be a better choice.
 
-{{AvailableInWorkers("notservice")}}
-
 ## Constructor
 
 - {{domxref("XMLHttpRequest.XMLHttpRequest", "XMLHttpRequest()")}}
   - : The constructor initializes an `XMLHttpRequest`. It must be called before any other method calls.
 
-## Properties
+## Instance properties
 
 _This interface also inherits properties of {{domxref("XMLHttpRequestEventTarget")}} and of {{domxref("EventTarget")}}._
 
@@ -54,9 +40,10 @@ _This interface also inherits properties of {{domxref("XMLHttpRequestEventTarget
   - : Returns the [HTTP response status code](/en-US/docs/Web/HTTP/Status) of the request.
 - {{domxref("XMLHttpRequest.statusText")}} {{ReadOnlyInline}}
 
-  - : Returns a string containing the response string returned by the HTTP server. Unlike {{domxref("XMLHttpRequest.status")}}, this includes the entire text of the response message ("`OK`", for example).
+  - : Returns a string containing the response string returned by the HTTP server. Unlike {{domxref("XMLHttpRequest.status")}}, this includes the entire text of the response message (`"OK"`, for example).
 
-    > **Note:** According to the HTTP/2 specification {{RFC(7540, "Response Pseudo-Header Fields", "8.1.2.4")}}, HTTP/2 does not define a way to carry the version or reason phrase that is included in an HTTP/1.1 status line.
+    > [!NOTE]
+    > According to the HTTP/2 specification {{RFC(7540, "Response Pseudo-Header Fields", "8.1.2.4")}}, HTTP/2 does not define a way to carry the version or reason phrase that is included in an HTTP/1.1 status line.
 
 - {{domxref("XMLHttpRequest.timeout")}}
   - : The time in milliseconds a request can take before automatically being terminated.
@@ -76,7 +63,7 @@ _This interface also inherits properties of {{domxref("XMLHttpRequestEventTarget
 - {{domxref("XMLHttpRequest.mozBackgroundRequest")}}
   - : A boolean. It indicates whether or not the object represents a background service request.
 
-## Methods
+## Instance methods
 
 - {{domxref("XMLHttpRequest.abort()")}}
   - : Aborts the request if it has already been sent.
@@ -90,6 +77,8 @@ _This interface also inherits properties of {{domxref("XMLHttpRequestEventTarget
   - : Overrides the MIME type returned by the server.
 - {{domxref("XMLHttpRequest.send()")}}
   - : Sends the request. If the request is asynchronous (which is the default), this method returns as soon as the request is sent.
+- {{domxref("XMLHttpRequest.setAttributionReporting()")}} {{securecontext_inline}} {{experimental_inline}}
+  - : Indicates that you want the request's response to be able to register an attribution source or trigger event.
 - {{domxref("XMLHttpRequest.setRequestHeader()")}}
   - : Sets the value of an HTTP request header. You must call `setRequestHeader()` after {{domxref("XMLHttpRequest.open", "open()")}}, but before {{domxref("XMLHttpRequest.send", "send()")}}.
 
@@ -131,12 +120,5 @@ _This interface also inherits properties of {{domxref("XMLHttpRequestEventTarget
 ## See also
 
 - {{domxref("XMLSerializer")}}: Serializing a DOM tree into XML
-- MDN tutorials covering `XMLHttpRequest`:
-
-  - [Ajax — Getting Started](/en-US/docs/Web/Guide/AJAX/Getting_Started)
-  - [Using XMLHttpRequest](/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest)
-  - [HTML in XMLHttpRequest](/en-US/docs/Web/API/XMLHttpRequest/HTML_in_XMLHttpRequest)
-  - [Fetch API](/en-US/docs/Web/API/Fetch_API)
-
-- [New Tricks in XMLHttpRequest2 (2011)](https://web.dev/xhr2/)
-- Feature-Policy directive {{httpheader("Feature-Policy/sync-xhr", "sync-xhr")}}
+- [Using XMLHttpRequest](/en-US/docs/Web/API/XMLHttpRequest_API/Using_XMLHttpRequest)
+- [Fetch API](/en-US/docs/Web/API/Fetch_API)

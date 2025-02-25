@@ -2,9 +2,6 @@
 title: CDATASection
 slug: Web/API/CDATASection
 page-type: web-api-interface
-tags:
-  - Interface
-  - Reference
 browser-compat: api.CDATASection
 ---
 
@@ -23,7 +20,7 @@ In XML, a CDATA section looks like:
 
 For example:
 
-```html
+```xml
 <foo>
   Here is a CDATA section: <![CDATA[ < > & ]]> with all kinds of unescaped text.
 </foo>
@@ -32,16 +29,17 @@ For example:
 The only sequence which is not allowed within a CDATA section is the closing sequence
 of a CDATA section itself, `]]>`.
 
-> **Note:** CDATA sections should not be used within HTML they are considered as comments and not displayed.
+> [!NOTE]
+> CDATA sections should not be used within HTML. They are considered comments and are not displayed.
 
 {{InheritanceDiagram}}
 
-## Properties
+## Instance properties
 
 _This interface has no specific properties and implements those of its parent
 {{DOMxRef("Text")}}._
 
-## Methods
+## Instance methods
 
 _This interface has no specific methods and implements those of its parent
 {{DOMxRef("Text")}}._

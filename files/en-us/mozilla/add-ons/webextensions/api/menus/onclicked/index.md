@@ -1,20 +1,11 @@
 ---
 title: menus.onClicked
 slug: Mozilla/Add-ons/WebExtensions/API/menus/onClicked
-tags:
-  - API
-  - Add-ons
-  - Event
-  - Extensions
-  - Non-standard
-  - Reference
-  - WebExtensions
-  - contextMenus
-  - onClicked
+page-type: webextension-api-event
 browser-compat: webextensions.api.menus.onClicked
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Fired when a menu item is clicked.
 
@@ -30,7 +21,7 @@ browser.menus.onClicked.hasListener(listener)
 
 Events have three functions:
 
-- `addListener(callback)`
+- `addListener(listener)`
   - : Adds a listener to this event.
 - `removeListener(listener)`
   - : Stop listening to this event. The `listener` argument is the listener to remove.
@@ -41,9 +32,9 @@ Events have three functions:
 
 ### Parameters
 
-- `callback`
+- `listener`
 
-  - : Function that will be called when this event occurs. The function will be passed the following arguments:
+  - : The function called when this event occurs. The function is passed these arguments:
 
     - `info`
       - : {{WebExtAPIRef('menus.OnClickData')}}. Information about the item clicked and the context where the click happened.
@@ -72,7 +63,8 @@ browser.menus.onClicked.addListener((info, tab) => {
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/contextMenus/#event-onClicked) API. This documentation is derived from [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) in the Chromium code.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.contextMenus`](https://developer.chrome.com/docs/extensions/reference/api/contextMenus#event-onClicked) API. This documentation is derived from [`context_menus.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/context_menus.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

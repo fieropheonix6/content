@@ -1,26 +1,20 @@
 ---
-title: CanvasRenderingContext2D.wordSpacing
+title: "CanvasRenderingContext2D: wordSpacing property"
+short-title: wordSpacing
 slug: Web/API/CanvasRenderingContext2D/wordSpacing
 page-type: web-api-instance-property
-tags:
-  - API
-  - Canvas
-  - CanvasRenderingContext2D
-  - Property
-  - Reference
-  - Experimental
 browser-compat: api.CanvasRenderingContext2D.wordSpacing
 ---
 
-{{APIRef}}{{SeeCompatTable}}
+{{APIRef}}
 
 The **`CanvasRenderingContext2D.wordSpacing`** property of the [Canvas API](/en-US/docs/Web/API/Canvas_API) specifies the spacing between words when drawing text.
 
-This corresponds to the CSS [`word-spacing`](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing) property.
+This corresponds to the CSS [`word-spacing`](/en-US/docs/Web/CSS/word-spacing) property.
 
 ## Value
 
-The word spacing as a string in the [CSS length](/en-US/docs/Web/CSS/length) data format.
+The word spacing as a string in the CSS {{cssxref("length")}} data format.
 The default is `0px`.
 
 The property can be used to get or set the spacing.
@@ -40,20 +34,20 @@ The spacing is also displayed for each case, using the value of the property.
 ### JavaScript
 
 ```js
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
 
-ctx.font = '30px serif';
+ctx.font = "30px serif";
 
 // Default word spacing
 ctx.fillText(`Hello world (default: ${ctx.wordSpacing})`, 10, 40);
 
 // Custom word spacing: 10px
-ctx.wordSpacing = '10px';
+ctx.wordSpacing = "10px";
 ctx.fillText(`Hello world (${ctx.wordSpacing})`, 10, 90);
 
 // Custom word spacing: 30px
-ctx.wordSpacing = '30px';
+ctx.wordSpacing = "30px";
 ctx.fillText(`Hello world (${ctx.wordSpacing})`, 10, 140);
 ```
 

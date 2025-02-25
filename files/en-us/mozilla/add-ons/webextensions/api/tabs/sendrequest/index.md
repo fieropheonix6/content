@@ -1,23 +1,16 @@
 ---
 title: tabs.sendRequest()
 slug: Mozilla/Add-ons/WebExtensions/API/tabs/sendRequest
-tags:
-  - API
-  - Add-ons
-  - Deprecated
-  - Extensions
-  - Method
-  - Non-standard
-  - Reference
-  - WebExtensions
-  - sendRequest
-  - tabs
+page-type: webextension-api-function
+status:
+  - deprecated
 browser-compat: webextensions.api.tabs.sendRequest
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
-> **Warning:** This method has been deprecated. Use {{WebExtAPIRef("tabs.sendMessage()")}} instead.
+> [!WARNING]
+> This method has been deprecated. Use {{WebExtAPIRef("tabs.sendMessage()")}} instead.
 
 Sends a single request to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The {{WebExtAPIRef('extension.onRequest')}} event is fired in each content script running in the specified tab for the current extension.
 
@@ -47,9 +40,8 @@ A [`Promise`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that 
 
 {{Compat}}
 
-> **Note:** This API is based on Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/tabs/#method-sendRequest) API. This documentation is derived from [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) in the Chromium code.
->
-> Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.tabs`](https://developer.chrome.com/docs/extensions/reference/api/tabs#method-sendRequest) API. This documentation is derived from [`tabs.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/tabs.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

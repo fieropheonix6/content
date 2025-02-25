@@ -1,24 +1,28 @@
 ---
 title: Array.prototype.values()
 slug: Web/JavaScript/Reference/Global_Objects/Array/values
-tags:
-  - Array
-  - Beginner
-  - ECMAScript 2015
-  - Iterator
-  - JavaScript
-  - Method
-  - Prototype
-  - Reference
-  - Polyfill
+page-type: javascript-instance-method
 browser-compat: javascript.builtins.Array.values
 ---
 
 {{JSRef}}
 
-The **`values()`** method returns a new _array [iterator](/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterator_protocol)_ object that iterates the value of each index in the array.
+The **`values()`** method of {{jsxref("Array")}} instances returns a new _[array iterator](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator)_ object that iterates the value of each item in the array.
 
-{{EmbedInteractiveExample("pages/js/array-values.html")}}
+{{InteractiveExample("JavaScript Demo: Array.values()")}}
+
+```js interactive-example
+const array1 = ["a", "b", "c"];
+const iterator = array1.values();
+
+for (const value of iterator) {
+  console.log(value);
+}
+
+// Expected output: "a"
+// Expected output: "b"
+// Expected output: "c"
+```
 
 ## Syntax
 
@@ -26,17 +30,25 @@ The **`values()`** method returns a new _array [iterator](/en-US/docs/Web/JavaSc
 values()
 ```
 
+### Parameters
+
+None.
+
 ### Return value
 
-A new iterable iterator object.
+A new [iterable iterator object](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator).
 
 ## Description
 
-`Array.prototype.values()` is the default implementation of [`Array.prototype[@@iterator]()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/@@iterator).
+`Array.prototype.values()` is the default implementation of [`Array.prototype[Symbol.iterator]()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator).
 
 ```js
 Array.prototype.values === Array.prototype[Symbol.iterator]; // true
 ```
+
+When used on [sparse arrays](/en-US/docs/Web/JavaScript/Guide/Indexed_collections#sparse_arrays), the `values()` method iterates empty slots as if they have the value `undefined`.
+
+The `values()` method is [generic](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#generic_array_methods). It only expects the `this` value to have a `length` property and integer-keyed properties.
 
 ## Examples
 
@@ -71,7 +83,8 @@ console.log(iterator.next().value); // undefined
 
 ### Reusing the iterable
 
-> **Warning:** The array iterator object should be a one-time use object. Do not reuse it.
+> [!WARNING]
+> The array iterator object should be a one-time use object. Do not reuse it.
 
 The iterable returned from `values()` is not reusable. When `next().done = true` or `currentIndex > length`, [the `for...of` loop ends](/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#interactions_between_the_language_and_iteration_protocols), and further iterating it has no effect.
 
@@ -120,6 +133,48 @@ arr[1] = "n";
 console.log(iterator.next().value); // "n"
 ```
 
+Unlike [iterative methods](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#iterative_methods), the array iterator object does not save the array's length at the time of its creation, but reads it once on each iteration. Therefore, if the array grows during iteration, the iterator will visit the new elements too. This may lead to infinite loops.
+
+```js
+const arr = [1, 2, 3];
+for (const e of arr) {
+  arr.push(e * 10);
+}
+// RangeError: invalid array length
+```
+
+### Iterating sparse arrays
+
+`values()` will visit empty slots as if they are `undefined`.
+
+```js
+for (const element of [, "a"].values()) {
+  console.log(element);
+}
+// undefined
+// 'a'
+```
+
+### Calling values() on non-array objects
+
+The `values()` method reads the `length` property of `this` and then accesses each property whose key is a nonnegative integer less than `length`.
+
+```js
+const arrayLike = {
+  length: 3,
+  0: "a",
+  1: "b",
+  2: "c",
+  3: "d", // ignored by values() since length is 3
+};
+for (const entry of Array.prototype.values.call(arrayLike)) {
+  console.log(entry);
+}
+// a
+// b
+// c
+```
+
 ## Specifications
 
 {{Specifications}}
@@ -131,9 +186,10 @@ console.log(iterator.next().value); // "n"
 ## See also
 
 - [Polyfill of `Array.prototype.values` in `core-js`](https://github.com/zloirock/core-js#ecmascript-array)
-- {{jsxref("Array.prototype.keys()")}}
+- [Indexed collections](/en-US/docs/Web/JavaScript/Guide/Indexed_collections) guide
+- {{jsxref("Array")}}
 - {{jsxref("Array.prototype.entries()")}}
-- {{jsxref("Array.prototype.forEach()")}}
-- {{jsxref("Array.prototype.every()")}}
-- {{jsxref("Array.prototype.some()")}}
-- [A polyfill](https://github.com/behnammodi/polyfill/blob/master/array.polyfill.js)
+- {{jsxref("Array.prototype.keys()")}}
+- [`Array.prototype[Symbol.iterator]()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Symbol.iterator)
+- {{jsxref("TypedArray.prototype.values()")}}
+- [Iteration protocols](/en-US/docs/Web/JavaScript/Reference/Iteration_protocols)

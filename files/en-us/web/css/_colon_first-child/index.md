@@ -1,13 +1,7 @@
 ---
-title: ":first-child"
+title: :first-child
 slug: Web/CSS/:first-child
-tags:
-  - CSS
-  - Layout
-  - Pseudo-class
-  - Reference
-  - Selector
-  - Web
+page-type: css-pseudo-class
 browser-compat: css.selectors.first-child
 ---
 
@@ -19,8 +13,10 @@ The **`:first-child`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web
 
 ## Syntax
 
-```
-:first-child
+```css
+:first-child {
+  /* ... */
+}
 ```
 
 ## Examples
@@ -101,7 +97,7 @@ ul li:first-child {
 
 ## See also
 
-- {{CSSxRef(":-moz-first-node")}} {{Non-standard_Inline}}
+- {{CSSxRef(":-moz-first-node")}}
 - {{CSSxRef(":first-of-type")}}
 - {{CSSxRef(":last-child")}}
 - {{CSSxRef(":nth-child", ":nth-child()")}}

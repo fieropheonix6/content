@@ -2,11 +2,6 @@
 title: NodeList
 slug: Web/API/NodeList
 page-type: web-api-interface
-tags:
-  - API
-  - DOM
-  - Interface
-  - NodeList
 browser-compat: api.NodeList
 ---
 
@@ -14,7 +9,11 @@ browser-compat: api.NodeList
 
 **`NodeList`** objects are collections of [nodes](/en-US/docs/Web/API/Node), usually returned by properties such as {{domxref("Node.childNodes")}} and methods such as {{domxref("document.querySelectorAll()")}}.
 
-> **Note:** Although `NodeList` is not an `Array`, it is possible to iterate over it with `forEach()`. It can also be converted to a real `Array` using {{jsxref("Array.from()")}}.
+This interface was an [attempt to create an unmodifiable list](https://stackoverflow.com/questions/74630989/why-use-domstringlist-rather-than-an-array/74641156#74641156) and only continues to be supported to not break code that's already using it. Modern APIs represent list structures using types based on JavaScript [arrays](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array), thus making many array methods available, and at the same time imposing additional semantics on their usage (such as making their items read-only).
+
+These historical reasons do not mean that you as a developer should avoid `NodeList`. You don't create `NodeList` objects yourself, but you get them from APIs such as {{domxref("Document.querySelectorAll()")}}, and these APIs are not deprecated. However, be careful of the semantic differences from a real array.
+
+Although `NodeList` is not an `Array`, it is possible to iterate over it with `forEach()`. It can also be converted to a real `Array` using {{jsxref("Array.from()")}}.
 
 ## Live vs. Static NodeLists
 
@@ -27,10 +26,10 @@ In some cases, the `NodeList` is _live_, which means that changes in the DOM aut
 For example, {{domxref("Node.childNodes")}} is live:
 
 ```js
-const parent = document.getElementById('parent');
+const parent = document.getElementById("parent");
 let childNodes = parent.childNodes;
 console.log(childNodes.length); // let's assume "2"
-parent.appendChild(document.createElement('div'));
+parent.appendChild(document.createElement("div"));
 console.log(childNodes.length); // outputs "3"
 ```
 
@@ -40,12 +39,12 @@ In other cases, the `NodeList` is _static,_ where any changes in the DOM do not 
 
 It's good to keep this distinction in mind when you choose how to iterate over the items in the `NodeList`, and whether you should cache the list's `length`.
 
-## Properties
+## Instance properties
 
-- {{domxref("NodeList.length")}}
+- {{domxref("NodeList.length")}} {{ReadOnlyInline}}
   - : The number of nodes in the `NodeList`.
 
-## Methods
+## Instance methods
 
 - {{domxref("NodeList.item()")}}
 
@@ -54,11 +53,11 @@ It's good to keep this distinction in mind when you choose how to iterate over t
     An alternative to accessing `nodeList[i]` (which instead returns `undefined` when `i` is out-of-bounds). This is mostly useful for non-JavaScript DOM implementations.
 
 - {{domxref("NodeList.entries()")}}
-  - : Returns an {{jsxref("Iteration_protocols","iterator")}}, allowing code to go through all key/value pairs contained in the collection. (In this case, the keys are numbers starting from `0` and the values are nodes.)
+  - : Returns an {{jsxref("Iteration_protocols","iterator")}}, allowing code to go through all key/value pairs contained in the collection. (In this case, the keys are integers starting from `0` and the values are nodes.)
 - {{domxref("NodeList.forEach()")}}
   - : Executes a provided function once per `NodeList` element, passing the element as an argument to the function.
 - {{domxref("NodeList.keys()")}}
-  - : Returns an {{jsxref("Iteration_protocols", "iterator")}}, allowing code to go through all the keys of the key/value pairs contained in the collection. (In this case, the keys are numbers starting from `0`.)
+  - : Returns an {{jsxref("Iteration_protocols", "iterator")}}, allowing code to go through all the keys of the key/value pairs contained in the collection. (In this case, the keys are integers starting from `0`.)
 - {{domxref("NodeList.values()")}}
   - : Returns an {{jsxref("Iteration_protocols", "iterator")}} allowing code to go through all values (nodes) of the key/value pairs contained in the collection.
 
@@ -77,7 +76,7 @@ for (let i = 0; i < myNodeList.length; i++) {
 [`for...of`](/en-US/docs/Web/JavaScript/Reference/Statements/for...of) loops loop over `NodeList` objects correctly:
 
 ```js
-const list = document.querySelectorAll('input[type=checkbox]');
+const list = document.querySelectorAll("input[type=checkbox]");
 for (const checkbox of list) {
   checkbox.checked = true;
 }

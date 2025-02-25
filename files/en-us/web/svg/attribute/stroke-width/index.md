@@ -1,19 +1,19 @@
 ---
 title: stroke-width
 slug: Web/SVG/Attribute/stroke-width
-tags:
-  - SVG
-  - SVG Attribute
-browser-compat: svg.attributes.presentation.stroke-width
+page-type: svg-attribute
+browser-compat: svg.global_attributes.stroke-width
 ---
 
 {{SVGRef}}
 
-The **`stroke-width`** attribute is a presentation attribute defining the width of the stroke to be applied to the shape.
+The **`stroke-width`** attribute is a presentation attribute defining the width of the stroke to be applied to the shape. It applies to any SVG shape or text-content element (see {{SVGAttr("stroke-width")}} for a full list), but as an inherited property, it may be applied to elements such as {{SVGElement("g")}} and still have the intended effect on descendant elements' strokes.
+
+> [!NOTE]
+> As a presentation attribute, `stroke-width` also has a CSS property counterpart: {{cssxref("stroke-width")}}. When both are specified, the CSS property takes priority.
 
 You can use this attribute with the following SVG elements:
 
-- {{SVGElement('altGlyph')}}
 - {{SVGElement('circle')}}
 - {{SVGElement('ellipse')}}
 - {{SVGElement('line')}}
@@ -81,7 +81,8 @@ svg {
   </tbody>
 </table>
 
-> **Note:** A percentage value is always computed as a percentage of the normalized {{SVGAttr('viewBox')}} diagonal length.
+> [!NOTE]
+> A percentage value is always computed as a percentage of the normalized {{SVGAttr('viewBox')}} diagonal length.
 
 ## Specifications
 
@@ -90,3 +91,7 @@ svg {
 ## Browser compatibility
 
 {{Compat}}
+
+## See also
+
+- CSS {{cssxref("stroke-width")}} property

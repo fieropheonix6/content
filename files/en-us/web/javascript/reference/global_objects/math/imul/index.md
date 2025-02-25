@@ -1,21 +1,29 @@
 ---
 title: Math.imul()
 slug: Web/JavaScript/Reference/Global_Objects/Math/imul
-tags:
-  - JavaScript
-  - Math
-  - Method
-  - Reference
-  - imul
-  - Polyfill
+page-type: javascript-static-method
 browser-compat: javascript.builtins.Math.imul
 ---
 
 {{JSRef}}
 
-The **`Math.imul()`** function returns the result of the C-like 32-bit multiplication of the two parameters.
+The **`Math.imul()`** static method returns the result of the C-like 32-bit multiplication of the two parameters.
 
-{{EmbedInteractiveExample("pages/js/math-imul.html")}}
+{{InteractiveExample("JavaScript Demo: Math.imul()")}}
+
+```js interactive-example
+console.log(Math.imul(3, 4));
+// Expected output: 12
+
+console.log(Math.imul(-5, 12));
+// Expected output: -60
+
+console.log(Math.imul(0xffffffff, 5));
+// Expected output: -5
+
+console.log(Math.imul(0xfffffffe, 5));
+// Expected output: -10
+```
 
 ## Syntax
 
@@ -65,4 +73,4 @@ Math.imul(0xfffffffe, 5); // -10
 ## See also
 
 - [Polyfill of `Math.imul` in `core-js`](https://github.com/zloirock/core-js#ecmascript-math)
-- [Emscripten](https://en.wikipedia.org/wiki/Emscripten)
+- [Emscripten](https://en.wikipedia.org/wiki/Emscripten) on Wikipedia

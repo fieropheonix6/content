@@ -1,31 +1,25 @@
 ---
-title: IDBRequest.result
+title: "IDBRequest: result property"
+short-title: result
 slug: Web/API/IDBRequest/result
 page-type: web-api-instance-property
-tags:
-  - API
-  - Database
-  - IDBRequest
-  - IndexedDB
-  - Property
-  - Reference
-  - Storage
-  - result
 browser-compat: api.IDBRequest.result
 ---
 
-{{ APIRef("IndexedDB") }}
+{{ APIRef("IndexedDB") }} {{AvailableInWorkers}}
 
 The **`result`** read-only property of the
-{{domxref("IDBRequest")}} interface returns the result of the request. If the request
-failed and the result is not available, an `InvalidStateError` exception is
-thrown.
-
-{{AvailableInWorkers}}
+{{domxref("IDBRequest")}} interface returns the result of the request.
 
 ## Value
 
 any
+
+### Exceptions
+
+- `InvalidStateError` {{domxref("DOMException")}}
+  - : Thrown when attempting to access the property if the request
+    is not completed, and therefore the result is not available.
 
 ## Examples
 
@@ -33,15 +27,17 @@ The following example requests a given record title, `onsuccess` gets the
 associated record from the {{domxref("IDBObjectStore")}} (made available
 as `objectStoreTitleRequest.result`), updates
 one property of the record, and then puts the updated record back into the object
-store. For a full working example, see our [To-do Notifications](https://github.com/mdn/to-do-notifications/) app ([View the example live](https://mdn.github.io/to-do-notifications/)>.)
+store. For a full working example, see our [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) app ([View the example live](https://mdn.github.io/dom-examples/to-do-notifications/)).
 
 ```js
 const title = "Walk dog";
 
 // Open up a transaction as usual
-const objectStore = db.transaction(['toDoList'], "readwrite").objectStore('toDoList');
+const objectStore = db
+  .transaction(["toDoList"], "readwrite")
+  .objectStore("toDoList");
 
-// Get the to-do list object that has this title as it's title
+// Get the to-do list object that has this title as its title
 const objectStoreTitleRequest = objectStore.get(title);
 
 objectStoreTitleRequest.onsuccess = () => {
@@ -79,4 +75,4 @@ objectStoreTitleRequest.onsuccess = () => {
 - Setting a range of keys: {{domxref("IDBKeyRange")}}
 - Retrieving and making changes to your data: {{domxref("IDBObjectStore")}}
 - Using cursors: {{domxref("IDBCursor")}}
-- Reference example: [To-do Notifications](https://github.com/mdn/to-do-notifications/tree/gh-pages) ([View the example live](https://mdn.github.io/to-do-notifications/)).
+- Reference example: [To-do Notifications](https://github.com/mdn/dom-examples/tree/main/to-do-notifications) ([View the example live](https://mdn.github.io/dom-examples/to-do-notifications/)).

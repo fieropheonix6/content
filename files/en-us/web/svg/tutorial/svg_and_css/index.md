@@ -1,24 +1,19 @@
 ---
 title: SVG and CSS
 slug: Web/SVG/Tutorial/SVG_and_CSS
-tags:
-  - CSS
-  - CSS:Getting_Started
-  - Example
-  - Guide
-  - Intermediate
-  - NeedsUpdate
-  - SVG
-  - Web
+page-type: guide
 ---
+
+{{SVGRef}}
 
 {{ PreviousNext("Web/SVG/Tutorial/Tools_for_SVG") }}
 
 This page illustrates the application of CSS to the specialized language for creating graphics: [SVG](/en-US/docs/Web/SVG).
 
-Below you'll create a simple demonstration that runs in your SVG-enabled browser.
+Below you'll create a demonstration that runs in a browser.
 
-> **Note:** Elements referenced by {{SVGElement("use")}} elements inherit the styles from that element. So to apply different styles to them you should use [CSS custom properties](/en-US/docs/Web/CSS/CSS_Variables).
+> [!NOTE]
+> Elements referenced by {{SVGElement("use")}} elements inherit the styles from that element. So to apply different styles to them you should use [CSS custom properties](/en-US/docs/Web/CSS/CSS_cascading_variables).
 
 ## Example
 
@@ -31,7 +26,11 @@ Make a new SVG document as a plain text file, `doc8.svg`. Copy and paste the con
   viewBox="-300 -300 600 600"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink">
-  <link rel="stylesheet" href="style8.css" type="text/css" />
+  <link
+    xmlns="http://www.w3.org/1999/xhtml"
+    rel="stylesheet"
+    href="style8.css"
+    type="text/css" />
 
   <title>SVG demonstration</title>
   <desc>Mozilla CSS Getting Started - SVG demonstration</desc>
@@ -414,7 +413,7 @@ Notes about this demonstration:
 
 Change the stylesheet so that the inner petals all turn pink when the mouse pointer is over any one of them, without changing the way the outer petals work.
 
-[See a solution to this challenge.](/en-US/docs/Web/Guide/CSS/Getting_started/Challenge_solutions#svg_and_css)
+[See a solution to this challenge.](/en-US/docs/Learn_web_development/Core/Challenges#svg_and_css)
 
 ## Simplified structure
 
@@ -427,7 +426,13 @@ See below how the structure then looks like.
   width="600px"
   height="600px"
   viewBox="-300 -300 600 600"
-  xmlns="http://www.w3.org/2000/svg">
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+  <link
+    xmlns="http://www.w3.org/1999/xhtml"
+    rel="stylesheet"
+    href="style8.css"
+    type="text/css" />
   <title>SVG demonstration</title>
   <desc>Mozilla CSS Getting Started - SVG demonstration</desc>
 
@@ -437,17 +442,17 @@ See below how the structure then looks like.
       <path class="segment-edge" d="M0,-200 a40,40 0 0,0 -62,10" />
     </g>
     <g id="quadrant">
-      <use xlink:href="#segment" />
-      <use xlink:href="#segment" transform="rotate(18)" />
-      <use xlink:href="#segment" transform="rotate(36)" />
-      <use xlink:href="#segment" transform="rotate(54)" />
-      <use xlink:href="#segment" transform="rotate(72)" />
+      <use href="#segment" />
+      <use href="#segment" transform="rotate(18)" />
+      <use href="#segment" transform="rotate(36)" />
+      <use href="#segment" transform="rotate(54)" />
+      <use href="#segment" transform="rotate(72)" />
     </g>
     <g id="petals">
-      <use xlink:href="#quadrant" />
-      <use xlink:href="#quadrant" transform="rotate(90)" />
-      <use xlink:href="#quadrant" transform="rotate(180)" />
-      <use xlink:href="#quadrant" transform="rotate(270)" />
+      <use href="#quadrant" />
+      <use href="#quadrant" transform="rotate(90)" />
+      <use href="#quadrant" transform="rotate(180)" />
+      <use href="#quadrant" transform="rotate(270)" />
     </g>
     <radialGradient
       id="fade"
@@ -473,11 +478,8 @@ See below how the structure then looks like.
       r="200"
       stroke="none"
       fill="url(#fade)" />
-    <use id="outer-petals" xlink:href="#petals" />
-    <use
-      id="inner-petals"
-      xlink:href="#petals"
-      transform="rotate(9) scale(0.33)" />
+    <use id="outer-petals" href="#petals" />
+    <use id="inner-petals" href="#petals" transform="rotate(9) scale(0.33)" />
   </g>
 </svg>
 ```
@@ -486,4 +488,4 @@ See below how the structure then looks like.
 
 ## What next?
 
-In this demonstration, your SVG-enabled browser already knows how to display SVG elements. The stylesheet only modifies the display in certain ways. This is also true for HTML documents. But you can use CSS for general-purpose XML documents, where there is no predefined way to display the elements. The next page demonstrates this: [XML introduction](/en-US/docs/Web/XML/XML_introduction)
+In this demonstration, your SVG-enabled browser already knows how to display SVG elements. The stylesheet only modifies the display in certain ways. This is also true for HTML documents. But you can use CSS for general-purpose XML documents, where there is no predefined way to display the elements. The next page demonstrates this: [XML introduction](/en-US/docs/Web/XML/Guides/XML_introduction)

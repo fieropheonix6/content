@@ -1,12 +1,7 @@
 ---
 title: border-image-source
 slug: Web/CSS/border-image-source
-tags:
-  - CSS
-  - CSS Borders
-  - CSS Property
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.border-image-source
 ---
 
@@ -75,4 +70,5 @@ border-image-source: unset;
 - {{cssxref("outline")}}
 - {{cssxref("box-shadow")}}
 - {{cssxref("background-image")}}
-- {{cssxref("url", "url()")}} function
+- {{cssxref("url_value", "&lt;url&gt;")}} type
+- [Border images in CSS: A key focus area for Interop 2023](/en-US/blog/border-images-interop-2023/) on MDN blog (2023)

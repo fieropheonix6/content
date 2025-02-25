@@ -1,12 +1,7 @@
 ---
 title: border-image-width
 slug: Web/CSS/border-image-width
-tags:
-  - CSS
-  - CSS Borders
-  - CSS Property
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.border-image-width
 ---
 
@@ -33,10 +28,10 @@ border-image-width: 25%;
 /* <number> value */
 border-image-width: 3;
 
-/* vertical | horizontal */
+/* top and bottom | left and right */
 border-image-width: 2em 3em;
 
-/* top | horizontal | bottom */
+/* top | left and right | bottom */
 border-image-width: 5% 15% 10%;
 
 /* top | right | bottom | left */
@@ -120,5 +115,6 @@ p {
 
 ## See also
 
-- [Backgrounds and borders](/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders)
-- [Learn CSS: Backgrounds and borders](/en-US/docs/Learn/CSS/Building_blocks/Backgrounds_and_borders)
+- [Backgrounds and borders](/en-US/docs/Web/CSS/CSS_backgrounds_and_borders)
+- [Learn CSS: Backgrounds and borders](/en-US/docs/Learn_web_development/Core/Styling_basics/Backgrounds_and_borders)
+- [Border images in CSS: A key focus area for Interop 2023](/en-US/blog/border-images-interop-2023/) on MDN blog (2023)

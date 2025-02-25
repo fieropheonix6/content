@@ -1,20 +1,11 @@
 ---
 title: windows.CreateType
 slug: Mozilla/Add-ons/WebExtensions/API/windows/CreateType
-tags:
-  - API
-  - Add-ons
-  - CreateType
-  - Extensions
-  - Non-standard
-  - Reference
-  - Type
-  - WebExtensions
-  - Windows
+page-type: webextension-api-type
 browser-compat: webextensions.api.windows.CreateType
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Specifies the type of browser window to create.
 
@@ -33,9 +24,8 @@ Values of this type are `strings`. Possible values are:
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/windows/#type-CreateType) API. This documentation is derived from [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) in the Chromium code.
->
-> Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.windows`](https://developer.chrome.com/docs/extensions/reference/api/windows#type-CreateType) API. This documentation is derived from [`windows.json`](https://chromium.googlesource.com/chromium/src/+/master/chrome/common/extensions/api/windows.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

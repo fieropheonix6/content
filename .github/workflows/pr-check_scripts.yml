@@ -5,26 +5,32 @@ on:
     branches:
       - main
     paths:
+      - .nvmrc
       - package.json
       - yarn.lock
       - .github/workflows/pr-check_scripts.yml
+
+# No GITHUB_TOKEN permissions, as we only use it to increase API limit.
+permissions: {}
 
 jobs:
   up-to-date-check:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version-file: ".nvmrc"
           cache: yarn
 
       - name: yarn install
-        run: |
-          yarn --frozen-lockfile
+        run: yarn --frozen-lockfile
+        env:
+          # https://github.com/microsoft/vscode-ripgrep#github-api-limit-note
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: yarn up-to-date-check
 
@@ -32,17 +38,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version-file: ".nvmrc"
           cache: yarn
 
       - name: yarn install
-        run: |
-          yarn --frozen-lockfile
+        run: yarn --frozen-lockfile
+        env:
+          # https://github.com/microsoft/vscode-ripgrep#github-api-limit-note
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: yarn start
         run: yarn start > /tmp/stdout.log 2> /tmp/stderr.log &
@@ -70,17 +78,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version-file: ".nvmrc"
           cache: yarn
 
       - name: yarn install
-        run: |
-          yarn --frozen-lockfile
+        run: yarn --frozen-lockfile
+        env:
+          # https://github.com/microsoft/vscode-ripgrep#github-api-limit-note
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: yarn filecheck --help
 
@@ -88,34 +98,42 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version-file: ".nvmrc"
           cache: yarn
 
       - name: Install all yarn packages
-        run: |
-          yarn --frozen-lockfile
+        run: yarn --frozen-lockfile
+        env:
+          # https://github.com/microsoft/vscode-ripgrep#github-api-limit-note
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: yarn content --help
+
+      - run: yarn content fix-redirects en-US
+
+      - run: yarn content validate-redirects en-US
 
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: "16"
+          node-version-file: ".nvmrc"
           cache: yarn
 
       - name: yarn install
-        run: |
-          yarn --frozen-lockfile
+        run: yarn --frozen-lockfile
+        env:
+          # https://github.com/microsoft/vscode-ripgrep#github-api-limit-note
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - run: yarn build --help

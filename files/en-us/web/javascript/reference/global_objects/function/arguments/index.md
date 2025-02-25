@@ -1,21 +1,19 @@
 ---
 title: Function.prototype.arguments
 slug: Web/JavaScript/Reference/Global_Objects/Function/arguments
-tags:
-  - Deprecated
-  - Function
-  - JavaScript
-  - Property
-  - arguments
-  - Non-standard
+page-type: javascript-instance-accessor-property
+status:
+  - deprecated
+  - non-standard
 browser-compat: javascript.builtins.Function.arguments
 ---
 
 {{JSRef}}{{Deprecated_Header}}{{Non-standard_Header}}
 
-> **Note:** The `arguments` property of {{jsxref("Function")}} objects is deprecated. The recommended way to access the `arguments` object is to refer to the variable {{jsxref("Functions/arguments", "arguments")}} available within functions.
+> [!NOTE]
+> The `arguments` property of {{jsxref("Function")}} objects is deprecated. The recommended way to access the `arguments` object is to refer to the variable {{jsxref("Functions/arguments", "arguments")}} available within functions.
 
-The **`arguments`** accessor property represents the arguments passed to a {{jsxref("Function")}} object. For [strict](/en-US/docs/Web/JavaScript/Reference/Strict_mode), async function, and generator function callers, accessing the `arguments` property throws an exception.
+The **`arguments`** accessor property of {{jsxref("Function")}} instances returns the arguments passed to this function. For [strict](/en-US/docs/Web/JavaScript/Reference/Strict_mode), arrow, async, and generator functions, accessing the `arguments` property throws a {{jsxref("TypeError")}}.
 
 ## Description
 
@@ -76,8 +74,7 @@ f(2);
 
 console.log(`returned: ${g.arguments}`);
 
-// Output
-
+// Logs:
 // before: 1
 // before: 0
 // after: 0
@@ -95,5 +92,5 @@ Not part of any standard.
 
 ## See also
 
-- {{jsxref("Functions/arguments", "arguments")}} object
-- {{jsxref("Functions", "Functions and function scope", "", 1)}}
+- {{jsxref("Functions/arguments", "arguments")}}
+- [Functions](/en-US/docs/Web/JavaScript/Reference/Functions)

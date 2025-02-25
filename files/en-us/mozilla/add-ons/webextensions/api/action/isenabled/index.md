@@ -1,23 +1,16 @@
 ---
 title: action.isEnabled()
 slug: Mozilla/Add-ons/WebExtensions/API/action/isEnabled
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Reference
-  - WebExtensions
-  - action
-  - isEnabled
+page-type: webextension-api-function
 browser-compat: webextensions.api.action.isEnabled
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Returns `true` if the browser action is enabled.
 
-> **Note:** This API is available in Manifest V3 or higher.
+> [!NOTE]
+> This API is available in Manifest V3 or higher.
 
 This is an asynchronous function that returns a [`Promise`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
 

@@ -2,9 +2,6 @@
 title: ProcessingInstruction
 slug: Web/API/ProcessingInstruction
 page-type: web-api-interface
-tags:
-  - Interface
-  - Reference
 browser-compat: api.ProcessingInstruction
 ---
 
@@ -14,9 +11,10 @@ The **`ProcessingInstruction`** interface represents a [processing instruction](
 
 > **Warning:** `ProcessingInstruction` nodes are only supported in XML documents, not in HTML documents. In these, a process instruction will be considered as a comment and be represented as a {{domxref("Comment")}} object in the tree.
 
-A processing instruction may be different than the [XML declaration](/en-US/docs/Web/XML/XML_introduction#xml_declaration).
+A processing instruction may be different than the [XML declaration](/en-US/docs/Web/XML/Guides/XML_introduction#xml_declaration).
 
-> **Note:** User-defined processing instructions cannot begin with "`xml`", as `xml`-prefixed processing-instruction target names are reserved by the XML specification for particular, standard uses (see, for example, `<?xml-stylesheet ?>`.
+> [!NOTE]
+> User-defined processing instructions cannot begin with `"xml"`, as `xml`-prefixed processing-instruction target names are reserved by the XML specification for particular, standard uses (see, for example, `<?xml-stylesheet ?>`.
 
 For example:
 
@@ -28,14 +26,18 @@ is a processing instruction whose `target` is `xml`.
 
 {{InheritanceDiagram}}
 
-## Properties
+## Instance properties
 
 _This interface also inherits properties from its parent interfaces, {{domxref("CharacterData")}}, {{domxref("Node")}}, and {{domxref("EventTarget")}}._
+
+- {{domxref("ProcessingInstruction.sheet")}} {{ReadOnlyInline}}
+
+  - : Returns the associated {{domxref("StyleSheet")}} object, if any; or `null` if none.
 
 - {{domxref("ProcessingInstruction.target")}} {{ReadOnlyInline}}
   - : A name identifying the application to which the instruction is targeted.
 
-## Methods
+## Instance methods
 
 _This interface doesn't have any specific method, but inherits methods from its parent interfaces, {{domxref("CharacterData")}}, {{domxref("Node")}}, and {{domxref("EventTarget")}}._
 

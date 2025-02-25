@@ -1,6 +1,7 @@
 ---
-title: ':past'
+title: :past
 slug: Web/CSS/:past
+page-type: css-pseudo-class
 browser-compat: css.selectors.past
 ---
 
@@ -16,8 +17,10 @@ The **`:past`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/Ps
 
 ## Syntax
 
-```
-:past
+```css
+:past {
+  /* ... */
+}
 ```
 
 ## Examples
@@ -47,7 +50,7 @@ The **`:past`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/CSS/Ps
 
 ### WebVTT
 
-```
+```plain
 WEBVTT FILE
 
 1

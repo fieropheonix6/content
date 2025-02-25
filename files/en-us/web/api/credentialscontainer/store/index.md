@@ -1,25 +1,19 @@
 ---
-title: CredentialsContainer.store()
+title: "CredentialsContainer: store() method"
+short-title: store()
 slug: Web/API/CredentialsContainer/store
 page-type: web-api-instance-method
-tags:
-  - API
-  - Credential Management API
-  - CredentialsContainer
-  - Method
-  - NeedsExample
-  - Reference
-  - credential management
 browser-compat: api.CredentialsContainer.store
 ---
 
-{{APIRef("Credential Management API")}}
+{{APIRef("Credential Management API")}}{{SecureContext_Header}}
 
 The **`store()`** method of the
 {{domxref("CredentialsContainer")}} stores a set of credentials for the user inside a
 {{domxref("Credential")}} instance, returning this in a {{jsxref("Promise")}}.
 
-> **Note:** This method is restricted to top-level contexts. Calls to it within an
+> [!NOTE]
+> This method is restricted to top-level contexts. Calls to it within an
 > `<iframe>` element will resolve without effect.
 
 ## Syntax
@@ -37,6 +31,11 @@ store(credentials)
 
 A {{jsxref("Promise")}} that resolves to `undefined`.
 
+### Exceptions
+
+- `NotAllowedError` {{domxref("DOMException")}}
+  - : Thrown if there is also a credential of the same type as the current one under operation.
+
 ## Examples
 
 ### Storing a password credential at successful authentication
@@ -49,15 +48,18 @@ the credential is correct.
 if ("PasswordCredential" in window) {
   let credential = new PasswordCredential({
     id: "example-username",
-    name: "John Doe", // In case of a login, the name comes from the server.
-    password: "correct horse battery staple"
+    name: "Carina Anand", // In case of a login, the name comes from the server.
+    password: "correct horse battery staple",
   });
 
-  navigator.credentials.store(credential).then(() => {
-    console.info("Credential stored in the user agent's credential manager.");
-  }, (err) => {
-    console.error("Error while storing the credential: ", err);
-  });
+  navigator.credentials.store(credential).then(
+    () => {
+      console.info("Credential stored in the user agent's credential manager.");
+    },
+    (err) => {
+      console.error("Error while storing the credential: ", err);
+    },
+  );
 }
 ```
 

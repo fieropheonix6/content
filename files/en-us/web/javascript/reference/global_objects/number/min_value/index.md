@@ -1,18 +1,36 @@
 ---
 title: Number.MIN_VALUE
 slug: Web/JavaScript/Reference/Global_Objects/Number/MIN_VALUE
-tags:
-  - JavaScript
-  - Number
-  - Property
+page-type: javascript-static-data-property
 browser-compat: javascript.builtins.Number.MIN_VALUE
 ---
 
 {{JSRef}}
 
-The **`Number.MIN_VALUE`** property represents the smallest positive numeric value representable in JavaScript.
+The **`Number.MIN_VALUE`** static data property represents the smallest positive numeric value representable in JavaScript.
 
-{{EmbedInteractiveExample("pages/js/number-min-value.html")}}{{js_property_attributes(0, 0, 0)}}
+{{InteractiveExample("JavaScript Demo: Number.MIN_VALUE")}}
+
+```js interactive-example
+function divide(x, y) {
+  if (x / y < Number.MIN_VALUE) {
+    return "Process as 0";
+  }
+  return x / y;
+}
+
+console.log(divide(5e-324, 1));
+// Expected output: 5e-324
+
+console.log(divide(5e-324, 2));
+// Expected output: "Process as 0"
+```
+
+## Value
+
+2<sup>-1074</sup>, or `5E-324`.
+
+{{js_property_attributes(0, 0, 0)}}
 
 ## Description
 

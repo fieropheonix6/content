@@ -1,13 +1,7 @@
 ---
-title: ':last-child'
+title: :last-child
 slug: Web/CSS/:last-child
-tags:
-  - CSS
-  - Layout
-  - Pseudo-class
-  - Reference
-  - Selector
-  - Web
+page-type: css-pseudo-class
 browser-compat: css.selectors.last-child
 ---
 
@@ -19,8 +13,10 @@ The **`:last-child`** [CSS](/en-US/docs/Web/CSS) [pseudo-class](/en-US/docs/Web/
 
 ## Syntax
 
-```
-:last-child
+```css
+:last-child {
+  /* ... */
+}
 ```
 
 ## Examples
@@ -101,7 +97,7 @@ ul li:last-child {
 
 ## See also
 
-- {{CSSxRef(":-moz-last-node")}} {{Non-standard_Inline}}
+- {{CSSxRef(":-moz-last-node")}}
 - {{CSSxRef(":last-of-type")}}
 - {{CSSxRef(":first-child")}}
 - {{CSSxRef(":nth-child")}}

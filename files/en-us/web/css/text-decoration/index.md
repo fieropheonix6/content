@@ -1,12 +1,7 @@
 ---
 title: text-decoration
 slug: Web/CSS/text-decoration
-tags:
-  - CSS
-  - CSS Property
-  - CSS Text Decoration
-  - Reference
-  - recipe:css-shorthand-property
+page-type: css-shorthand-property
 browser-compat: css.properties.text-decoration
 ---
 
@@ -25,7 +20,7 @@ This property is a shorthand for the following CSS properties:
 - [`text-decoration-color`](/en-US/docs/Web/CSS/text-decoration-color)
 - [`text-decoration-line`](/en-US/docs/Web/CSS/text-decoration-line)
 - [`text-decoration-style`](/en-US/docs/Web/CSS/text-decoration-style)
-- [`text-decoration-thickness`](/en-US/docs/Web/CSS/text-decoration-thickness) {{Non-standard_Inline}}
+- [`text-decoration-thickness`](/en-US/docs/Web/CSS/text-decoration-thickness)
 
 ## Syntax
 
@@ -115,7 +110,9 @@ The `text-decoration` property is specified as one or more space-separated value
 </p>
 ```
 
-{{EmbedLiveSample('Examples','auto','320')}}
+#### Result
+
+{{EmbedLiveSample('Examples','auto','520')}}
 
 ## Specifications
 
@@ -129,4 +126,5 @@ The `text-decoration` property is specified as one or more space-separated value
 
 - The individual text-decoration properties are {{cssxref("text-decoration-line")}}, {{cssxref("text-decoration-color")}}, {{cssxref("text-decoration-style")}}, and {{cssxref("text-decoration-thickness")}}.
 - The {{cssxref("text-decoration-skip-ink")}}, {{cssxref("text-underline-offset")}}, and {{cssxref("text-underline-position")}} properties also affect text-decoration, but are not included in the shorthand.
-- The {{cssxref("list-style")}} attribute controls the appearance of items in HTML {{HTMLElement("ol")}} and {{HTMLElement("ul")}} lists.
+- The {{cssxref("list-style")}} property controls the appearance of items in HTML {{HTMLElement("ol")}} and {{HTMLElement("ul")}} lists.
+- SVG {{SVGAttr("text-decoration")}} attribute

@@ -1,19 +1,29 @@
 ---
 title: Math.floor()
 slug: Web/JavaScript/Reference/Global_Objects/Math/floor
-tags:
-  - JavaScript
-  - Math
-  - Method
-  - Reference
+page-type: javascript-static-method
 browser-compat: javascript.builtins.Math.floor
 ---
 
 {{JSRef}}
 
-The **`Math.floor()`** function always rounds down and returns the largest integer less than or equal to a given number.
+The **`Math.floor()`** static method always rounds down and returns the largest integer less than or equal to a given number.
 
-{{EmbedInteractiveExample("pages/js/math-floor.html")}}
+{{InteractiveExample("JavaScript Demo: Math.floor()")}}
+
+```js interactive-example
+console.log(Math.floor(5.95));
+// Expected output: 5
+
+console.log(Math.floor(5.05));
+// Expected output: 5
+
+console.log(Math.floor(5));
+// Expected output: 5
+
+console.log(Math.floor(-5.05));
+// Expected output: -6
+```
 
 ## Syntax
 
@@ -44,9 +54,9 @@ Math.floor(-45.95); // -46
 Math.floor(-45.05); // -46
 Math.floor(-0); // -0
 Math.floor(0); // 0
-Math.floor(4); //   4
-Math.floor(45.05); //  45
-Math.floor(45.95); //  45
+Math.floor(4); // 4
+Math.floor(45.05); // 45
+Math.floor(45.95); // 45
 Math.floor(Infinity); // Infinity
 ```
 
@@ -69,7 +79,7 @@ function decimalAdjust(type, value, exp) {
   type = String(type);
   if (!["round", "floor", "ceil"].includes(type)) {
     throw new TypeError(
-      "The type of decimal adjustment must be one of 'round', 'floor', or 'ceil'."
+      "The type of decimal adjustment must be one of 'round', 'floor', or 'ceil'.",
     );
   }
   exp = Number(exp);

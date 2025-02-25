@@ -1,12 +1,7 @@
 ---
 title: block-size
 slug: Web/CSS/block-size
-tags:
-  - CSS
-  - CSS Logical Property
-  - CSS Property
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.block-size
 ---
 
@@ -24,6 +19,8 @@ If the writing mode is vertically oriented, the value of `block-size` relates to
 /* <length> values */
 block-size: 300px;
 block-size: 25em;
+block-size: anchor-size(height);
+block-size: calc(anchor-size(--myAnchor block) * 0.75);
 
 /* <percentage> values */
 block-size: 75%;
@@ -31,6 +28,7 @@ block-size: 75%;
 /* Keyword values */
 block-size: max-content;
 block-size: min-content;
+block-size: fit-content;
 block-size: fit-content(20em);
 block-size: auto;
 
