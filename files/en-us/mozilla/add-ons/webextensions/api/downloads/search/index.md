@@ -1,20 +1,11 @@
 ---
 title: downloads.search()
 slug: Mozilla/Add-ons/WebExtensions/API/downloads/search
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Non-standard
-  - Reference
-  - Search
-  - WebExtensions
-  - downloads
+page-type: webextension-api-function
 browser-compat: webextensions.api.downloads.search
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 The **`search()`** function of the {{WebExtAPIRef("downloads")}} API queries the {{WebExtAPIRef("downloads.DownloadItem", "DownloadItems")}} available in the browser's downloads manager, and returns those that match the specified search criteria.
 
@@ -128,13 +119,12 @@ browser.downloads
   .then(logDownloads, onError);
 ```
 
-You can see this code in action in our [latest-download](https://github.com/mdn/webextensions-examples/blob/master/latest-download/popup/latest_download.js) example.
+You can see this code in action in our [latest-download](https://github.com/mdn/webextensions-examples/blob/main/latest-download/popup/latest_download.js) example.
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/downloads/#method-search) API.
->
-> Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.downloads`](https://developer.chrome.com/docs/extensions/reference/api/downloads#method-search) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

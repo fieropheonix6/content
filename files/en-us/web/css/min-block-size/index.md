@@ -1,13 +1,7 @@
 ---
 title: min-block-size
 slug: Web/CSS/min-block-size
-tags:
-  - CSS
-  - CSS Logical Property
-  - CSS Property
-  - Reference
-  - min-block-size
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.min-block-size
 ---
 
@@ -25,6 +19,7 @@ If the writing mode is vertically oriented, the value of `min-block-size` relate
 /* <length> values */
 min-block-size: 100px;
 min-block-size: 5em;
+min-block-size: anchor-size(self-inline);
 
 /* <percentage> values */
 min-block-size: 10%;
@@ -32,6 +27,7 @@ min-block-size: 10%;
 /* Keyword values */
 min-block-size: max-content;
 min-block-size: min-content;
+min-block-size: fit-content;
 min-block-size: fit-content(20em);
 
 /* Global values */

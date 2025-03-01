@@ -1,11 +1,7 @@
 ---
 title: Property accessors
-slug: Web/JavaScript/Reference/Operators/Property_Accessors
-tags:
-  - JavaScript
-  - Language feature
-  - Operator
-  - Reference
+slug: Web/JavaScript/Reference/Operators/Property_accessors
+page-type: javascript-operator
 browser-compat: javascript.operators.property_accessors
 ---
 
@@ -13,18 +9,36 @@ browser-compat: javascript.operators.property_accessors
 
 **Property accessors** provide access to an object's properties by using the dot notation or the bracket notation.
 
-{{EmbedInteractiveExample("pages/js/expressions-propertyaccessors.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Property accessors", "taller")}}
+
+```js interactive-example
+const person1 = {};
+person1["firstname"] = "Mario";
+person1["lastname"] = "Rossi";
+
+console.log(person1.firstname);
+// Expected output: "Mario"
+
+const person2 = {
+  firstname: "John",
+  lastname: "Doe",
+};
+
+console.log(person2["lastname"]);
+// Expected output: "Doe"
+```
 
 ## Syntax
 
 ```js-nolint
 object.propertyName
 object[expression]
+object.#privateProperty
 ```
 
 ## Description
 
-One can think of an object as an _associative array_ (a.k.a. _map_, _dictionary_, _hash_, _lookup table_). The _keys_ in this array are the names of the object's properties.
+One can think of an object as an _associative array_ (a.k.a. _map_, _dictionary_, _hash_, _lookup table_). The _keys_ in this array are the names of the object's [properties](/en-US/docs/Glossary/Property/JavaScript).
 
 There are two ways to access properties: _dot notation_ and _bracket notation_.
 
@@ -43,7 +57,7 @@ object.$1 = "foo";
 console.log(object.$1); // 'foo'
 ```
 
-```js example-bad
+```js-nolint example-bad
 const object = {};
 object.1 = 'bar'; // SyntaxError
 console.log(object.1); // SyntaxError
@@ -57,7 +71,7 @@ document.createElement("pre");
 
 If you use a method for a numeric literal, and the numeric literal has no exponent and no decimal point, you should leave [white-space(s)](/en-US/docs/Glossary/Whitespace) before the dot preceding the method call, so that the dot is not interpreted as a decimal point.
 
-```js
+```js-nolint
 77 .toExponential();
 // or
 77
@@ -70,6 +84,8 @@ If you use a method for a numeric literal, and the numeric literal has no expone
 77.0.toExponential();
 // because 77. === 77.0, no ambiguity
 ```
+
+In addition, [private properties](/en-US/docs/Web/JavaScript/Reference/Classes/Private_properties) can only be accessed using dot notation within the class that defines them.
 
 ### Bracket notation
 
@@ -88,7 +104,7 @@ document["createElement"]("pre");
 
 A space before bracket notation is allowed.
 
-```js
+```js-nolint
 document ["createElement"]("pre");
 ```
 
@@ -97,16 +113,18 @@ Passing expressions that evaluate to property name will do the same thing as dir
 ```js
 const key = "name";
 const getKey = () => "name";
-const Obj = { name: "John" };
+const Obj = { name: "Michel" };
 
-Obj["name"]; // returns "John"
-Obj[key]; // evaluates to Obj["name"], and returns "John"
-Obj[getKey()]; // evaluates to Obj["name"], and returns "John"
+Obj["name"]; // returns "Michel"
+Obj[key]; // evaluates to Obj["name"], and returns "Michel"
+Obj[getKey()]; // evaluates to Obj["name"], and returns "Michel"
 ```
+
+However, beware of using square brackets to access properties whose names are given by external input. This may make your code susceptible to [object injection attacks](https://github.com/eslint-community/eslint-plugin-security/blob/main/docs/the-dangers-of-square-bracket-notation.md).
 
 ### Property names
 
-Property names are string or [Symbol](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol). Any other value, including a number, is coerced to a string. This outputs `'value'`, since `1` is coerced into `'1'`.
+Each property name is a string or a [Symbol](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol). Any other value, including a number, is coerced to a string. This outputs `'value'`, since `1` is coerced into `'1'`.
 
 ```js
 const object = {};
@@ -114,7 +132,7 @@ object["1"] = "value";
 console.log(object[1]);
 ```
 
-This also outputs `'value'`, since both `foo` and `bar` are converted to the same string.
+This also outputs `'value'`, since both `foo` and `bar` are converted to the same string (`"[object Object]"`).
 
 ```js
 const foo = { uniqueProp: 1 };
@@ -128,7 +146,7 @@ console.log(object[bar]);
 
 It's typical when speaking of an object's properties to make a distinction between properties and methods. However, the property/method distinction is little more than a convention. A method is a property that can be called (for example, if it has a reference to a {{jsxref("Function")}} instance as its value).
 
-A method is not bound to the object that it is a property of. Specifically, `this` is not fixed in a method and does not necessarily refer to the object containing the method. Instead, `this` is "passed" by the function call. See [method binding](/en-US/docs/Web/JavaScript/Reference/Operators/this#method_binding).
+A method is not bound to the object that it is a property of. Specifically, `this` is not fixed in a method and does not necessarily refer to the object containing the method. Instead, `this` is "passed" by the function call. See [the reference for `this`](/en-US/docs/Web/JavaScript/Reference/Operators/this).
 
 ## Examples
 
@@ -160,4 +178,4 @@ const x = document.forms.form_name.elements[strFormControl].value;
 
 - {{jsxref("Object")}}
 - {{jsxref("Object.defineProperty()")}}
-- [Optional chaining](/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
+- [Optional chaining (`?.`)](/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)

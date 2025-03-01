@@ -2,14 +2,6 @@
 title: ConstantSourceNode
 slug: Web/API/ConstantSourceNode
 page-type: web-api-interface
-tags:
-  - API
-  - Audio
-  - ConstantSourceNode
-  - Interface
-  - Media
-  - Reference
-  - Web Audio API
 browser-compat: api.ConstantSourceNode
 ---
 
@@ -39,7 +31,7 @@ A `ConstantSourceNode` has no inputs and exactly one monaural (one-channel) outp
 - {{domxref("ConstantSourceNode.ConstantSourceNode", "ConstantSourceNode()")}}
   - : Creates and returns a new `ConstantSourceNode` instance, optionally specifying an object which establishes initial values for the object's properties. As an alternative, you can use the {{domxref("BaseAudioContext.createConstantSource()")}} factory method; see [Creating an AudioNode](/en-US/docs/Web/API/AudioNode#creating_an_audionode).
 
-## Properties
+## Instance properties
 
 _Inherits properties from its parent interface, {{domxref("AudioScheduledSourceNode")}}, and adds the following properties:_
 
@@ -50,16 +42,18 @@ _Inherits properties from its parent interface, {{domxref("AudioScheduledSourceN
 
 _Inherits events from its parent interface, {{domxref("AudioScheduledSourceNode")}}._
 
-> **Note:** Some browsers' implementations of these events are part of the {{domxref("AudioScheduledSourceNode")}} interface.
+> [!NOTE]
+> Some browsers' implementations of these events are part of the {{domxref("AudioScheduledSourceNode")}} interface.
 
 - {{domxref("AudioScheduledSourceNode.ended_event","ended")}}
-  - : Fired whenever the {{domxref('ConstantSourceNode')}} data has stopped playing.
+  - : Fired whenever the `ConstantSourceNode` data has stopped playing.
 
-## Methods
+## Instance methods
 
 _Inherits methods from its parent interface, {{domxref("AudioScheduledSourceNode")}}._
 
-> **Note:** Some browsers' implementations of these methods are part of the {{domxref("AudioScheduledSourceNode")}} interface.
+> [!NOTE]
+> Some browsers' implementations of these methods are part of the {{domxref("AudioScheduledSourceNode")}} interface.
 
 - {{domxref("AudioScheduledSourceNode.start", "start()")}}
   - : Schedules a sound to playback at an exact time.

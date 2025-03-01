@@ -1,9 +1,7 @@
 ---
 title: fy
 slug: Web/SVG/Attribute/fy
-tags:
-  - SVG
-  - SVG Attribute
+page-type: svg-attribute
 browser-compat: svg.elements.radialGradient.fy
 ---
 
@@ -125,7 +123,9 @@ svg {
   <tbody>
     <tr>
       <th scope="row">Value</th>
-      <td>{{cssxref("length")}}</td>
+      <td>
+        <strong><a href="/en-US/docs/Web/SVG/Content_type#length">&#x3C;length></a></strong>
+      </td>
     </tr>
     <tr>
       <th scope="row">Default value</th>

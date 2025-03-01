@@ -1,11 +1,10 @@
 ---
 title: Character set
-slug: Glossary/character_set
-tags:
-  - Glossary
-  - character encoding
-  - character set
+slug: Glossary/Character_set
+page-type: glossary-definition
 ---
+
+{{GlossarySidebar}}
 
 A **character set** is an encoding system to let computers know how to recognize {{Glossary("Character")}}, including letters, numbers, punctuation marks, and whitespace.
 
@@ -17,7 +16,6 @@ If a character set is used incorrectly (For example, Unicode for an article enco
 
 - [Character encoding](https://en.wikipedia.org/wiki/Character_encoding) (Wikipedia)
 - [Mojibake](https://en.wikipedia.org/wiki/Mojibake) (Wikipedia)
-- [Glossary](/en-US/docs/Glossary)
-
+- Related glossary terms:
   - {{Glossary("Character")}}
   - {{Glossary("Unicode")}}

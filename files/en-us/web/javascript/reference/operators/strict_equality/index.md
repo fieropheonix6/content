@@ -1,22 +1,32 @@
 ---
 title: Strict equality (===)
 slug: Web/JavaScript/Reference/Operators/Strict_equality
-tags:
-  - JavaScript
-  - Language feature
-  - Operator
-  - Reference
+page-type: javascript-operator
 browser-compat: javascript.operators.strict_equality
 ---
 
 {{jsSidebar("Operators")}}
 
-The strict equality operator (`===`) checks whether its two operands are
+The **strict equality (`===`)** operator checks whether its two operands are
 equal, returning a Boolean result. Unlike the [equality](/en-US/docs/Web/JavaScript/Reference/Operators/Equality) operator,
 the strict equality operator always considers operands of different types to be
 different.
 
-{{EmbedInteractiveExample("pages/js/expressions-strict-equality.html")}}
+{{InteractiveExample("JavaScript Demo: Expressions - Strict equality operator")}}
+
+```js interactive-example
+console.log(1 === 1);
+// Expected output: true
+
+console.log("hello" === "hello");
+// Expected output: true
+
+console.log("1" === 1);
+// Expected output: false
+
+console.log(0 === false);
+// Expected output: false
+```
 
 ## Syntax
 
@@ -50,41 +60,40 @@ The most notable difference between this operator and the [equality](/en-US/docs
 ### Comparing operands of the same type
 
 ```js
-console.log("hello" === "hello");   // true
-console.log("hello" === "hola");    // false
+"hello" === "hello"; // true
+"hello" === "hola"; // false
 
-console.log(3 === 3);               // true
-console.log(3 === 4);               // false
+3 === 3; // true
+3 === 4; // false
 
-console.log(true === true);         // true
-console.log(true === false);        // false
+true === true; // true
+true === false; // false
 
-console.log(null === null);         // true
+null === null; // true
 ```
 
 ### Comparing operands of different types
 
 ```js
-console.log("3" === 3);           // false
-
-console.log(true === 1);          // false
-
-console.log(null === undefined);  // false
+"3" === 3; // false
+true === 1; // false
+null === undefined; // false
+3 === new Number(3); // false
 ```
 
 ### Comparing objects
 
 ```js
 const object1 = {
-  name: "hello"
-}
+  key: "value",
+};
 
 const object2 = {
-  name: "hello"
-}
+  key: "value",
+};
 
-console.log(object1 === object2);  // false
-console.log(object1 === object1);  // true
+console.log(object1 === object2); // false
+console.log(object1 === object1); // true
 ```
 
 ## Specifications
@@ -97,6 +106,6 @@ console.log(object1 === object1);  // true
 
 ## See also
 
-- [Equality operator](/en-US/docs/Web/JavaScript/Reference/Operators/Equality)
-- [Inequality operator](/en-US/docs/Web/JavaScript/Reference/Operators/Inequality)
-- [Strict inequality operator](/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality)
+- [Equality (`==`)](/en-US/docs/Web/JavaScript/Reference/Operators/Equality)
+- [Inequality (`!=`)](/en-US/docs/Web/JavaScript/Reference/Operators/Inequality)
+- [Strict inequality (`!==`)](/en-US/docs/Web/JavaScript/Reference/Operators/Strict_inequality)

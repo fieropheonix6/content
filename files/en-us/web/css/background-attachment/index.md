@@ -1,12 +1,7 @@
 ---
 title: background-attachment
 slug: Web/CSS/background-attachment
-tags:
-  - CSS
-  - CSS Background
-  - CSS Property
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.background-attachment
 ---
 
@@ -37,7 +32,7 @@ The `background-attachment` property is specified as one of the keyword values f
 ### Values
 
 - `fixed`
-  - : The background is fixed relative to the viewport. Even if an element has a scrolling mechanism, the background doesn't move with the element. (This is not compatible with {{cssxref("background-clip", "background-clip: text", "#values")}}.)
+  - : The background is fixed relative to the viewport. Even if an element has a scrolling mechanism, the background doesn't move with the element.
 - `local`
   - : The background is fixed relative to the element's contents. If the element has a scrolling mechanism, the background scrolls with the element's contents, and the background painting area and background positioning area are relative to the scrollable area of the element rather than to the border framing them.
 - `scroll`
@@ -69,7 +64,7 @@ The `background-attachment` property is specified as one of the keyword values f
 
 ```css
 p {
-  background-image: url("starsolid.gif");
+  background-image: url("star-solid.gif");
   background-attachment: fixed;
 }
 ```
@@ -104,7 +99,7 @@ This property supports multiple background images. You can specify a different `
 
 ```css
 p {
-  background-image: url("starsolid.gif"), url("startransparent.gif");
+  background-image: url("star-solid.gif"), url("star-transparent.gif");
   background-attachment: fixed, scroll;
   background-repeat: no-repeat, repeat-y;
 }
@@ -124,4 +119,4 @@ p {
 
 ## See also
 
-- [Using multiple backgrounds](/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds)
+- [Using multiple backgrounds](/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)

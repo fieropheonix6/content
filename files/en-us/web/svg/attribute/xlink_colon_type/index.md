@@ -1,11 +1,10 @@
 ---
 title: xlink:type
 slug: Web/SVG/Attribute/xlink:type
-tags:
-  - Deprecated
-  - SVG
-  - SVG Attribute
-browser-compat: svg.attributes.xlink.xlink_type
+page-type: svg-attribute
+status:
+  - deprecated
+browser-compat: svg.global_attributes.xlink_type
 ---
 
 {{SVGRef}}{{Deprecated_Header}}
@@ -15,9 +14,7 @@ The **`xlink:type`** attribute identifies the type of {{Glossary("XLink")}} bein
 You can use this attribute with the following SVG elements:
 
 - {{SVGElement("a")}}
-- {{SVGElement("altGlyph")}}
 - {{SVGElement("animate")}}
-- {{SVGElement("animateColor")}}
 - {{SVGElement("animateMotion")}}
 - {{SVGElement("animateTransform")}}
 - {{SVGElement("cursor")}}

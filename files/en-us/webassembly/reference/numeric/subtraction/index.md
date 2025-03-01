@@ -1,15 +1,9 @@
 ---
 title: Subtraction
 slug: WebAssembly/Reference/Numeric/Subtraction
-tags:
-  - WebAssembly
-  - wasm
-  - Reference
-  - Numeric
-  - Arithmetic
+page-type: webassembly-instruction
+sidebar: webassemblysidebar
 ---
-
-{{WebAssemblySidebar}}
 
 The **`sub`** instructions, short for _subtraction_, are used for subtracting one number from another number, similar to the **`-`** operator in other languages.
 

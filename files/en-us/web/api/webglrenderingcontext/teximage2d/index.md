@@ -1,18 +1,12 @@
 ---
-title: WebGLRenderingContext.texImage2D()
+title: "WebGLRenderingContext: texImage2D() method"
+short-title: texImage2D()
 slug: Web/API/WebGLRenderingContext/texImage2D
 page-type: web-api-instance-method
-tags:
-  - API
-  - Method
-  - Reference
-  - Textures
-  - WebGL
-  - WebGLRenderingContext
 browser-compat: api.WebGLRenderingContext.texImage2D
 ---
 
-{{APIRef("WebGL")}}
+{{APIRef("WebGL")}}{{AvailableInWorkers}}
 
 The **`WebGLRenderingContext.texImage2D()`** method of the [WebGL API](/en-US/docs/Web/API/WebGL_API) specifies a two-dimensional texture
 image.
@@ -21,9 +15,7 @@ image.
 
 ```js-nolint
 // WebGL1
-texImage2D(target, level, internalformat, width, height, border, format, type)
-texImage2D(target, level, internalformat, width, height, border, format, type, pixels) // pixels a TypedArray or a DataView
-texImage2D(target, level, internalformat, format, type)
+texImage2D(target, level, internalformat, width, height, border, format, type, pixels)
 texImage2D(target, level, internalformat, format, type, pixels)
 
 
@@ -764,8 +756,8 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
   - : A {{domxref("WebGL_API/Types", "GLint")}} specifying the width of the border. Must be 0.
 - `format`
   - : A {{domxref("WebGL_API/Types", "GLenum")}} specifying the format of the texel data. In WebGL 1, this
-    must be the same as `internalformat` (see above). in WebGL 2, the
-    combinations are listed in [this table](https://www.khronos.org/registry/webgl/specs/latest/2.0/#TEXTURE_TYPES_FORMATS_FROM_DOM_ELEMENTS_TABLE).
+    must be the same as `internalformat` (see above). In WebGL 2, the
+    combinations are listed in [this table](https://registry.khronos.org/webgl/specs/latest/2.0/#TEXTURE_TYPES_FORMATS_FROM_DOM_ELEMENTS_TABLE).
 - `type`
 
   - : A {{domxref("WebGL_API/Types", "GLenum")}} specifying the data type of the texel data. Possible values:
@@ -781,8 +773,7 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
 
     - `gl.UNSIGNED_SHORT`
     - `gl.UNSIGNED_INT`
-    - `ext.UNSIGNED_INT_24_8_WEBGL` (constant provided by the
-        extension)
+    - `ext.UNSIGNED_INT_24_8_WEBGL` (constant provided by the extension)
 
     - When using the {{domxref("OES_texture_float")}} extension:
 
@@ -811,7 +802,15 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
 
 - `pixels`
 
-  - : One of the following objects can be used as a pixel source for the texture:
+  - : The following types can always be used as a pixel source for the texture:
+
+    - {{domxref("ImageData")}},
+    - {{domxref("HTMLImageElement")}},
+    - {{domxref("HTMLCanvasElement")}},
+    - {{domxref("HTMLVideoElement")}},
+    - {{domxref("ImageBitmap")}}.
+
+    The following types can only be used as a pixel source when `width`, `height`, and `border` are specified:
 
     - {{jsxref("Uint8Array")}} (must be used if `type` is `gl.UNSIGNED_BYTE`)
     - {{jsxref("Uint16Array")}} (must be used if `type` is either
@@ -820,11 +819,6 @@ texImage2D(target, level, internalformat, width, height, border, format, type, s
       `ext.HALF_FLOAT_OES`)
     - {{jsxref("Uint32Array")}} (must be used if `type` is `gl.UNSIGNED_INT` or `ext.UNSIGNED_INT_24_8_WEBGL`)
     - {{jsxref("Float32Array")}} (must be used if `type` is `gl.FLOAT`)
-    - {{domxref("ImageData")}},
-    - {{domxref("HTMLImageElement")}},
-    - {{domxref("HTMLCanvasElement")}},
-    - {{domxref("HTMLVideoElement")}},
-    - {{domxref("ImageBitmap")}}.
 
 - `offset`
   - : (WebGL 2 only) A {{domxref("WebGL_API/Types", "GLintptr")}} byte offset into the

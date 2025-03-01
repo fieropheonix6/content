@@ -1,13 +1,8 @@
 ---
-title: CSSStyleSheet.insertRule()
+title: "CSSStyleSheet: insertRule() method"
+short-title: insertRule()
 slug: Web/API/CSSStyleSheet/insertRule
 page-type: web-api-instance-method
-tags:
-  - API
-  - CSSOM
-  - CSSStyleSheet
-  - Method
-  - Reference
 browser-compat: api.CSSStyleSheet.insertRule
 ---
 
@@ -16,7 +11,8 @@ browser-compat: api.CSSStyleSheet.insertRule
 The **`CSSStyleSheet.insertRule()`**
 method inserts a new [CSS rule](/en-US/docs/Web/API/CSSRule) into the [current style sheet](/en-US/docs/Web/API/CSSStyleSheet).
 
-> **Note:** Although `insertRule()` is exclusively a method of
+> [!NOTE]
+> Although `insertRule()` is exclusively a method of
 > {{domxref("CSSStyleSheet")}}, it actually inserts the rule into
 > `{{domxref("CSSStyleSheet", "", "", "1")}}.cssRules` — its internal
 > {{domxref("CSSRuleList")}}.
@@ -35,10 +31,10 @@ insertRule(rule, index)
   - : A string containing the rule to be inserted. What the inserted
     rule must contain depends on its type:
 
-    - **For [rule-sets](/en-US/docs/Web/CSS/Syntax#css_statements)**, both
-      a [selector](/en-US/docs/Learn/CSS/Building_blocks/Selectors) and a
+    - **For [rule-sets](/en-US/docs/Web/CSS/CSS_syntax/Syntax#css_statements)**, both
+      a [selector](/en-US/docs/Learn_web_development/Core/Styling_basics/Basic_selectors) and a
       style declaration.
-    - **For [at-rules](/en-US/docs/Web/CSS/At-rule)**, both an
+    - **For [at-rules](/en-US/docs/Web/CSS/CSS_syntax/At-rule)**, both an
       at-identifier and the rule content.
 
 - `index` {{optional_inline}}
@@ -71,7 +67,7 @@ The newly inserted rule's index within the stylesheet's rule-list.
 This snippet pushes a new rule onto the top of my stylesheet.
 
 ```js
-myStyle.insertRule('#blanc { color: white }', 0);
+myStyle.insertRule("#blanc { color: white }", 0);
 ```
 
 ### Function to add a stylesheet rule
@@ -96,8 +92,8 @@ addStylesheetRules([
   ]
 ]);
 */
-function addStylesheetRules (rules) {
-  const styleEl = document.createElement('style');
+function addStylesheetRules(rules) {
+  const styleEl = document.createElement("style");
 
   // Append <style> element to <head>
   document.head.appendChild(styleEl);
@@ -107,9 +103,9 @@ function addStylesheetRules (rules) {
 
   for (let i = 0; i < rules.length; i++) {
     let j = 1,
-        rule = rules[i],
-        selector = rule[0],
-        propStr = '';
+      rule = rules[i],
+      selector = rule[0],
+      propStr = "";
     // If the second argument of a rule is an array of arrays, correct our variables.
     if (Array.isArray(rule[1][0])) {
       rule = rule[1];
@@ -118,11 +114,14 @@ function addStylesheetRules (rules) {
 
     for (let pl = rule.length; j < pl; j++) {
       const prop = rule[j];
-      propStr += `${prop[0]}: ${prop[1]}${prop[2] ? ' !important' : ''};\n`;
+      propStr += `${prop[0]}: ${prop[1]}${prop[2] ? " !important" : ""};\n`;
     }
 
     // Insert CSS Rule
-    styleSheet.insertRule(`${selector}{${propStr}}`, styleSheet.cssRules.length);
+    styleSheet.insertRule(
+      `${selector}{${propStr}}`,
+      styleSheet.cssRules.length,
+    );
   }
 }
 ```
@@ -135,20 +134,7 @@ function addStylesheetRules (rules) {
 
 {{Compat}}
 
-### Legacy browser support
-
-To support Internet Explorer 8 and below, use:
-`addRule(selector, rule [, index]);`. Example:
-`addRule('pre', 'font: 14px verdana'); // add rule at end`
-
-Also note the non-standard
-[`removeRule()`](https://www.quirksmode.org/dom/w3c_css.html#change)
-and
-[`.rules`](https://www.quirksmode.org/dom/w3c_css.html#access)
-instead of {{domxref("CSSStyleSheet.deleteRule","deleteRule()")}} and
-{{domxref("CSSStyleSheet",".cssRules")}}, respectively.
-
 ## See also
 
 - {{domxref("CSSStyleSheet.deleteRule")}}
-- [Constructable Stylesheets](https://web.dev/constructable-stylesheets/) (web.dev)
+- [Constructable Stylesheets](https://web.dev/articles/constructable-stylesheets) (web.dev)

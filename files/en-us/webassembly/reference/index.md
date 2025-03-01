@@ -1,24 +1,15 @@
 ---
-title: WebAssembly instructions
+title: WebAssembly instruction reference
+short-title: Reference
 slug: WebAssembly/Reference
-tags:
-  - WebAssembly
-  - wasm
-  - Landing page
-  - Reference
+page-type: listing-page
+sidebar: webassemblysidebar
 ---
 
-{{WebAssemblySidebar}}
+This page lists instruction references for [WebAssembly](/en-US/docs/WebAssembly) usage on the web.
 
-WebAssembly instructions.
+{{SubPagesWithSummaries}}
 
-- [`Numeric Instructions`](/en-US/docs/WebAssembly/Reference/Numeric)
-  - : Arithmetic, comparison, bitwise, etc.
-- [`Vector/SIMD Instructions`](/en-US/docs/WebAssembly/Reference/Vector)
-  - : Single instruction multiple data.
-- [`Reference Instructions`](/en-US/docs/WebAssembly/Reference/Reference)
-- [`Variable Instructions`](/en-US/docs/WebAssembly/Reference/Variables)
-  - : Setting and getting local and global variables.
-- [`Table Instructions`](/en-US/docs/WebAssembly/Reference/Table)
-- [`Memory Instructions`](/en-US/docs/WebAssembly/Reference/Memory)
-- [`Control flow Instructions`](/en-US/docs/WebAssembly/Reference/Control_flow)
+## See also
+
+- [WebAssembly](/en-US/docs/WebAssembly)

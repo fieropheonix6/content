@@ -1,20 +1,30 @@
 ---
 title: Number.isSafeInteger()
 slug: Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger
-tags:
-  - ECMAScript 2015
-  - JavaScript
-  - Method
-  - Number
-  - Polyfill
+page-type: javascript-static-method
 browser-compat: javascript.builtins.Number.isSafeInteger
 ---
 
 {{JSRef}}
 
-The **`Number.isSafeInteger()`** method determines whether the provided value is a number that is a _safe integer_.
+The **`Number.isSafeInteger()`** static method determines whether the provided value is a number that is a _safe integer_.
 
-{{EmbedInteractiveExample("pages/js/number-issafeinteger.html")}}
+{{InteractiveExample("JavaScript Demo: Number.isSafeInteger()")}}
+
+```js interactive-example
+function warn(x) {
+  if (Number.isSafeInteger(x)) {
+    return "Precision safe.";
+  }
+  return "Precision may be lost!";
+}
+
+console.log(warn(Math.pow(2, 53)));
+// Expected output: "Precision may be lost!"
+
+console.log(warn(Math.pow(2, 53) - 1));
+// Expected output: "Precision safe."
+```
 
 ## Syntax
 
@@ -70,7 +80,7 @@ Number.isSafeInteger(3.0); // true
 ## See also
 
 - [Polyfill of `Number.isSafeInteger` in `core-js`](https://github.com/zloirock/core-js#ecmascript-number)
-- The {{jsxref("Number")}} object it belongs to.
+- {{jsxref("Number")}}
 - {{jsxref("Number.MIN_SAFE_INTEGER")}}
 - {{jsxref("Number.MAX_SAFE_INTEGER")}}
 - {{jsxref("BigInt")}}

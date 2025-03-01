@@ -1,27 +1,42 @@
 ---
 title: RegExp.prototype.toString()
 slug: Web/JavaScript/Reference/Global_Objects/RegExp/toString
-tags:
-  - JavaScript
-  - Method
-  - Prototype
-  - Reference
-  - RegExp
-  - Regular Expressions
+page-type: javascript-instance-method
 browser-compat: javascript.builtins.RegExp.toString
 ---
 
 {{JSRef}}
 
-The **`toString()`** method returns a string representing the regular expression.
+The **`toString()`** method of {{jsxref("RegExp")}} instances returns a string representing this regular expression.
 
-{{EmbedInteractiveExample("pages/js/regexp-prototype-tostring.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: RegExp.prototype.toString()", "taller")}}
+
+```js interactive-example
+console.log(new RegExp("a+b+c"));
+// Expected output: /a+b+c/
+
+console.log(new RegExp("a+b+c").toString());
+// Expected output: "/a+b+c/"
+
+console.log(new RegExp("bar", "g").toString());
+// Expected output: "/bar/g"
+
+console.log(new RegExp("\n", "g").toString());
+// Expected output (if your browser supports escaping): "/\n/g"
+
+console.log(new RegExp("\\n", "g").toString());
+// Expected output: "/\n/g"
+```
 
 ## Syntax
 
 ```js-nolint
 toString()
 ```
+
+### Parameters
+
+None.
 
 ### Return value
 
@@ -40,11 +55,11 @@ In practice, it reads the regex's [`source`](/en-US/docs/Web/JavaScript/Referenc
 The following example displays the string value of a {{jsxref("RegExp")}} object:
 
 ```js
-const myExp = new RegExp('a+b+c');
-console.log(myExp.toString());  // logs '/a+b+c/'
+const myExp = new RegExp("a+b+c");
+console.log(myExp.toString()); // '/a+b+c/'
 
-const foo = new RegExp('bar', 'g');
-console.log(foo.toString());    // logs '/bar/g'
+const foo = new RegExp("bar", "g");
+console.log(foo.toString()); // '/bar/g'
 ```
 
 ### Empty regular expressions and escaping
@@ -54,7 +69,7 @@ Since `toString()` accesses the [`source`](/en-US/docs/Web/JavaScript/Reference/
 ```js
 new RegExp().toString(); // "/(?:)/"
 
-new RegExp('\n').toString() === '/\\n/'; // true
+new RegExp("\n").toString() === "/\\n/"; // true
 ```
 
 ## Specifications

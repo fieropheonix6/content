@@ -1,13 +1,8 @@
 ---
-title: AnalyserNode.getFloatFrequencyData()
+title: "AnalyserNode: getFloatFrequencyData() method"
+short-title: getFloatFrequencyData()
 slug: Web/API/AnalyserNode/getFloatFrequencyData
 page-type: web-api-instance-method
-tags:
-  - API
-  - AnalyserNode
-  - Method
-  - Reference
-  - Web Audio API
 browser-compat: api.AnalyserNode.getFloatFrequencyData
 ---
 
@@ -48,12 +43,12 @@ analyser.getFloatFrequencyData(myDataArray);
 
 ### Drawing a spectrum
 
-The following example shows basic usage of an {{domxref("AudioContext")}} to connect a {{domxref("MediaElementAudioSourceNode")}} to an `AnalyserNode`. While the audio is playing, we collect the frequency data repeatedly with {{domxref("window.requestAnimationFrame()","requestAnimationFrame()")}} and draw a "winamp bargraph style" to a {{htmlelement("canvas")}} element.
+The following example shows basic usage of an {{domxref("AudioContext")}} to connect a {{domxref("MediaElementAudioSourceNode")}} to an `AnalyserNode`. While the audio is playing, we collect the frequency data repeatedly with {{domxref("window.requestAnimationFrame()","requestAnimationFrame()")}} and draw a "winamp bar graph style" to a {{htmlelement("canvas")}} element.
 
-For more complete applied examples/information, check out our [Voice-change-O-matic-float-data](https://mdn.github.io/voice-change-o-matic-float-data/) demo (see the [source code](https://github.com/mdn/voice-change-o-matic-float-data) too).
+For more complete applied examples/information, check out our [Voice-change-O-matic](https://github.com/mdn/webaudio-examples/tree/main/voice-change-o-matic) demo (see [app.js lines 108–193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) for relevant code).
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <body>
   <script>
     const audioCtx = new AudioContext();
@@ -95,7 +90,7 @@ For more complete applied examples/information, check out our [Voice-change-O-ma
       analyserNode.getFloatFrequencyData(dataArray);
 
       //Draw black background
-      canvasCtx.fillStyle = "rgb(0, 0, 0)";
+      canvasCtx.fillStyle = "rgb(0 0 0)";
       canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
 
       //Draw spectrum
@@ -103,13 +98,12 @@ For more complete applied examples/information, check out our [Voice-change-O-ma
       let posX = 0;
       for (let i = 0; i < bufferLength; i++) {
         const barHeight = (dataArray[i] + 140) * 2;
-        canvasCtx.fillStyle =
-          "rgb(" + Math.floor(barHeight + 100) + ", 50, 50)";
+        canvasCtx.fillStyle = `rgb(${Math.floor(barHeight + 100)} 50 50)`;
         canvasCtx.fillRect(
           posX,
           canvas.height - barHeight / 2,
           barWidth,
-          barHeight / 2
+          barHeight / 2,
         );
         posX += barWidth + 1;
       }

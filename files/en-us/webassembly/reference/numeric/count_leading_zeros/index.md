@@ -1,15 +1,9 @@
 ---
 title: Count leading zeros
 slug: WebAssembly/Reference/Numeric/Count_leading_zeros
-tags:
-  - WebAssembly
-  - wasm
-  - Reference
-  - Numeric
-  - Bitwise
+page-type: webassembly-instruction
+sidebar: webassemblysidebar
 ---
-
-{{WebAssemblySidebar}}
 
 The **`clz`** instructions, short for _count leading zeros_, are used to count the amount of zeros at the start of the numbers binary representation.
 

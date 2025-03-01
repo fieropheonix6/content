@@ -1,15 +1,13 @@
 ---
 title: media
 slug: Web/SVG/Attribute/media
-tags:
-  - SVG
-  - SVG Attribute
+page-type: svg-attribute
 browser-compat: svg.elements.style.media
 ---
 
 {{SVGRef}}
 
-The **`media`** attribute specifies a {{Glossary("media query")}} that must be matched for a style sheet to apply.
+The **`media`** attribute specifies a [media query](/en-US/docs/Web/CSS/CSS_media_queries) that must be matched for a style sheet to apply.
 
 You can use this attribute with the following SVG elements:
 
@@ -53,7 +51,7 @@ svg {
       <th scope="row">Value</th>
       <td>
         <code
-          ><a href="/en-US/docs/Web/CSS/@media#media-query-list"
+          ><a href="/en-US/docs/Web/CSS/@media#syntax"
             >&#x3C;media-query-list></a
           ></code
         >
@@ -65,12 +63,13 @@ svg {
     </tr>
     <tr>
       <th scope="row">Animatable</th>
-      <td>Yes</td>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
 
 - `<media-query-list>`
+
   - : This value holds a media query that needs to match in order for the style sheet to be applied.
 
     If not specified, the style sheet is applied unconditionally.

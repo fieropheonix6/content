@@ -1,21 +1,36 @@
 ---
 title: Math.pow()
 slug: Web/JavaScript/Reference/Global_Objects/Math/pow
-tags:
-  - JavaScript
-  - Math
-  - Method
-  - Reference
+page-type: javascript-static-method
 browser-compat: javascript.builtins.Math.pow
 ---
 
 {{JSRef}}
 
-The **`Math.pow()`** method returns the value of a base raised to a power. That is
+The **`Math.pow()`** static method returns the value of a base raised to a power. That is
 
-<math display="block"><semantics><mrow><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚙𝚘𝚠</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo>,</mo><mi>𝚢</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msup><mi>x</mi><mi>y</mi></msup></mrow><annotation encoding="TeX">\mathtt{\operatorname{Math.pow}(x, y)} = x^y</annotation></semantics></math>
+<!-- prettier-ignore-start -->
+<math display="block">
+  <semantics><mrow><mrow><mo lspace="0em" rspace="0.16666666666666666em">𝙼𝚊𝚝𝚑.𝚙𝚘𝚠</mo><mo stretchy="false">(</mo><mi>𝚡</mi><mo>,</mo><mi>𝚢</mi><mo stretchy="false">)</mo></mrow><mo>=</mo><msup><mi>x</mi><mi>y</mi></msup></mrow><annotation encoding="TeX">\mathtt{\operatorname{Math.pow}(x, y)} = x^y</annotation></semantics>
+</math>
+<!-- prettier-ignore-end -->
 
-{{EmbedInteractiveExample("pages/js/math-pow.html")}}
+{{InteractiveExample("JavaScript Demo: Math.pow()")}}
+
+```js interactive-example
+console.log(Math.pow(7, 3));
+// Expected output: 343
+
+console.log(Math.pow(4, 0.5));
+// Expected output: 2
+
+console.log(Math.pow(7, -2));
+// Expected output: 0.02040816326530612
+//                  (1/49)
+
+console.log(Math.pow(-7, 0.5));
+// Expected output: NaN
+```
 
 ## Syntax
 
@@ -34,13 +49,16 @@ Math.pow(base, exponent)
 
 A number representing `base` taken to the power of `exponent`. Returns {{jsxref("NaN")}} in one of the following cases:
 
-- `base` or `exponent` is `NaN`.
+- `exponent` is `NaN`.
+- `base` is `NaN` and `exponent` is not `0`.
 - `base` is ±1 and `exponent` is ±`Infinity`.
 - `base < 0` and `exponent` is not an integer.
 
 ## Description
 
 `Math.pow()` is equivalent to the [`**`](/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation) operator, except `Math.pow()` only accepts numbers.
+
+`Math.pow(NaN, 0)` (and the equivalent `NaN ** 0`) is the only case where {{jsxref("NaN")}} doesn't propagate through mathematical operations — it returns `1` despite the operand being `NaN`. In addition, the behavior where `base` is 1 and `exponent` is non-finite (±Infinity or `NaN`) is different from IEEE 754, which specifies that the result should be 1, whereas JavaScript returns `NaN` to preserve backward compatibility with its original behavior.
 
 Because `pow()` is a static method of `Math`, use it as `Math.pow()`, rather than as a method of a `Math` object you created (`Math` is not a constructor).
 
@@ -49,7 +67,7 @@ Because `pow()` is a static method of `Math`, use it as `Math.pow()`, rather tha
 ### Using Math.pow()
 
 ```js
-// Simple cases
+// Basic cases
 Math.pow(7, 2); // 49
 Math.pow(7, 3); // 343
 Math.pow(2, 10); // 1024
@@ -94,6 +112,11 @@ Math.pow(1.1, Infinity); // Infinity
 Math.pow(0.9, -Infinity); // Infinity
 Math.pow(1, -Infinity); // NaN
 Math.pow(1.1, -Infinity); // 0
+
+// NaN: only Math.pow(NaN, 0) does not result in NaN
+Math.pow(NaN, 0); // 1
+Math.pow(NaN, 1); // NaN
+Math.pow(1, NaN); // NaN
 ```
 
 ## Specifications
@@ -110,4 +133,4 @@ Math.pow(1.1, -Infinity); // 0
 - {{jsxref("Math.exp()")}}
 - {{jsxref("Math.log()")}}
 - {{jsxref("Math.sqrt()")}}
-- [Exponentiation operator](/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)
+- [Exponentiation (`**`)](/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation)

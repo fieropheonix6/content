@@ -1,11 +1,10 @@
 ---
 title: Text labels and names
 slug: Web/Accessibility/Understanding_WCAG/Text_labels_and_names
-tags:
-  - Accessibility
-  - WCAG
-  - text labels
+page-type: guide
 ---
+
+{{AccessibilitySidebar}}
 
 There are many situations in which a control, dialog, or other website feature should be given a descriptive name or label to allow users of assistive technologies to understand what its purpose is and how to operate it correctly. There are a number of different types of problems in this category, found in different contexts, and each has its own solution. The different problems and solutions are discussed in the sections below.
 
@@ -15,7 +14,7 @@ In image maps, give each {{htmlelement("area")}} element an `alt` attribute cont
 
 ### Examples
 
-The following example show a simple image map (taken from [H24: Providing text alternatives for the area elements of image maps](https://www.w3.org/TR/WCAG20-TECHS/H24.html)):
+The following example show an image map (taken from [H24: Providing text alternatives for the area elements of image maps](https://www.w3.org/TR/WCAG20-TECHS/H24.html)):
 
 ```html
 <img
@@ -82,7 +81,7 @@ If the dialog box doesn't have a heading, you can instead use `aria-label` to co
 - [`aria-label`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label)
 - [`aria-labelledby`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-labelledby)
 - [WAI-ARIA: dialog role](https://www.w3.org/TR/wai-aria-1.2/#dialog)
-- [Dialog authoring practices](https://www.w3.org/TR/wai-aria-practices/#dialog_roles_states_props)
+- [Dialog authoring practices](https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/)
 
 ## Documents must have a title
 
@@ -130,7 +129,7 @@ The following example shows code for a figure with a caption. The `alt` attribut
 ```html
 <figure>
   <img
-    src="milkweed.jgp"
+    src="milkweed.jpg"
     alt="Black and white close-up photo of milkweed flowers" />
   <figcaption>Asclepias verticillata</figcaption>
 </figure>
@@ -153,13 +152,13 @@ Users of assistive technology find this description helpful when trying to work 
   <fieldset>
     <legend>Choose your favorite monster</legend>
 
-    <input type="radio" id="kraken" name="monster" />
+    <input type="radio" id="kraken" name="monster" value="K" />
     <label for="kraken">Kraken</label><br />
 
-    <input type="radio" id="sasquatch" name="monster" />
+    <input type="radio" id="sasquatch" name="monster" value="S" />
     <label for="sasquatch">Sasquatch</label><br />
 
-    <input type="radio" id="mothman" name="monster" />
+    <input type="radio" id="mothman" name="monster" value="M" />
     <label for="mothman">Mothman</label>
   </fieldset>
 </form>
@@ -186,8 +185,8 @@ The form element can be placed inside the {{htmlelement("label")}}, in which cas
   <input type="checkbox" id="terms" name="terms" />
 </label>
 
-<input type="checkbox" id="emailoptin" name="optin" />
-<label for="emailoptin">Yes, please send me news about this product.</label>
+<input type="checkbox" id="email-opt-in" name="opt-in" />
+<label for="email-opt-in">Yes, please send me news about this product.</label>
 ```
 
 ## Form elements should have a visible text label
@@ -275,7 +274,7 @@ If you define more than one toolbar in a web application using the ARIA `toolbar
 
 ### See also
 
-- [W3C ARIA toolbar example](https://www.w3.org/TR/wai-aria-practices/examples/toolbar/toolbar.html)
+- [W3C ARIA toolbar example](https://www.w3.org/WAI/ARIA/apg/patterns/toolbar/examples/toolbar/)
 
 ## Related WCAG success criteria
 

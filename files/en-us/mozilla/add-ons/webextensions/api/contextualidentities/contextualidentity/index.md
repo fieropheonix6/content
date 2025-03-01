@@ -1,19 +1,11 @@
 ---
 title: contextualIdentities.ContextualIdentity
 slug: Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity
-tags:
-  - API
-  - Add-ons
-  - ContextualIdentity
-  - Extensions
-  - Reference
-  - Type
-  - WebExtensions
-  - contextualIdentities
+page-type: webextension-api-type
 browser-compat: webextensions.api.contextualIdentities.ContextualIdentity
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 The **`contextualIdentities.ContextualIdentity`** type describes a single contextual identity.
 

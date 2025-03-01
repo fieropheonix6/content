@@ -1,12 +1,7 @@
 ---
 title: background-position-y
 slug: Web/CSS/background-position-y
-tags:
-  - CSS
-  - CSS Background
-  - CSS Property
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.background-position-y
 ---
 
@@ -93,16 +88,44 @@ div {
   width: 300px;
   height: 300px;
   background-color: skyblue;
-  background-image: url(https://media.prod.mdn.mozit.cloud/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png);
+  background-image: url(https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png);
   background-repeat: no-repeat;
   background-position-x: center;
-  background-position-y: bottom 10px;
+  background-position-y: bottom;
 }
 ```
 
 #### Result
 
 {{EmbedLiveSample('Basic_example', '100%', 300)}}
+
+### Side-relative values
+
+The following example shows support for side-relative offset syntax, which allows the developer to offset the background from any edge.
+
+#### HTML
+
+```html
+<div></div>
+```
+
+#### CSS
+
+```css
+div {
+  width: 300px;
+  height: 300px;
+  background-color: seagreen;
+  background-image: url(https://mdn.dev/archives/media/attachments/2020/07/29/17350/3b4892b7e820122ac6dd7678891d4507/firefox.png);
+  background-repeat: no-repeat;
+  background-position-x: right 20px;
+  background-position-y: bottom 10px;
+}
+```
+
+#### Result
+
+{{EmbedLiveSample('Side-relative_values', '100%', 300)}}
 
 ## Specifications
 
@@ -116,6 +139,4 @@ div {
 
 - {{cssxref("background-position")}}
 - {{cssxref("background-position-x")}}
-- {{cssxref("background-position-inline")}}
-- {{cssxref("background-position-block")}}
-- [Using multiple backgrounds](/en-US/docs/Web/CSS/CSS_Backgrounds_and_Borders/Using_multiple_backgrounds)
+- [Using multiple backgrounds](/en-US/docs/Web/CSS/CSS_backgrounds_and_borders/Using_multiple_backgrounds)

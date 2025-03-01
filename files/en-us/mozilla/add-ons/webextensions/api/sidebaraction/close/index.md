@@ -1,19 +1,11 @@
 ---
 title: sidebarAction.close()
 slug: Mozilla/Add-ons/WebExtensions/API/sidebarAction/close
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Reference
-  - WebExtensions
-  - close
-  - sidebarAction
+page-type: webextension-api-function
 browser-compat: webextensions.api.sidebarAction.close
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Closes the sidebar in the active window, if it is the extension's own sidebar.
 
@@ -47,7 +39,7 @@ Close the sidebar when the user selects a context menu item:
 browser.menus.create({
   id: "close-sidebar",
   title: "close sidebar",
-  contexts: ["all"]
+  contexts: ["all"],
 });
 
 browser.menus.onClicked.addListener(() => {

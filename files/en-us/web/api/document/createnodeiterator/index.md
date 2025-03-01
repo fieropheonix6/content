@@ -1,13 +1,8 @@
 ---
-title: Document.createNodeIterator()
+title: "Document: createNodeIterator() method"
+short-title: createNodeIterator()
 slug: Web/API/Document/createNodeIterator
 page-type: web-api-instance-method
-tags:
-  - API
-  - DOM
-  - Gecko
-  - MakeBrowserAgnostic
-  - Method
 browser-compat: api.Document.createNodeIterator
 ---
 
@@ -40,8 +35,8 @@ createNodeIterator(root, whatToShow, filter)
     | Constant                                                 | Numerical value                                         | Description                                                                                                                                                                                                                                                                                                                                                                                     |
     | -------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
     | `NodeFilter.SHOW_ALL`                                    | `4294967295` (that is the max value of `unsigned long`) | Shows all nodes.                                                                                                                                                                                                                                                                                                                                                                                |
-    | `NodeFilter.SHOW_ATTRIBUTE` {{deprecated_inline}}        | `2`                                                     | Shows attribute {{ domxref("Attr") }} nodes. This is meaningful only when creating a {{ domxref("TreeWalker") }} with an {{ domxref("Attr") }} node as its root. In this case, it means that the attribute node will appear in the first position of the iteration or traversal. Since attributes are never children of other nodes, they do not appear when traversing over the document tree. |
-    | `NodeFilter.SHOW_CDATA_SECTION` {{deprecated_inline}}    | `8`                                                     | Shows {{ domxref("CDATASection") }} nodes.                                                                                                                                                                                                                                                                                                                                                      |
+    | `NodeFilter.SHOW_ATTRIBUTE`                              | `2`                                                     | Shows attribute {{ domxref("Attr") }} nodes. This is meaningful only when creating a {{ domxref("TreeWalker") }} with an {{ domxref("Attr") }} node as its root. In this case, it means that the attribute node will appear in the first position of the iteration or traversal. Since attributes are never children of other nodes, they do not appear when traversing over the document tree. |
+    | `NodeFilter.SHOW_CDATA_SECTION`                          | `8`                                                     | Shows {{ domxref("CDATASection") }} nodes.                                                                                                                                                                                                                                                                                                                                                      |
     | `NodeFilter.SHOW_COMMENT`                                | `128`                                                   | Shows {{ domxref("Comment") }} nodes.                                                                                                                                                                                                                                                                                                                                                           |
     | `NodeFilter.SHOW_DOCUMENT`                               | `256`                                                   | Shows {{ domxref("Document") }} nodes.                                                                                                                                                                                                                                                                                                                                                          |
     | `NodeFilter.SHOW_DOCUMENT_FRAGMENT`                      | `1024`                                                  | Shows {{ domxref("DocumentFragment") }} nodes.                                                                                                                                                                                                                                                                                                                                                  |
@@ -54,7 +49,10 @@ createNodeIterator(root, whatToShow, filter)
     | `NodeFilter.SHOW_TEXT`                                   | `4`                                                     | Shows {{ domxref("Text") }} nodes.                                                                                                                                                                                                                                                                                                                                                              |
 
 - `filter` {{optional_inline}}
+
   - : A callback function or an object with an `acceptNode()` method. The function or method will be called for each node in the subtree based at root which is accepted as included by the whatToShow flag to determine whether or not to include it in the list of iterable nodes. The method should return one of `NodeFilter.FILTER_ACCEPT`, `NodeFilter.FILTER_REJECT`, or `NodeFilter.FILTER_SKIP`. See the [Example](#examples).
+
+    For `createNodeIterator`, the values `NodeFilter.FILTER_REJECT` and `NodeFilter.FILTER_SKIP` are equivalent. This node will not be included in the list of iterable nodes, but its children will continue to be iterated over.
 
 ### Return value
 
@@ -64,14 +62,17 @@ A new [`NodeIterator`](/en-US/docs/Web/API/NodeIterator) object.
 
 ```js
 const nodeIterator = document.createNodeIterator(
-    document.body,
-    NodeFilter.SHOW_ELEMENT,
-    (node) => node.nodeName.toLowerCase() === 'p' ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+  document.body,
+  NodeFilter.SHOW_ELEMENT,
+  (node) =>
+    node.nodeName.toLowerCase() === "p"
+      ? NodeFilter.FILTER_ACCEPT
+      : NodeFilter.FILTER_REJECT,
 );
 const pars = [];
 let currentNode;
 
-while (currentNode = nodeIterator.nextNode()) {
+while ((currentNode = nodeIterator.nextNode())) {
   pars.push(currentNode);
 }
 ```
@@ -80,18 +81,20 @@ The same, but using an object with an `acceptNode()` method:
 
 ```js
 const nodeIterator = document.createNodeIterator(
-    document.body,
-    NodeFilter.SHOW_ELEMENT,
-    {
-      acceptNode(node) {
-        return node.nodeName.toLowerCase() === 'p' ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
-      }
-    }
+  document.body,
+  NodeFilter.SHOW_ELEMENT,
+  {
+    acceptNode(node) {
+      return node.nodeName.toLowerCase() === "p"
+        ? NodeFilter.FILTER_ACCEPT
+        : NodeFilter.FILTER_REJECT;
+    },
+  },
 );
 const pars = [];
 let currentNode;
 
-while (currentNode = nodeIterator.nextNode()) {
+while ((currentNode = nodeIterator.nextNode())) {
   pars.push(currentNode);
 }
 ```

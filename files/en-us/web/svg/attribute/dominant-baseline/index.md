@@ -1,11 +1,8 @@
 ---
 title: dominant-baseline
 slug: Web/SVG/Attribute/dominant-baseline
-tags:
-  - Reference
-  - SVG
-  - SVG Attribute
-browser-compat: svg.attributes.presentation.dominant-baseline
+page-type: svg-attribute
+browser-compat: svg.global_attributes.dominant-baseline
 ---
 
 {{SVGRef}}
@@ -22,11 +19,11 @@ Some values of the property re-determine all three values. Others only re-establ
 
 If there is no baseline table in the nominal font, or if the baseline table lacks an entry for the desired baseline, then the browser may use heuristics to determine the position of the desired baseline.
 
-> **Note:** As a presentation attribute, `dominant-baseline` can be used as a CSS property.
+> [!NOTE]
+> As a presentation attribute, `dominant-baseline` also has a CSS property counterpart: {{cssxref("dominant-baseline")}}. When both are specified, the CSS property takes priority.
 
 You can use this attribute with the following SVG elements:
 
-- {{SVGElement("altGlyph")}}
 - {{SVGElement("text")}}
 - {{SVGElement("textPath")}}
 - {{SVGElement("tref")}}
@@ -42,7 +39,11 @@ svg {
 }
 
 text {
-  font: bold 14px Verdana, Helvetica, Arial, sans-serif;
+  font:
+    bold 14px Verdana,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 ```
 
@@ -84,11 +85,12 @@ text {
 </table>
 
 - `auto`
+
   - : If this property occurs on a {{SVGElement("text")}} element, then the computed value depends on the value of the {{SVGAttr("writing-mode")}} attribute.
 
     If the {{SVGAttr("writing-mode")}} is horizontal, then the value of the dominant-baseline component is `alphabetic`. Otherwise, if the {{SVGAttr("writing-mode")}} is vertical, then the value of the dominant-baseline component is `central`.
 
-    If this property occurs on a {{SVGElement("tspan")}}, {{SVGElement("tref")}}, {{SVGElement("altGlyph")}}, or {{SVGElement("textPath")}} element, then the dominant-baseline and the baseline-table components remain the same as those of the parent text content element.
+    If this property occurs on a {{SVGElement("tspan")}}, {{SVGElement("tref")}}, or {{SVGElement("textPath")}} element, then the dominant-baseline and the baseline-table components remain the same as those of the parent text content element.
 
     If the computed {{SVGAttr("baseline-shift")}} value actually shifts the baseline, then the baseline-table font-size component is set to the value of the {{SVGAttr("font-size")}} attribute on the element on which the `dominant-baseline` attribute occurs, otherwise the baseline-table font-size remains the same as that of the element.
 
@@ -174,3 +176,7 @@ text {
 ## Browser compatibility
 
 {{Compat}}
+
+## See also
+
+- CSS {{cssxref('dominant-baseline')}} property

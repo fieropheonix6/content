@@ -1,33 +1,21 @@
 ---
 title: <glyph>
 slug: Web/SVG/Element/glyph
-tags:
-  - Element
-  - Reference
-  - SVG
-  - SVG Text Content
-  - Deprecated
+page-type: svg-element
+status:
+  - deprecated
 browser-compat: svg.elements.glyph
 ---
 
 {{SVGRef}}{{deprecated_header}}
 
-A **`<glyph>`** defines a single glyph in an SVG font.
+The **`<glyph>`** [SVG](/en-US/docs/Web/SVG) element defines a single glyph in an SVG font.
 
 ## Usage context
 
 {{svginfo}}
 
 ## Attributes
-
-### Global attributes
-
-- [Core attributes](/en-US/docs/Web/SVG/Attribute#core_attributes)
-- [Presentation attributes](/en-US/docs/Web/SVG/Attribute#presentation_attributes)
-- {{SVGAttr("class")}}
-- {{SVGAttr("style")}}
-
-### Specific attributes
 
 - {{SVGAttr("d")}} {{Deprecated_Inline}}
 - {{SVGAttr("horiz-adv-x")}} {{Deprecated_Inline}}

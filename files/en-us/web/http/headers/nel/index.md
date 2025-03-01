@@ -1,20 +1,15 @@
 ---
 title: NEL
 slug: Web/HTTP/Headers/NEL
-tags:
-  - HTTP
-  - HTTP Header
-  - Network Error Logging
-  - Reference
-  - Response Header
-  - header
-  - Experimental
+page-type: http-header
+status:
+  - experimental
 browser-compat: http.headers.NEL
 ---
 
 {{HTTPSidebar}}{{SeeCompatTable}}
 
-The HTTP **`NEL`** response header is used to configure network request logging.
+The HTTP **`NEL`** {{Glossary("response header")}} is used to configure network request logging.
 
 <table class="properties">
   <tbody>
@@ -23,8 +18,8 @@ The HTTP **`NEL`** response header is used to configure network request logging.
       <td>{{Glossary("Response header")}}</td>
     </tr>
     <tr>
-      <th scope="row">{{Glossary("Forbidden header name")}}</th>
-      <td>no</td>
+      <th scope="row">{{Glossary("Forbidden request header")}}</th>
+      <td>No</td>
     </tr>
   </tbody>
 </table>
@@ -34,6 +29,8 @@ The HTTP **`NEL`** response header is used to configure network request logging.
 ```http
 NEL: { "report_to": "name_of_reporting_group", "max_age": 12345, "include_subdomains": false, "success_fraction": 0.0, "failure_fraction": 1.0 }
 ```
+
+## Specifications
 
 {{Specifications}}
 

@@ -1,12 +1,7 @@
 ---
 title: <feFuncG>
 slug: Web/SVG/Element/feFuncG
-tags:
-  - Element
-  - NeedsExample
-  - Reference
-  - SVG
-  - SVG Filter
+page-type: svg-element
 browser-compat: svg.elements.feFuncG
 ---
 
@@ -17,17 +12,6 @@ The **`<feFuncG>`** [SVG](/en-US/docs/Web/SVG) filter primitive defines the tran
 ## Usage context
 
 {{svginfo}}
-
-## Attributes
-
-### Global attributes
-
-- [Core attributes](/en-US/docs/Web/SVG/Attribute#core_attributes)
-- [Transfer function attributes](/en-US/docs/Web/SVG/Attribute#transfer_function_attributes)
-
-### Specific attributes
-
-_None._
 
 ## DOM Interface
 
@@ -43,6 +27,9 @@ This element implements the {{domxref("SVGFEFuncGElement")}} interface.
 
 ## See also
 
+- [SVG Filter primitive attributes](/en-US/docs/Web/SVG/Attribute#filters_attributes)
+- {{SVGAttr("flood-color")}} attribute
+- {{SVGAttr("flood-opacity")}} attribute
 - {{SVGElement("filter")}}
 - {{SVGElement("animate")}}
 - {{SVGElement("set")}}

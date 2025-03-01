@@ -1,21 +1,32 @@
 ---
 title: Function.prototype.bind()
 slug: Web/JavaScript/Reference/Global_Objects/Function/bind
-tags:
-  - ECMAScript 2015
-  - ECMAScript 5
-  - Function
-  - JavaScript
-  - Method
-  - Polyfill
+page-type: javascript-instance-method
 browser-compat: javascript.builtins.Function.bind
 ---
 
 {{JSRef}}
 
-The **`bind()`** method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+The **`bind()`** method of {{jsxref("Function")}} instances creates a new function that, when called, calls this function with its `this` keyword set to the provided value, and a given sequence of arguments preceding any provided when the new function is called.
 
-{{EmbedInteractiveExample("pages/js/function-bind.html", "taller")}}
+{{InteractiveExample("JavaScript Demo: Function.bind()", "taller")}}
+
+```js interactive-example
+const module = {
+  x: 42,
+  getX: function () {
+    return this.x;
+  },
+};
+
+const unboundGetX = module.getX;
+console.log(unboundGetX()); // The function gets invoked at the global scope
+// Expected output: undefined
+
+const boundGetX = unboundGetX.bind(module);
+console.log(boundGetX());
+// Expected output: 42
+```
 
 ## Syntax
 
@@ -30,7 +41,7 @@ bind(thisArg, arg1, arg2, /* …, */ argN)
 
 - `thisArg`
   - : The value to be passed as the `this` parameter to the target function `func` when the bound function is called. If the function is not in [strict mode](/en-US/docs/Web/JavaScript/Reference/Strict_mode), [`null`](/en-US/docs/Web/JavaScript/Reference/Operators/null) and [`undefined`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined) will be replaced with the global object, and primitive values will be converted to objects. The value is ignored if the bound function is constructed using the {{jsxref("Operators/new", "new")}} operator.
-- `arg1, …, argN` {{optional_inline}}
+- `arg1`, …, `argN` {{optional_inline}}
   - : Arguments to prepend to arguments provided to the bound function when invoking `func`.
 
 ### Return value
@@ -44,10 +55,11 @@ The `bind()` function creates a new _bound function_. Calling the bound function
 A bound function can be further bound by calling `boundFn.bind(thisArg, /* more args */)`, which creates another bound function `boundFn2`. The newly bound `thisArg` value is ignored, because the target function of `boundFn2`, which is `boundFn`, already has a bound `this`. When `boundFn2` is called, it would call `boundFn`, which in turn calls `fn`. The arguments that `fn` ultimately receives are, in order: the arguments bound by `boundFn`, arguments bound by `boundFn2`, and the arguments received by `boundFn2`.
 
 ```js
+"use strict"; // prevent `this` from being boxed into the wrapper object
+
 function log(...args) {
-  "use strict"; // prevent `this` from being boxed into the wrapper object
   console.log(this, ...args);
-};
+}
 const boundLog = log.bind("this value", 1, 2);
 const boundLog2 = boundLog.bind("new this value", 3, 4);
 boundLog2(5, 6); // "this value", 1, 2, 3, 4, 5, 6
@@ -83,20 +95,28 @@ const BoundBase = Base.bind(null, 1, 2);
 console.log(new Base() instanceof BoundBase); // true
 ```
 
-The bound function's [`length`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length) property is the `length` of the target function minus the number of arguments being bound (not counting the `thisArg` parameter), with 0 being the minimum value. The bound function's [`name`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name) property is the `name` of the target function plus a `"bound "` prefix.
+The bound function has the following properties:
+
+- [`length`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length)
+  - : The `length` of the target function minus the number of arguments being bound (not counting the `thisArg` parameter), with 0 being the minimum value.
+- [`name`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name)
+  - : The `name` of the target function plus a `"bound "` prefix.
+
+The bound function also inherits the [prototype chain](/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain) of the target function. However, it doesn't have other own properties of the target function (such as [static properties](/en-US/docs/Web/JavaScript/Reference/Classes/static) if the target function is a class).
 
 ## Examples
 
 ### Creating a bound function
 
-The simplest use of `bind()` is to make a function that, no matter how it is called, is called with a particular `this` value.
+The most common use of `bind()` is to make a function that, no matter how it is called, is called with a particular `this` value.
 
 A common mistake for new JavaScript programmers is to extract a method from an object, then to later call that function and expect it to use the original object as its `this` (e.g., by using the method in callback-based code).
 
 Without special care, however, the original object is usually lost. Creating a bound function from the function, using the original object, neatly solves this problem:
 
 ```js
-this.x = 9; // 'this' refers to the global object (e.g. 'window') in non-strict mode
+// Top-level 'this' is bound to 'globalThis' in scripts.
+this.x = 9;
 const module = {
   x: 81,
   getX() {
@@ -104,30 +124,30 @@ const module = {
   },
 };
 
-module.getX();
-//  returns 81
+// The 'this' parameter of 'getX' is bound to 'module'.
+console.log(module.getX()); // 81
 
 const retrieveX = module.getX;
-retrieveX();
-//  returns 9; the function gets invoked at the global scope
+// The 'this' parameter of 'retrieveX' is bound to 'globalThis' in non-strict mode.
+console.log(retrieveX()); // 9
 
-//  Create a new function with 'this' bound to module
-//  New programmers might confuse the
-//  global variable 'x' with module's property 'x'
+// Create a new function 'boundGetX' with the 'this' parameter bound to 'module'.
 const boundGetX = retrieveX.bind(module);
-boundGetX();
-//  returns 81
+console.log(boundGetX()); // 81
 ```
 
-> **Note:** If you run this example in [strict mode](/en-US/docs/Web/JavaScript/Reference/Strict_mode) (e.g. in ECMAScript modules, or through the `"use strict"` directive), the global `this` value will be undefined, causing the `retrieveX` call to fail.
+> [!NOTE]
+> If you run this example in [strict mode](/en-US/docs/Web/JavaScript/Reference/Strict_mode), the `this` parameter of `retrieveX` will be bound to `undefined` instead of `globalThis`, causing the `retrieveX()` call to fail.
 >
-> If you run this in a Node CommonJS module, the top-scope `this` will be pointing to `module.exports` instead of `globalThis`, regardless of being in strict mode or not. However, in functions, the reference of unbound `this` still follows the rule of "`globalThis` in non-strict, `undefined` in strict". Therefore, in non-strict mode (default), `retrieveX` will return `undefined` because `this.x = 9` is writing to a different object (`module.exports`) from what `getX` is reading from (`globalThis`).
+> If you run this example in an ECMAScript module, top-level `this` will be bound to `undefined` instead of `globalThis`, causing the `this.x = 9` assignment to fail.
+>
+> If you run this example in a Node CommonJS module, top-level `this` will be bound to `module.exports` instead of `globalThis`. However, the `this` parameter of `retrieveX` will still be bound to `globalThis` in non-strict mode and to `undefined` in strict mode. Therefore, in non-strict mode (the default), the `retrieveX()` call will return `undefined` because `this.x = 9` is writing to a different object (`module.exports`) from what `getX` is reading from (`globalThis`).
 
 In fact, some built-in "methods" are also getters that return bound functions — one notable example being [`Intl.NumberFormat.prototype.format()`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/format#using_format_with_map), which, when accessed, returns a bound function that you can directly pass as a callback.
 
 ### Partially applied functions
 
-The next simplest use of `bind()` is to make a function with pre-specified initial arguments.
+Another use of `bind()` is to make a function with pre-specified initial arguments.
 
 These arguments (if any) follow the provided `this` value and are then inserted at the start of the arguments passed to the target function, followed by whatever arguments are passed to the bound function at the time it is called.
 
@@ -140,11 +160,9 @@ function addArguments(arg1, arg2) {
   return arg1 + arg2;
 }
 
-const list1 = list(1, 2, 3);
-//  [1, 2, 3]
+console.log(list(1, 2, 3)); // [1, 2, 3]
 
-const result1 = addArguments(1, 2);
-//  3
+console.log(addArguments(1, 2)); // 3
 
 // Create a function with a preset leading argument
 const leadingThirtySevenList = list.bind(null, 37);
@@ -152,23 +170,16 @@ const leadingThirtySevenList = list.bind(null, 37);
 // Create a function with a preset first argument.
 const addThirtySeven = addArguments.bind(null, 37);
 
-const list2 = leadingThirtySevenList();
-//  [37]
-
-const list3 = leadingThirtySevenList(1, 2, 3);
-//  [37, 1, 2, 3]
-
-const result2 = addThirtySeven(5);
-//  37 + 5 = 42
-
-const result3 = addThirtySeven(5, 10);
-//  37 + 5 = 42
-//  (the second argument is ignored)
+console.log(leadingThirtySevenList()); // [37]
+console.log(leadingThirtySevenList(1, 2, 3)); // [37, 1, 2, 3]
+console.log(addThirtySeven(5)); // 42
+console.log(addThirtySeven(5, 10)); // 42
+// (the last argument 10 is ignored)
 ```
 
 ### With setTimeout()
 
-By default, within {{domxref("setTimeout()")}}, the `this` keyword will be set to [`globalThis`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis), which is {{domxref("window")}} in browsers. When working with class methods that require `this` to refer to class instances, you may explicitly bind `this` to the callback function, in order to maintain the instance.
+By default, within {{domxref("Window.setTimeout", "setTimeout()")}}, the `this` keyword will be set to [`globalThis`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis), which is {{domxref("window")}} in browsers. When working with class methods that require `this` to refer to class instances, you may explicitly bind `this` to the callback function, in order to maintain the instance.
 
 ```js
 class LateBloomer {
@@ -186,7 +197,7 @@ class LateBloomer {
 
 const flower = new LateBloomer();
 flower.bloom();
-//  after 1 second, calls 'flower.declare()'
+// After 1 second, calls 'flower.declare()'
 ```
 
 You can also use [arrow functions](/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) for this purpose.
@@ -237,8 +248,8 @@ The corollary is that you need not do anything special to create a bound functio
 const emptyObj = {};
 const YAxisPoint = Point.bind(emptyObj, 0 /*x*/);
 
-//  Can still be called as a normal function
-//  (although usually this is undesired)
+// Can still be called as a normal function
+// (although usually this is undesirable)
 YAxisPoint(13);
 
 // The modifications to `this` is now observable from the outside
@@ -247,9 +258,28 @@ console.log(emptyObj); // { x: 0, y: 13 }
 
 If you wish to restrict a bound function to only be callable with {{jsxref("Operators/new", "new")}}, or only be callable without `new`, the target function must enforce that restriction, such as by checking `new.target !== undefined` or using a [class](/en-US/docs/Web/JavaScript/Reference/Classes) instead.
 
+### Binding classes
+
+Using `bind()` on classes preserves most of the class's semantics, except that all static own properties of the current class are lost. However, because the prototype chain is preserved, you can still access static properties inherited from the parent class.
+
+```js
+class Base {
+  static baseProp = "base";
+}
+
+class Derived extends Base {
+  static derivedProp = "derived";
+}
+
+const BoundDerived = Derived.bind(null);
+console.log(BoundDerived.baseProp); // "base"
+console.log(BoundDerived.derivedProp); // undefined
+console.log(new BoundDerived() instanceof Derived); // true
+```
+
 ### Transforming methods to utility functions
 
-`bind()` is also helpful in cases where you want to transform a method which requires a specific `this` value to a plain utility function that accepts the previous `this` parameter as a normal parameter.
+`bind()` is also helpful in cases where you want to transform a method which requires a specific `this` value to a plain utility function that accepts the previous `this` parameter as a normal parameter. This is similar to how general-purpose utility functions work: instead of calling `array.map(callback)`, you use `map(array, callback)`, which allows you to use `map` with array-like objects that are not arrays (for example, [`arguments`](/en-US/docs/Web/JavaScript/Reference/Functions/arguments)) without mutating `Object.prototype`.
 
 Take {{jsxref("Array.prototype.slice()")}}, for example, which you want to use for converting an array-like object to a real array. You could create a shortcut like this:
 
@@ -261,12 +291,10 @@ const slice = Array.prototype.slice;
 slice.call(arguments);
 ```
 
-With `bind()`, this can be simplified.
-
-In the following piece of code, `slice()` is a bound function to the {{jsxref("Function.prototype.call()")}}, with the `this` value set to {{jsxref("Array.prototype.slice()")}}. This means that additional `call()` calls can be eliminated:
+Note that you can't save `slice.call` and call it as a plain function, because the `call()` method also reads its `this` value, which is the function it should call. In this case, you can use `bind()` to bind the value of `this` for `call()`. In the following piece of code, `slice()` is a bound version of {{jsxref("Function.prototype.call()")}}, with the `this` value bound to {{jsxref("Array.prototype.slice()")}}. This means that additional `call()` calls can be eliminated:
 
 ```js
-//  same as "slice" in the previous example
+// Same as "slice" in the previous example
 const unboundSlice = Array.prototype.slice;
 const slice = Function.prototype.call.bind(unboundSlice);
 

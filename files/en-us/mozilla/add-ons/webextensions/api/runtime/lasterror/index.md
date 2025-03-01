@@ -1,20 +1,11 @@
 ---
 title: runtime.lastError
 slug: Mozilla/Add-ons/WebExtensions/API/runtime/lastError
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Non-standard
-  - Property
-  - Reference
-  - WebExtensions
-  - lastError
-  - runtime
+page-type: webextension-api-property
 browser-compat: webextensions.api.runtime.lastError
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 This value is used to report an error message from an asynchronous API, when the asynchronous API is given a callback. This is useful for extensions that are using the callback-based version of the WebExtension APIs.
 
@@ -52,10 +43,7 @@ function logCookie(c) {
   }
 }
 
-browser.cookies.set(
-  {url: "https://developer.mozilla.org/"},
-  logCookie
-);
+browser.cookies.set({ url: "https://developer.mozilla.org/" }, logCookie);
 ```
 
 The same, but using a promise to handle the result of `setCookie()`:
@@ -69,9 +57,9 @@ function logError(e) {
   console.error(e);
 }
 
-const setCookie = browser.cookies.set(
-  {url: "https://developer.mozilla.org/"}
-);
+const setCookie = browser.cookies.set({
+  url: "https://developer.mozilla.org/",
+});
 
 setCookie.then(logCookie, logError);
 ```
@@ -84,9 +72,8 @@ setCookie.then(logCookie, logError);
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/runtime/#property-lastError) API. This documentation is derived from [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) in the Chromium code.
->
-> Microsoft Edge compatibility data is supplied by Microsoft Corporation and is included here under the Creative Commons Attribution 3.0 United States License.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.runtime`](https://developer.chrome.com/docs/extensions/reference/api/runtime#property-lastError) API. This documentation is derived from [`runtime.json`](https://chromium.googlesource.com/chromium/src/+/master/extensions/common/api/runtime.json) in the Chromium code.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

@@ -1,18 +1,7 @@
 ---
 title: shape-image-threshold
 slug: Web/CSS/shape-image-threshold
-tags:
-  - Boundaries
-  - CSS
-  - CSS Property
-  - CSS Shapes
-  - Float Area
-  - Opacity
-  - Property
-  - Reference
-  - Shape
-  - recipe:css-property
-  - shape-image-threshold
+page-type: css-property
 browser-compat: css.properties.shape-image-threshold
 ---
 
@@ -107,8 +96,8 @@ The 20% opacity threshold for treating gradient pixels as part of the shape is t
 
 ## See also
 
-- [CSS Shapes](/en-US/docs/Web/CSS/CSS_Shapes)
-- [Overview of CSS Shapes](/en-US/docs/Web/CSS/CSS_Shapes/Overview_of_CSS_Shapes)
+- [CSS Shapes](/en-US/docs/Web/CSS/CSS_shapes)
+- [Overview of CSS Shapes](/en-US/docs/Web/CSS/CSS_shapes/Overview_of_shapes)
 - {{cssxref("&lt;basic-shape&gt;")}}
 - {{cssxref("shape-outside")}}
 - {{cssxref("shape-margin")}}

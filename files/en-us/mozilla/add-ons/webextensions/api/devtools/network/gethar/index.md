@@ -1,17 +1,11 @@
 ---
 title: devtools.network.getHAR()
 slug: Mozilla/Add-ons/WebExtensions/API/devtools/network/getHAR
-tags:
-  - Add-ons
-  - Extensions
-  - Method
-  - WebExtensions
-  - devtools.network
-  - getHAR
+page-type: webextension-api-function
 browser-compat: webextensions.api.devtools.network.getHAR
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Get a [HAR log](http://www.softwareishard.com/blog/har-12-spec/#log) for the page loaded in the current tab.
 
@@ -29,7 +23,7 @@ None.
 
 ### Return value
 
-A [`Promise`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will be fulfilled with a object containing the HAR log for the current tab. For details of what the log object contains, refer to the [HAR specification](http://www.softwareishard.com/blog/har-12-spec/#log).
+A [`Promise`](/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that will be fulfilled with an object containing the HAR log for the current tab. For details of what the log object contains, refer to the [HAR specification](http://www.softwareishard.com/blog/har-12-spec/#log).
 
 ## Browser compatibility
 
@@ -53,7 +47,8 @@ logRequestsButton.addEventListener("click", logRequests);
 
 {{WebExtExamples}}
 
-> **Note:** This API is based on Chromium's [`chrome.devtools.network`](https://developer.chrome.com/docs/extensions/reference/devtools_network/) API.
+> [!NOTE]
+> This API is based on Chromium's [`chrome.devtools.network`](https://developer.chrome.com/docs/extensions/reference/api/devtools/network) API.
 
 <!--
 // Copyright 2015 The Chromium Authors. All rights reserved.

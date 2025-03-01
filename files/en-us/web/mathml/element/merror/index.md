@@ -1,17 +1,13 @@
 ---
 title: <merror>
 slug: Web/MathML/Element/merror
-tags:
-  - MathML
-  - MathML Reference
-  - MathML:Element
-  - MathML:General Layout Schemata
+page-type: mathml-element
 browser-compat: mathml.elements.merror
 ---
 
 {{MathMLRef}}
 
-The MathML `<merror>` element is used to display contents as error messages. The intent of this element is to provide a standard way for programs that generate MathML from other input to report syntax errors.
+The **`<merror>`** [MathML](/en-US/docs/Web/MathML) element is used to display contents as error messages. The intent of this element is to provide a standard way for programs that generate MathML from other input to report syntax errors.
 
 ## Attributes
 
@@ -33,6 +29,19 @@ In the following example, `<merror>` is used to indicate a parsing error for som
 ```
 
 {{ EmbedLiveSample('merror_example', 700, 200, "", "") }}
+
+## Technical summary
+
+<table class="properties">
+  <tr>
+    <th scope="row">
+      <a href="/en-US/docs/Web/Accessibility/ARIA/Roles">Implicit ARIA role</a>
+    </th>
+    <td>
+      None
+    </td>
+  </tr>
+</table>
 
 ## Specifications
 

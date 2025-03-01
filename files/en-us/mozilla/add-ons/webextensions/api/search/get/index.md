@@ -1,19 +1,11 @@
 ---
 title: search.get()
 slug: Mozilla/Add-ons/WebExtensions/API/search/get
-tags:
-  - API
-  - Add-ons
-  - Extensions
-  - Method
-  - Reference
-  - Search
-  - WebExtensions
-  - get
-browser-compat: webextensions.api.search.search
+page-type: webextension-api-function
+browser-compat: webextensions.api.search.get
 ---
 
-{{AddonSidebar()}}
+{{AddonSidebar}}
 
 Gets an array of all installed search engines.
 
@@ -55,8 +47,10 @@ Get all installed search engines:
 ```js
 function retrieved(results) {
   console.log(`There were: ${results.length} search engines retrieved.`);
+  const defaultEngine = results.find((searchEngine) => searchEngine.isDefault);
+  console.log(`The default search engine is ${defaultEngine.name}.`);
   for (const searchEngine of results) {
-    console.log(JSON.stringify(searchEngine.name));
+    console.log(searchEngine.name);
   }
 }
 

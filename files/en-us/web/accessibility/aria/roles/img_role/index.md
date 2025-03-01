@@ -1,17 +1,11 @@
 ---
 title: "ARIA: img role"
 slug: Web/Accessibility/ARIA/Roles/img_role
-tags:
-  - ARIA
-  - ARIA Img
-  - ARIA Role
-  - Accessibility
-  - Reference
-  - document structure role
-  - Role
-  - figure
+page-type: aria-role
 spec-urls: https://w3c.github.io/aria/#img
 ---
+
+{{AccessibilitySidebar}}
 
 The ARIA `img` role can be used to identify multiple elements inside page content that should be considered as a single image. These elements could be images, code snippets, text, emojis, or other content that can be combined to deliver information in a visual manner.
 
@@ -26,12 +20,12 @@ The ARIA `img` role can be used to identify multiple elements inside page conten
 
 Any set of content that should be consumed as a single image (which could include images, video, audio, code snippets, emojis, or other content) can be identified using `role="img"`.
 
-You shouldn't count on the alt text of individual images for conveying context to assistive technologies; most screen readers will consider the element with `role="img"` set on it to be like a black box, and not access the individual elements inside it. Therefore, provide a comprehensive overall descriptive alt text for image, either in the surrounding text, or by using an [`aria-label`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) attribute, with optional alt attributes for search engines or sighted users to be written to the page should an image fail:
+You shouldn't count on the alt text of individual images for conveying context to assistive technologies; most screen readers will consider the element with `role="img"` set on it to be like a black box, and not access the individual elements inside it. Therefore, provide a comprehensive overall descriptive alt text for image, either in the surrounding text, or by using an [`aria-label`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-label) attribute, with `alt` attributes for search engines or sighted users to be written to the page should an image fail:
 
 ```html
 <div role="img" aria-label="Description of the overall image">
-  <img src="graphic1.png" alt="" />
-  <img src="graphic2.png" />
+  <img src="graphic1.png" alt="alternative text" />
+  <img src="graphic2.png" alt="in case the images don't load" />
 </div>
 ```
 
@@ -77,7 +71,7 @@ For example, if you use emojis in your text, the meaning might be obvious to a s
 
 This seems to work OK across some browser/screen reader combinations, but some of them end up reading the label out twice. Use with caution and test thoroughly.
 
-Another example where this might be suitable is when using ASCII emoji combinations, like the legendary "Table flip":
+Another example where this might be suitable is when using {{Glossary("ASCII")}} emoji combinations, like the legendary "Table flip":
 
 ```html
 <div role="img" aria-label="Table flip">
@@ -140,11 +134,3 @@ From the assistive technology user's perspective, the heading does not exist sin
 - [ARIA: `presentation` role](/en-US/docs/Web/Accessibility/ARIA/Roles/presentation_role)
 - [Accessibility Object Model](https://wicg.github.io/aom/spec/)
 - [ARIA in HTML](https://w3c.github.io/html-aria/)
-
-<section id="Quick_links">
-
-1. [**WAI-ARIA roles**](/en-US/docs/Web/Accessibility/ARIA/Roles)
-
-   {{ListSubpagesForSidebar("/en-US/docs/Web/Accessibility/ARIA/Roles")}}
-
-</section>

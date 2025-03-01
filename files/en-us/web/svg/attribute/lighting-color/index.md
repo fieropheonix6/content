@@ -1,16 +1,16 @@
 ---
 title: lighting-color
 slug: Web/SVG/Attribute/lighting-color
-tags:
-  - SVG
-  - SVG Attribute
-  - SVG Filter
-browser-compat: svg.attributes.presentation.lighting-color
+page-type: svg-attribute
+browser-compat: svg.global_attributes.lighting-color
 ---
 
 {{SVGRef}}
 
 The **`lighting-color`** attribute defines the color of the light source for lighting filter primitives.
+
+> [!NOTE]
+> As a presentation attribute, `lighting-color` also has a CSS property counterpart: {{cssxref("lighting-color")}}. When both are specified, the CSS property takes priority.
 
 You can use this attribute with the following SVG elements:
 
@@ -86,4 +86,5 @@ svg {
 
 ## See also
 
+- CSS {{cssxref("lighting-color")}} property
 - [Description of Phong reflection model on Wikipedia](https://en.wikipedia.org/wiki/Phong_reflection_model)

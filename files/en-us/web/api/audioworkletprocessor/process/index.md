@@ -1,18 +1,11 @@
 ---
-title: AudioWorkletProcessor.process()
+title: "AudioWorkletProcessor: process() method"
+short-title: process()
 slug: Web/API/AudioWorkletProcessor/process
 page-type: web-api-instance-method
-tags:
-  - API
-  - Audio
-  - AudioWorkletNode
-  - AudioWorkletProcessor
-  - Experimental
-  - Method
-  - Process
-  - Reference
-  - Web Audio API
-browser-compat: api.AudioWorkletProcessor.process
+status:
+  - experimental
+spec-urls: https://webaudio.github.io/web-audio-api/#process
 ---
 
 {{APIRef("Web Audio API")}}
@@ -31,7 +24,8 @@ corresponding {{domxref("AudioWorkletNode")}}. In other words, every time a new 
 audio is ready for your processor to manipulate, your `process()` function is
 invoked to do so.
 
-> **Note:** Currently, audio data blocks are always 128 frames
+> [!NOTE]
+> Currently, audio data blocks are always 128 frames
 > long—that is, they contain 128 32-bit floating-point samples for each of the inputs'
 > channels. However, plans are already in place to revise the specification to allow the
 > size of the audio blocks to be changed depending on circumstances (for example, if the
@@ -137,7 +131,8 @@ The 3 most common types of audio node are:
    _tail-time_ equal to its {{domxref("DelayNode.delayTime", "delayTime")}}
    property.
 
-> **Note:** An absence of the `return` statement means that the method returns `undefined`, and as this is a falsy value, it is like returning `false`.
+> [!NOTE]
+> An absence of the `return` statement means that the method returns `undefined`, and as this is a falsy value, it is like returning `false`.
 > Omitting an explicit `return` statement may cause hard-to-detect problems for your nodes.
 
 ### Exceptions
@@ -155,38 +150,41 @@ parameter.
 
 ```js
 class WhiteNoiseProcessor extends AudioWorkletProcessor {
-  process (inputs, outputs, parameters) {
+  process(inputs, outputs, parameters) {
     // take the first output
-    const output = outputs[0]
+    const output = outputs[0];
     // fill each channel with random values multiplied by gain
     output.forEach((channel) => {
       for (let i = 0; i < channel.length; i++) {
         // generate random value for each sample
         // Math.random range is [0; 1); we need [-1; 1]
         // this won't include exact 1 but is fine for now for simplicity
-        channel[i] = (Math.random() * 2 - 1) *
+        channel[i] =
+          (Math.random() * 2 - 1) *
           // the array can contain 1 or 128 values
           // depending on if the automation is present
           // and if the automation rate is k-rate or a-rate
-          (parameters['customGain'].length > 1
-            ? parameters['customGain'][i]
-            : parameters['customGain'][0])
+          (parameters["customGain"].length > 1
+            ? parameters["customGain"][i]
+            : parameters["customGain"][0]);
       }
-    })
+    });
     // as this is a source node which generates its own output,
     // we return true so it won't accidentally get garbage-collected
     // if we don't have any references to it in the main thread
-    return true
+    return true;
   }
   // define the customGain parameter used in process method
-  static get parameterDescriptors () {
-    return [{
-      name: 'customGain',
-      defaultValue: 1,
-      minValue: 0,
-      maxValue: 1,
-      automationRate: 'a-rate'
-    }]
+  static get parameterDescriptors() {
+    return [
+      {
+        name: "customGain",
+        defaultValue: 1,
+        minValue: 0,
+        maxValue: 1,
+        automationRate: "a-rate",
+      },
+    ];
   }
 }
 ```
@@ -197,7 +195,7 @@ class WhiteNoiseProcessor extends AudioWorkletProcessor {
 
 ## Browser compatibility
 
-{{Compat}}
+This is not a method provided by browsers, but a callback method that must be written in client code.
 
 ## See also
 

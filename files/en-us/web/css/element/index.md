@@ -1,21 +1,15 @@
 ---
 title: element()
 slug: Web/CSS/element
-tags:
-  - CSS
-  - CSS Function
-  - CSS images
-  - Function
-  - Layout
-  - Reference
-  - Web
-  - Experimental
+page-type: css-function
+status:
+  - experimental
 browser-compat: css.types.image.element
 ---
 
 {{CSSRef}}{{SeeCompatTable}}
 
-The **`element()`** [CSS](/en-US/docs/Web/CSS) [function](/en-US/docs/Web/CSS/CSS_Functions) defines an {{cssxref("&lt;image&gt;")}} value generated from an arbitrary HTML element. This image is live, meaning that if the HTML element is changed, the CSS properties using the resulting value are automatically updated.
+The **`element()`** [CSS](/en-US/docs/Web/CSS) [function](/en-US/docs/Web/CSS/CSS_Values_and_Units/CSS_Value_Functions) defines an {{cssxref("&lt;image&gt;")}} value generated from an arbitrary HTML element. This image is live, meaning that if the HTML element is changed, the CSS properties using the resulting value are automatically updated.
 
 A particularly useful scenario for using this would be to render an image in an HTML {{HTMLElement("canvas")}} element, then use that as a background.
 
@@ -31,6 +25,10 @@ where:
 
 - _id_
   - : The ID of an element to use as the background, specified using the HTML attribute #_id_ on the element.
+
+## Formal syntax
+
+{{CSSSyntax}}
 
 ## Examples
 
@@ -50,7 +48,7 @@ This example uses a hidden {{HTMLElement("div")}} as a background. The backgroun
   <div
     id="myBackground1"
     style="width:1024px; height:1024px; background-image: linear-gradient(to right, red, orange, yellow, white);">
-    <p style="transform-origin:0 0; transform: rotate(45deg); color:white;">
+    <p style="transform-origin:0 0; rotate: 45deg; color:white;">
       This text is part of the background. Cool, huh?
     </p>
   </div>
@@ -106,6 +104,5 @@ the `<div id="css-source">` inside `<div id="css-result">`.
 - {{cssxref("image/image-set", "image-set()")}}
 - {{cssxref("&lt;image&gt;")}}
 - {{cssxref("&lt;gradient&gt;")}}
-- {{cssxref("element", "element()")}}
 - {{cssxref("cross-fade", "cross-fade()")}}
 - {{domxref("document.mozSetImageElement()")}}

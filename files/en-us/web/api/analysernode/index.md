@@ -2,12 +2,6 @@
 title: AnalyserNode
 slug: Web/API/AnalyserNode
 page-type: web-api-interface
-tags:
-  - API
-  - AnalyserNode
-  - Interface
-  - Reference
-  - Web Audio API
 browser-compat: api.AnalyserNode
 ---
 
@@ -51,7 +45,7 @@ An `AnalyserNode` has exactly one input and one output. The node works even if t
 - {{domxref("AnalyserNode.AnalyserNode", "AnalyserNode()")}}
   - : Creates a new instance of an `AnalyserNode` object.
 
-## Properties
+## Instance properties
 
 _Inherits properties from its parent, {{domxref("AudioNode")}}_.
 
@@ -66,7 +60,7 @@ _Inherits properties from its parent, {{domxref("AudioNode")}}_.
 - {{domxref("AnalyserNode.smoothingTimeConstant")}}
   - : A double value representing the averaging constant with the last analysis frame — basically, it makes the transition between values over time smoother.
 
-## Methods
+## Instance methods
 
 _Inherits methods from its parent, {{domxref("AudioNode")}}_.
 
@@ -81,14 +75,16 @@ _Inherits methods from its parent, {{domxref("AudioNode")}}_.
 
 ## Examples
 
-> **Note:** See the guide [Visualizations with Web Audio API](/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API) for more information on creating audio visualizations.
+> [!NOTE]
+> See the guide [Visualizations with Web Audio API](/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API) for more information on creating audio visualizations.
 
 ### Basic usage
 
-The following example shows basic usage of an {{domxref("AudioContext")}} to create an `AnalyserNode`, then {{domxref("window.requestAnimationFrame()","requestAnimationFrame")}} and {{htmlelement("canvas")}} to collect time domain data repeatedly and draw an "oscilloscope style" output of the current audio input. For more complete applied examples/information, check out our [Voice-change-O-matic](https://mdn.github.io/voice-change-o-matic/) demo (see [app.js lines 128–205](https://github.com/mdn/voice-change-o-matic/blob/gh-pages/scripts/app.js#L128-L205) for relevant code).
+The following example shows basic usage of an {{domxref("AudioContext")}} to create an `AnalyserNode`, then {{domxref("window.requestAnimationFrame()","requestAnimationFrame")}} and {{htmlelement("canvas")}} to collect time domain data repeatedly and draw an "oscilloscope style" output of the current audio input.
+For more complete applied examples/information, check out our [Voice-change-O-matic](https://mdn.github.io/webaudio-examples/voice-change-o-matic/) demo (see [app.js lines 108-193](https://github.com/mdn/webaudio-examples/blob/main/voice-change-o-matic/scripts/app.js#L108-L193) for relevant code).
 
 ```js
-const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+const audioCtx = new AudioContext();
 
 // …
 
@@ -99,7 +95,7 @@ const bufferLength = analyser.frequencyBinCount;
 const dataArray = new Uint8Array(bufferLength);
 analyser.getByteTimeDomainData(dataArray);
 
-// Connect the source to be analysed
+// Connect the source to be analyzed
 source.connect(analyser);
 
 // Get a canvas defined with ID "oscilloscope"
@@ -113,11 +109,11 @@ function draw() {
 
   analyser.getByteTimeDomainData(dataArray);
 
-  canvasCtx.fillStyle = "rgb(200, 200, 200)";
+  canvasCtx.fillStyle = "rgb(200 200 200)";
   canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
 
   canvasCtx.lineWidth = 2;
-  canvasCtx.strokeStyle = "rgb(0, 0, 0)";
+  canvasCtx.strokeStyle = "rgb(0 0 0)";
 
   canvasCtx.beginPath();
 

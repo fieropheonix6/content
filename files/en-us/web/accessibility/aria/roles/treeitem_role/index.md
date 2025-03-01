@@ -1,17 +1,13 @@
 ---
 title: "ARIA: treeitem role"
 slug: Web/Accessibility/ARIA/Roles/treeitem_role
-tags:
-  - Accessibility
-  - ARIA
-  - roles
-  - Reference
-  - ARIA roles
-  - treeitem
+page-type: aria-role
 spec-urls:
   - https://w3c.github.io/aria/#treeitem
-  - https://w3c.github.io/aria-practices/#TreeView
+  - https://www.w3.org/WAI/ARIA/apg/patterns/treeview/examples/treeview-navigation/
 ---
+
+{{AccessibilitySidebar}}
 
 A `treeitem` is an item in a `tree`.
 
@@ -29,9 +25,10 @@ Each parent node contains or owns an element with role [`group`](/en-US/docs/Web
 
 Each parent node should include the [`aria-expanded`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded) attribute. It is set to `false` when closed `true` when open. End nodes should not have the `aria-expanded` attribute included as the presence of the attribute indicates to assistive technologies that the node is a parent.
 
-> **Note:** ARIA tree views use navigation more similar to native applications than to web applications and are navigated primarily with arrow keys on the keyboard instead of the <kbd>Tab</kbd>. This form of navigation is not common for most browser content, though normal and expected for native applications. For this reason, consider alternative options to address the functionality you need before creating a tree view.
+> [!NOTE]
+> ARIA tree views use navigation more similar to native applications than to web applications and are navigated primarily with arrow keys on the keyboard instead of the <kbd>Tab</kbd>. This form of navigation is not common for most browser content, though normal and expected for native applications. For this reason, consider alternative options to address the functionality you need before creating a tree view.
 
-Any element with a `treeitem` role must be nested in, or owned by, an element with role `tree`. Tree items can be a child of `tree`, `treeitem`, or an element with role `group` that is contained in, or owned by, an element with role `tree` or `treeitem`. If a `treeitem` is not nested within a `tree`, or nested in a `group` that is owned by a `tree`, include the {{HTMLattrxref('id')}} of the `treeitem` in the [`aria-owns`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-owns) attribute value on the owning `tree`, `treeitem` or `group` element.
+Any element with a `treeitem` role must be nested in, or owned by, an element with role `tree`. Tree items can be a child of `tree`, `treeitem`, or an element with role `group` that is contained in, or owned by, an element with role `tree` or `treeitem`. If a `treeitem` is not nested within a `tree`, or nested in a `group` that is owned by a `tree`, include the [`id`](/en-US/docs/Web/HTML/Global_attributes/id) of the `treeitem` in the [`aria-owns`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-owns) attribute value on the owning `tree`, `treeitem` or `group` element.
 
 Trees can be "single-select", allowing users to choose just one `treeitem` for an action, or "multi-select", where users are able to select more than one `treeitem` nodes for an action. In both cases, to be keyboard accessible, focus must be managed for all tree descendants.
 
@@ -60,15 +57,13 @@ A `treeitem` is required to have an accessible name. Generally, that name comes 
 - [`tree`](/en-US/docs/Web/Accessibility/ARIA/Roles/tree_role) role
   - : The root node for the hierarchical list of parent and child `treeitem` nodes that can expand and collapse
 - [`group`](/en-US/docs/Web/Accessibility/ARIA/Roles/group_role) role
-
   - : Identifies a set of `treeitem` child nodes.
-
 - [`aria-expanded`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-expanded)
   - : Set on the root `tree` and on `group` nodes that are parents of `treeitem` nodes, to indicate whether the tree view is expanded (`true`) or collapsed (`false`).
 - [`aria-selected`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-selected)
-  - Set to `true` or `false`, indicates a `treeitem` is selectable, and whether or not it is currently selected.
+  - : Set to `true` or `false`, indicates a `treeitem` is selectable, and whether or not it is currently selected.
 - [`aria-checked`](/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-checked)
-  - Set to `true` or `false`, indicates the `treeitem` can be checked, and whether or not it is currently checked.
+  - : Set to `true` or `false`, indicates the `treeitem` can be checked, and whether or not it is currently checked.
 
 ### Keyboard interactions
 
@@ -80,7 +75,7 @@ For a vertically oriented `tree`, which is the default orientation:
 <td>
 <ul>
 <li>When focus is on a closed node, opens the node; focus does not move.
-<li>When focus is on a open node, moves focus to the first child node.
+<li>When focus is on an open node, moves focus to the first child node.
 <li>When focus is on an end node (a tree item with no children), does nothing.
 </td>
 </tr>
@@ -90,7 +85,7 @@ For a vertically oriented `tree`, which is the default orientation:
 <ul>
 <li>When focus is on an open node, closes the node.
 <li>When focus is on a child node that is also either an end node or a closed node, moves focus to its parent node.
-<li>When focus is on a closed `tree`, does nothing.
+<li>When focus is on a closed tree, does nothing.
 </td>
 </tr>
 <tr>
@@ -140,7 +135,7 @@ For a vertically oriented `tree`, which is the default orientation:
 
 There are two interaction models for multi-select trees: While you can require that users press a modifier key, such as <kbd>Shift</kbd> or <kbd>Control</kbd> while navigating the list in order to avoid losing selection states, the model that does not require the user to hold a modifier key is recommended.
 
-#### Recommended multi user select model:
+#### Recommended multi user select model
 
 <table>
 <tr>
@@ -240,12 +235,4 @@ If the tree has more than 7 tree items, including type ahead functionality is re
 
 {{Specifications}}
 
-## See Also
-
-<section id="Quick_links">
-
-1. [**WAI-ARIA roles**](/en-US/docs/Web/Accessibility/ARIA/Roles)
-
-   {{ListSubpagesForSidebar("/en-US/docs/Web/Accessibility/ARIA/Roles")}}
-
-</section>
+## See also

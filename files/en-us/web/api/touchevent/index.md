@@ -2,13 +2,6 @@
 title: TouchEvent
 slug: Web/API/TouchEvent
 page-type: web-api-interface
-tags:
-  - API
-  - DOM
-  - Interface
-  - Reference
-  - TouchEvent
-  - touch
 browser-compat: api.TouchEvent
 ---
 
@@ -25,7 +18,7 @@ Touches are represented by the {{domxref("Touch")}} object; each touch is descri
 - {{domxref("TouchEvent.TouchEvent", "TouchEvent()")}}
   - : Creates a `TouchEvent` object.
 
-## Properties
+## Instance properties
 
 _This interface inherits properties from its parent, {{domxref("UIEvent")}} and {{domxref("Event")}}._
 
@@ -44,9 +37,9 @@ _This interface inherits properties from its parent, {{domxref("UIEvent")}} and 
 - {{domxref("TouchEvent.touches")}} {{ReadOnlyInline}}
   - : A {{domxref("TouchList")}} of all the {{domxref("Touch")}} objects representing all current points of contact with the surface, regardless of target or changed status.
 - {{domxref("TouchEvent.rotation")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Change in rotation (in degrees) since the event's beginning. Positive values indicate clockwise rotation; negative values indicate counterclockwise rotation. Initial value: `0.0`
+  - : Change in rotation (in degrees) since the event's beginning. Positive values indicate clockwise rotation; negative values indicate counterclockwise rotation. Initial value: `0.0`.
 - {{domxref("TouchEvent.scale")}} {{non-standard_inline()}} {{ReadOnlyInline}}
-  - : Distance between two digits since the event's beginning. Expressed as a floating-point multiple of the initial distance between the digits at the beginning of the event. Values below 1.0 indicate an inward pinch (zoom out). Values above 1.0 indicate an outward unpinch (zoom in). Initial value: `1.0`
+  - : Distance between two digits since the event's beginning. Expressed as a floating-point multiple of the initial distance between the digits at the beginning of the event. Values below 1.0 indicate an inward pinch (zoom out). Values above 1.0 indicate an outward unpinch (zoom in). Initial value: `1.0`.
 
 ## Touch event types
 
@@ -83,7 +76,8 @@ There are several types of event that can be fired to indicate that touch-relate
     This event is also sent
     if the values of the radius, rotation angle, or force attributes of a touch point change.
 
-    > **Note:** The rate at which `touchmove` events is sent is browser-specific, and may also vary depending on the capability of the user's hardware. You must not rely on a specific granularity of these events.
+    > [!NOTE]
+    > The rate at which `touchmove` events is sent is browser-specific, and may also vary depending on the capability of the user's hardware. You must not rely on a specific granularity of these events.
 
 - {{domxref("Element/touchcancel_event", "touchcancel")}}
 
@@ -117,4 +111,3 @@ See the [example on the main Touch events article](/en-US/docs/Web/API/Touch_eve
 
 - [Touch events](/en-US/docs/Web/API/Touch_events)
 - {{domxref("GestureEvent")}}
-- {{domxref("MSGestureEvent")}}

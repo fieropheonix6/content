@@ -1,19 +1,14 @@
 ---
-title: Blob.size
+title: "Blob: size property"
+short-title: size
 slug: Web/API/Blob/size
 page-type: web-api-instance-property
-tags:
-  - API
-  - Blob
-  - File API
-  - Property
-  - Reference
 browser-compat: api.Blob.size
 ---
 
-{{APIRef("File API")}}
+{{APIRef("File API")}}{{AvailableInWorkers}}
 
-The {{domxref("Blob")}} interface's **`size`** property returns
+The **`size`** read-only property of the {{domxref("Blob")}} interface returns
 the size of the {{domxref("Blob")}} or {{domxref("File")}} in bytes.
 
 ## Value
@@ -44,11 +39,11 @@ output {
 ### JavaScript
 
 ```js
-const input = document.getElementById('input');
-const output = document.getElementById('output');
+const input = document.getElementById("input");
+const output = document.getElementById("output");
 
-input.addEventListener('change', (event) => {
-  output.innerText = '';
+input.addEventListener("change", (event) => {
+  output.innerText = "";
 
   for (const file of event.target.files) {
     output.innerText += `${file.name} has a size of ${file.size} bytes.\n`;

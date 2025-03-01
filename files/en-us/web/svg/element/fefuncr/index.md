@@ -1,12 +1,7 @@
 ---
 title: <feFuncR>
 slug: Web/SVG/Element/feFuncR
-tags:
-  - Element
-  - NeedsExample
-  - Reference
-  - SVG
-  - SVG Filter
+page-type: svg-element
 browser-compat: svg.elements.feFuncR
 ---
 
@@ -17,17 +12,6 @@ The **`<feFuncR>`** [SVG](/en-US/docs/Web/SVG) filter primitive defines the tran
 ## Usage context
 
 {{svginfo}}
-
-## Attributes
-
-### Global attributes
-
-- [Core attributes](/en-US/docs/Web/SVG/Attribute#core_attributes)
-- [Transfer function attributes](/en-US/docs/Web/SVG/Attribute#transfer_function_attributes)
-
-### Specific attributes
-
-_None._
 
 ## DOM Interface
 

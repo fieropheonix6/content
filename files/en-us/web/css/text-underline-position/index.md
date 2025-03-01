@@ -1,12 +1,7 @@
 ---
 title: text-underline-position
 slug: Web/CSS/text-underline-position
-tags:
-  - CSS
-  - CSS Property
-  - CSS Text Decoration
-  - Reference
-  - recipe:css-property
+page-type: css-property
 browser-compat: css.properties.text-underline-position
 ---
 
@@ -40,21 +35,15 @@ text-underline-position: unset;
 ### Values
 
 - `auto`
-  - : The {{glossary("user agent")}} uses its own algorithm to place the line at or under the alphabetic baseline.
+  - : The {{glossary("user agent")}} uses its own algorithm to place the line at or under the {{glossary("/Baseline/Typography", "alphabetic baseline")}}.
 - `from-font`
   - : If the font file includes information about a preferred position, use that value. If the font file doesn't include this information, behave as if `auto` was set, with the browser choosing an appropriate position.
 - `under`
   - : Forces the line to be set below the alphabetic baseline, at a position where it won't cross any descenders. This is useful for ensuring legibility with chemical and mathematical formulas, which make a large use of subscripts.
 - `left`
-  - : In vertical writing-modes, this keyword forces the line to be placed on the _left_ side of the text. In horizontal writing-modes, it is a synonym of `under`.
+  - : In vertical writing-modes, this keyword forces the line to be placed on the _left_ side of the text. In horizontal writing-modes, it is a synonym of `auto`.
 - `right`
-  - : In vertical writing-modes, this keyword forces the line to be placed on the _right_ side of the text. In horizontal writing-modes, it is a synonym of `under`.
-- `auto-pos` {{non-standard_inline}} {{Experimental_Inline}}
-  - : A synonym of `auto`, which should be used instead.
-- `above` {{non-standard_inline}}
-  - : Forces the line to be above the text. When used with East-Asian text, using the `auto` keyword will lead to a similar effect.
-- `below` {{non-standard_inline}}
-  - : Forces the line to be below the text. When used with alphabetic text, using the `auto` keyword will lead to a similar effect.
+  - : In vertical writing-modes, this keyword forces the line to be placed on the _right_ side of the text. In horizontal writing-modes, it is a synonym of `auto`.
 
 ## Formal definition
 
@@ -66,9 +55,9 @@ text-underline-position: unset;
 
 ## Examples
 
-### A simple example
+### A basic example
 
-Let's take a couple of simple example paragraphs:
+We create two example paragraphs:
 
 ```html
 <p class="horizontal">
@@ -110,7 +99,7 @@ In the text with a vertical [`writing-mode`](/en-US/docs/Web/CSS/writing-mode) s
 
 The live example looks like this:
 
-{{EmbedLiveSample('A_simple_example', '100%', 600)}}
+{{EmbedLiveSample('A_basic_example', '100%', 600)}}
 
 ### Setting text-underline-position globally
 

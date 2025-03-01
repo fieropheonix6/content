@@ -1,18 +1,17 @@
 ---
 title: Applying SVG effects to HTML content
 slug: Web/SVG/Applying_SVG_effects_to_HTML_content
-tags:
-  - CSS
-  - Guide
-  - HTML
-  - SVG
+page-type: guide
 ---
+
+{{SVGRef}}
 
 Modern browsers support using [SVG](/en-US/docs/Web/SVG) within [CSS](/en-US/docs/Web/CSS) styles to apply graphical effects to HTML content.
 
 You may specify SVG in styles either within the same document or an external style sheet. There are 3 properties you can use: [`mask`](/en-US/docs/Web/CSS/mask), [`clip-path`](/en-US/docs/Web/CSS/clip-path), and [`filter`](/en-US/docs/Web/CSS/filter).
 
-> **Note:** References to SVG in external files must be to the [same origin](/en-US/docs/Web/Security/Same-origin_policy) as the referencing document.
+> [!NOTE]
+> References to SVG in external files must be to the [same origin](/en-US/docs/Web/Security/Same-origin_policy) as the referencing document.
 
 ## Using embedded SVG
 
@@ -67,8 +66,10 @@ Applying the SVG effect to HTML is accomplished by assigning the `target` class 
 </p>
 <p>
   Lorem ipsum dolor sit amet, consectetur adipisicing
-  <em class="target">elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.</em>
+  <em class="target"
+    >elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua.</em
+  >
   Ut enim ad minim veniam.
 </p>
 ```
@@ -88,8 +89,10 @@ This example demonstrates using SVG to clip HTML content. Notice that even the c
 </p>
 <p>
   Lorem ipsum dolor sit amet, consectetur adipisicing
-  <em class="target">elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.</em>
+  <em class="target"
+    >elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua.</em
+  >
   Ut enim ad minim veniam.
 </p>
 
@@ -121,7 +124,7 @@ You can make changes to the SVG in real time and see them immediately affect the
 ```js
 function toggleRadius() {
   const circle = document.getElementById("circle");
-  circle.r.baseVal.value = 0.40 - circle.r.baseVal.value;
+  circle.r.baseVal.value = 0.4 - circle.r.baseVal.value;
 }
 ```
 
@@ -139,8 +142,10 @@ This demonstrates applying a filter to HTML content using SVG. It establishes se
 <pre class="target">lorem</pre>
 <p>
   Lorem ipsum dolor sit amet, consectetur adipisicing
-  <em class="target">elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua.</em>
+  <em class="target"
+    >elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua.</em
+  >
   Ut enim ad minim veniam.
 </p>
 ```
@@ -228,7 +233,7 @@ pre.target:hover {
 
 ### Example: Blurred Text
 
-In order to blur text, Webkit based browsers have a (prefixed) CSS filter called blur (see also [CSS filter](/en-US/docs/Web/CSS/filter#blur%28%29_2)). You can achieve the same effect using SVG filters.
+In order to blur text, there is a CSS filter function called [`blur()`](/en-US/docs/Web/CSS/filter-function/blur). You can achieve the same effect using SVG filters.
 
 ```html
 <p class="blur">Time to clean my glasses</p>
@@ -284,4 +289,6 @@ The SVG is then imported from a file named `resources.svg`, using the clip path 
 ## See also
 
 - [SVG](/en-US/docs/Web/SVG)
-- [SVG Effects for HTML Content](https://robert.ocallahan.org/2008/06/applying-svg-effects-to-html-content_04.html) (blog post)
+- {{CSSXref('clip-path')}} property
+- {{CSSXref('mask')}} property
+- [Shapes in clipping and masking – and how to use them](https://hacks.mozilla.org/2017/06/css-shapes-clipping-and-masking/)
